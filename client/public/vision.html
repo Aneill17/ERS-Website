@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elias Range Stays — The Vision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#1B4353;--teal-deep:#0C2030;--teal-bright:#2A6680;--teal-light:#4F87A0;
+  --ice:#A8D1E7;--green:#2D5A3D;--green-bright:#3D7A52;--gold:#C9A84C;
+  --white:#FFFFFF;--off:#F7F7F5;--black:#1A1A1A;--muted:#6B7280;
+}
+html{scroll-behavior:smooth}
+body{background:var(--teal-deep);color:var(--white);font-family:'League Spartan',sans-serif;overflow-x:hidden}
+
+/* ─── TYPOGRAPHY ─── */
+h1{font-size:clamp(48px,8vw,96px);font-weight:900;line-height:.95;letter-spacing:-.03em}
+h2{font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1;letter-spacing:-.02em}
+h3{font-size:clamp(20px,3vw,32px);font-weight:700;letter-spacing:-.01em}
+.serif{font-family:'Source Serif 4',serif;font-weight:300}
+.mono{font-family:'IBM Plex Mono',monospace}
+.label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+
+/* ─── LAYOUT ─── */
+section{position:relative;overflow:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+@media(max-width:768px){.container{padding:0 20px}}
+
+/* ─── CHAPTER DIVIDER ─── */
+.chapter{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.chapter-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-light);font-weight:600}
+.chapter-line{flex:1;height:1px;background:rgba(79,135,160,.3)}
+
+/* ─── HERO ─── */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  background:linear-gradient(160deg,#050D14 0%,#0C2030 50%,#1B4353 100%);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(27,67,83,.4) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(45,90,61,.2) 0%, transparent 60%);
+}
+.hero-topo{position:absolute;inset:0;opacity:.04}
+#hero .container{position:relative;z-index:1;padding-top:120px;padding-bottom:120px}
+.hero-eyebrow{color:var(--ice);margin-bottom:24px}
+.hero-title{color:var(--white);margin-bottom:28px}
+.hero-title em{color:var(--ice);font-style:normal}
+.hero-sub{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(18px,2.5vw,26px);color:rgba(168,209,231,.8);max-width:640px;line-height:1.5;margin-bottom:56px}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap}
+.hero-stat .n{font-size:clamp(40px,6vw,72px);font-weight:900;color:var(--white);line-height:1}
+.hero-stat .u{font-size:clamp(24px,3vw,40px);font-weight:900;color:var(--ice)}
+.hero-stat .l{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(168,209,231,.55);margin-top:4px;font-weight:600}
+
+/* ─── THE PROBLEM ─── */
+#problem{background:#0A1820;padding:120px 0}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.problem-left h2{color:var(--white);margin-bottom:24px}
+.problem-left p{font-family:'Source Serif 4',serif;font-style:italic;font-size:20px;color:rgba(168,209,231,.8);line-height:1.7;margin-bottom:16px}
+.pain-list{display:flex;flex-direction:column;gap:16px;margin-top:40px}
+.pain-item{display:flex;gap:16px;align-items:flex-start;padding:16px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:8px}
+.pain-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.pain-text .t{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px}
+.pain-text .d{font-size:13px;font-weight:400;color:rgba(255,255,255,.5);line-height:1.5}
+.comparison{background:rgba(27,67,83,.2);border:1px solid rgba(79,135,160,.3);border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:20px}
+.comp-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.comp-row:last-child{border:none}
+.comp-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:600}
+.comp-vals{display:flex;gap:24px}
+.comp-val{text-align:center}
+.comp-val .v{font-size:24px;font-weight:800}
+.comp-val .s{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.comp-val.bad .v{color:rgba(220,80,80,.85)}
+.comp-val.good .v{color:var(--ice)}
+.comp-badge{font-size:10px;letter-spacing:.12em;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase}
+.comp-badge.save{background:rgba(45,90,61,.4);color:#6DC88A;border:1px solid rgba(45,90,61,.6)}
+
+@media(max-width:900px){.problem-grid{grid-template-columns:1fr}}
+
+/* ─── OUR ANSWER ─── */
+#answer{background:linear-gradient(180deg,#0A1820 0%,#0C2030 100%);padding:120px 0}
+.answer-header{text-align:center;margin-bottom:80px}
+.answer-header h2{color:var(--white);margin-bottom:16px}
+.answer-header p{font-family:'Source Serif 4',serif;font-style:italic;font-size:20px;color:rgba(168,209,231,.75)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:16px;overflow:hidden}
+.service-card{padding:40px 32px;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;inset:0;opacity:0;background:rgba(255,255,255,.04);transition:opacity .2s}
+.service-card:hover::before{opacity:1}
+.s1{background:#0D2A38}
+.s2{background:#112E3F}
+.s3{background:#0F2B36}
+.s4{background:#0B2535}
+.s5{background:#0D2C38}
+.s6{background:#102F3D}
+.service-icon{font-size:36px;margin-bottom:20px}
+.service-title{font-size:18px;font-weight:700;color:var(--white);margin-bottom:8px}
+.service-sub{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px;font-weight:600}
+.service-desc{font-family:'Source Serif 4',serif;font-size:14px;color:rgba(255,255,255,.55);line-height:1.65}
+@media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr}}
+
+/* ─── THE PLATFORM ─── */
+#platform{background:#080D14;padding:120px 0}
+.platform-header{margin-bottom:80px}
+.platform-header h2{color:var(--white);margin-bottom:16px}
+.platform-header p{font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;color:rgba(168,209,231,.7);max-width:600px;line-height:1.6}
+.platform-stack{display:flex;flex-direction:column;gap:3px}
+.platform-row{display:grid;grid-template-columns:200px 1fr;gap:3px}
+.platform-label-cell{background:#0D1E2E;padding:24px 28px;display:flex;align-items:center}
+.platform-label-text{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-light);font-weight:600}
+.platform-cards{display:grid;gap:3px}
+.platform-cards.cols-2{grid-template-columns:1fr 1fr}
+.platform-cards.cols-3{grid-template-columns:1fr 1fr 1fr}
+.platform-cards.cols-4{grid-template-columns:1fr 1fr 1fr 1fr}
+.pcard{background:#0F2233;padding:20px 24px;position:relative}
+.pcard:hover{background:#142A3E}
+.pcard .pi{font-size:20px;margin-bottom:8px}
+.pcard .pt{font-size:13px;font-weight:700;color:var(--white);margin-bottom:4px}
+.pcard .pd{font-size:11px;color:rgba(255,255,255,.4);line-height:1.5}
+.pcard .ps{font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-top:8px;font-weight:600}
+.ps.live{color:#6DC88A}
+.ps.building{color:var(--gold)}
+.ps.next{color:rgba(168,209,231,.65)}
+@media(max-width:900px){
+  .platform-row{grid-template-columns:1fr}
+  .platform-label-cell{display:none}
+  .platform-cards.cols-3,.platform-cards.cols-4{grid-template-columns:1fr 1fr}
+}
+
+/* ─── THE PIPELINE ─── */
+#pipeline{background:linear-gradient(180deg,#080D14 0%,#0C1E2C 100%);padding:120px 0}
+.pipeline-header{margin-bottom:80px}
+.pipeline-header h2{color:var(--white);margin-bottom:16px}
+.pipeline-header .big-number{font-size:clamp(64px,10vw,120px);font-weight:900;color:var(--ice);line-height:1;display:block}
+.pipeline-header .big-label{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:rgba(168,209,231,.5);font-weight:600}
+.pipeline-two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.pipeline-projects{display:flex;flex-direction:column;gap:2px}
+.project-row{display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:14px 20px;background:rgba(255,255,255,.03);border-left:3px solid transparent;transition:background .15s}
+.project-row:hover{background:rgba(255,255,255,.06)}
+.project-row.pri-1{border-left-color:var(--ice)}
+.project-row.pri-2{border-left-color:rgba(168,209,231,.5)}
+.project-row.pri-3{border-left-color:rgba(168,209,231,.25)}
+.project-row.active{border-left-color:#6DC88A}
+.proj-city{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:600;width:90px}
+.proj-name{font-size:13px;font-weight:700;color:var(--white)}
+.proj-detail{font-size:10px;color:rgba(255,255,255,.4);margin-top:2px;font-weight:400}
+.proj-value{font-size:12px;font-weight:700;color:var(--ice);text-align:right;white-space:nowrap}
+.proj-status{font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:20px;font-weight:600;white-space:nowrap}
+.st-active{background:rgba(45,90,61,.4);color:#6DC88A}
+.st-dev{background:rgba(27,67,83,.5);color:var(--ice)}
+.st-proc{background:rgba(201,168,76,.15);color:var(--gold)}
+.wave-visual{display:flex;flex-direction:column;gap:24px}
+.wave-block{padding:28px;border-radius:12px;position:relative;overflow:hidden}
+.wave-block.now{background:rgba(45,90,61,.25);border:1px solid rgba(45,90,61,.5)}
+.wave-block.soon{background:rgba(27,67,83,.3);border:1px solid rgba(79,135,160,.35)}
+.wave-block.future{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2)}
+.wave-block h3{font-size:14px;font-weight:700;margin-bottom:8px}
+.wave-block.now h3{color:#6DC88A}
+.wave-block.soon h3{color:var(--ice)}
+.wave-block.future h3{color:var(--gold)}
+.wave-block p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;font-weight:400}
+.wave-block .wv{font-size:28px;font-weight:900;margin-top:12px}
+.wave-block.now .wv{color:#6DC88A}
+.wave-block.soon .wv{color:var(--ice)}
+.wave-block.future .wv{color:var(--gold)}
+@media(max-width:900px){.pipeline-two-col{grid-template-columns:1fr}}
+
+/* ─── PARTNERSHIPS ─── */
+#partners{background:#080D14;padding:120px 0}
+.partners-header{text-align:center;margin-bottom:64px}
+.partners-header h2{color:var(--white);margin-bottom:12px}
+.partners-header p{font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;color:rgba(168,209,231,.65)}
+.partner-tiers{display:flex;flex-direction:column;gap:48px}
+.partner-tier-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(168,209,231,.5);font-weight:600;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.partner-logos{display:flex;flex-wrap:wrap;gap:12px}
+.partner-badge{padding:14px 24px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.04em;border:1px solid;display:flex;align-items:center;gap:10px;transition:all .2s}
+.partner-badge:hover{transform:translateY(-2px)}
+.pb-health{background:rgba(27,67,83,.3);border-color:rgba(79,135,160,.4);color:var(--ice)}
+.pb-gc{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12);color:rgba(255,255,255,.75)}
+.pb-green{background:rgba(45,90,61,.25);border-color:rgba(45,90,61,.5);color:#6DC88A}
+.pb-infra{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3);color:var(--gold)}
+.pb-future{background:rgba(107,79,160,.15);border-color:rgba(107,79,160,.35);color:#B09FE0}
+.pb-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.pb-health .pb-dot{background:var(--ice)}
+.pb-gc .pb-dot{background:rgba(255,255,255,.5)}
+.pb-green .pb-dot{background:#6DC88A}
+.pb-infra .pb-dot{background:var(--gold)}
+.pb-future .pb-dot{background:#B09FE0}
+
+/* ─── THE HUBS ─── */
+#hubs{background:linear-gradient(180deg,#080D14 0%,#0A1F10 100%);padding:120px 0}
+.hubs-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:80px}
+.hub-feature{padding:48px 40px;position:relative;overflow:hidden}
+.hub-feature.dark{background:#081510}
+.hub-feature.med{background:#0C1E12}
+.hub-feature.light{background:#102516}
+.hub-feature.acc{background:rgba(201,168,76,.08)}
+.hub-icon{font-size:40px;margin-bottom:24px}
+.hub-title{font-size:22px;font-weight:800;color:var(--white);margin-bottom:12px}
+.hub-desc{font-family:'Source Serif 4',serif;font-size:15px;color:rgba(255,255,255,.55);line-height:1.7}
+.hub-feature.full{grid-column:1/-1;background:#091810;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:60px}
+.hub-full-visual{display:flex;flex-direction:column;gap:12px}
+.hub-layer{padding:16px 20px;border-radius:8px;display:flex;align-items:center;gap:14px}
+.hub-layer.top{background:rgba(45,90,61,.35);border:1px solid rgba(45,90,61,.5)}
+.hub-layer.mid{background:rgba(27,67,83,.35);border:1px solid rgba(79,135,160,.3)}
+.hub-layer.bot{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.hub-layer-icon{font-size:20px;flex-shrink:0}
+.hub-layer-text{font-size:13px;font-weight:600;color:var(--white)}
+.hub-layer-sub{font-size:11px;color:rgba(255,255,255,.4);font-weight:400;margin-top:2px}
+@media(max-width:900px){.hubs-grid{grid-template-columns:1fr}.hub-feature.full{grid-template-columns:1fr}}
+
+/* ─── THE VISION ─── */
+#vision{
+  min-height:100vh;display:flex;align-items:center;
+  background:linear-gradient(160deg,#030C10 0%,#071520 40%,#0C2030 100%);
+  padding:120px 0;
+}
+.vision-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(27,67,83,.25) 0%,transparent 70%)}
+.vision-content{position:relative;z-index:1;text-align:center}
+.vision-eyebrow{color:var(--ice);margin-bottom:32px}
+.vision-title{margin-bottom:24px}
+.vision-title span{color:var(--ice)}
+.vision-sub{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(18px,2.5vw,24px);color:rgba(168,209,231,.75);max-width:700px;margin:0 auto 80px;line-height:1.6}
+.timeline{display:flex;align-items:flex-start;gap:0;position:relative;max-width:1000px;margin:0 auto 80px}
+.timeline::before{content:'';position:absolute;top:32px;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(168,209,231,.15),var(--ice),rgba(168,209,231,.15))}
+.tl-node{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;gap:20px}
+.tl-dot{width:64px;height:64px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--teal-deep);position:relative;z-index:1;flex-shrink:0}
+.tl-dot.now{border-color:#6DC88A;box-shadow:0 0 24px rgba(45,90,61,.6)}
+.tl-dot.y1{border-color:var(--ice);box-shadow:0 0 16px rgba(168,209,231,.3)}
+.tl-dot.y3{border-color:var(--teal-light);box-shadow:0 0 12px rgba(79,135,160,.25)}
+.tl-dot.y5{border-color:var(--gold);box-shadow:0 0 24px rgba(201,168,76,.4)}
+.tl-dot.y10{border-color:rgba(255,255,255,.3);box-shadow:0 0 8px rgba(255,255,255,.1)}
+.tl-body{text-align:center;padding:0 8px}
+.tl-year{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.tl-node.now .tl-year{color:#6DC88A}
+.tl-node.y1 .tl-year{color:var(--ice)}
+.tl-node.y3 .tl-year{color:var(--teal-light)}
+.tl-node.y5 .tl-year{color:var(--gold)}
+.tl-node.y10 .tl-year{color:rgba(255,255,255,.5)}
+.tl-heading{font-size:clamp(13px,1.5vw,16px);font-weight:800;color:var(--white);margin-bottom:6px;line-height:1.2}
+.tl-items{display:flex;flex-direction:column;gap:3px}
+.tl-item{font-size:10px;font-weight:400;color:rgba(255,255,255,.45);line-height:1.4}
+.vision-statement{max-width:800px;margin:0 auto;padding:48px;background:rgba(168,209,231,.06);border:1px solid rgba(168,209,231,.15);border-radius:16px}
+.vision-statement blockquote{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(18px,2.5vw,26px);color:rgba(168,209,231,.9);line-height:1.65;margin-bottom:20px}
+.vision-statement cite{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(168,209,231,.4);font-style:normal;font-weight:600}
+@media(max-width:768px){.timeline{flex-direction:column;align-items:flex-start;gap:32px}.timeline::before{display:none}}
+
+/* ─── NAV ─── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,13,20,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(27,67,83,.4)}
+.nav-logo{font-size:16px;font-weight:800;color:var(--white);letter-spacing:.02em}
+.nav-logo span{color:var(--ice)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;font-weight:600;transition:color .15s}
+.nav-links a:hover{color:var(--ice)}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ─── SCROLL CUE ─── */
+.scroll-cue{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:64px;opacity:.5}
+.scroll-cue .arrow{width:24px;height:24px;border-right:2px solid var(--ice);border-bottom:2px solid var(--ice);transform:rotate(45deg);animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+.scroll-cue .t{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--ice);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <div class="nav-logo">Elias Range <span>Stays</span></div>
+  <div class="nav-links">
+    <a href="#answer">Today</a>
+    <a href="#platform">Platform</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#partners">Partners</a>
+    <a href="#hubs">Hubs</a>
+    <a href="#vision">Vision</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-topo" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs><pattern id="tp" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><ellipse cx="50" cy="50" rx="45" ry="28" fill="none" stroke="#4F87A0" stroke-width="0.8"/><ellipse cx="50" cy="50" rx="30" ry="18" fill="none" stroke="#4F87A0" stroke-width="0.6"/><ellipse cx="50" cy="50" rx="15" ry="9" fill="none" stroke="#4F87A0" stroke-width="0.4"/></pattern></defs>
+    <rect width="1440" height="900" fill="url(#tp)"/>
+  </svg>
+  <div class="container">
+    <div class="chapter">
+      <span class="chapter-num label">Our Story</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h1 class="hero-title">We house the people<br>who heal <em>communities.</em></h1>
+    <p class="hero-sub">Elias Range Stays provides workforce housing built specifically for healthcare and construction professionals across British Columbia — and we're just getting started.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="n">34<span class="u">+</span></div><div class="l">Units Managed</div></div>
+      <div class="hero-stat"><div class="n">6<span class="u"></span></div><div class="l">Hospitals Served</div></div>
+      <div class="hero-stat"><div class="n">$105<span class="u">/night</span></div><div class="l">All-Inclusive Rate</div></div>
+      <div class="hero-stat"><div class="n">40<span class="u">%</span></div><div class="l">Below Hotel Average</div></div>
+      <div class="hero-stat"><div class="n">24<span class="u">/7</span></div><div class="l">Support</div></div>
+    </div>
+    <div class="scroll-cue"><div class="t">Scroll to explore</div><div class="arrow"></div></div>
+  </div>
+</section>
+
+<!-- ─── THE PROBLEM ─── -->
+<section id="problem">
+  <div class="container">
+    <div class="chapter"><span class="chapter-num label">Chapter 01 · The Problem</span><div class="chapter-line"></div></div>
+    <div class="problem-grid">
+      <div class="problem-left">
+        <h2>Healthcare workers deserve better than a hotel room.</h2>
+        <p class="serif" style="margin-top:20px">BC needs 11,000 more healthcare workers by 2030. A shortage of quality workforce housing is making a hard problem worse.</p>
+        <div class="pain-list">
+          <div class="pain-item"><div class="pain-icon">🏨</div><div class="pain-text"><div class="t">$195/night hotel rooms</div><div class="d">Health authorities paying premium hotel rates for short-term accommodation. No stability, no community, no kitchen.</div></div></div>
+          <div class="pain-item"><div class="pain-icon">📍</div><div class="pain-text"><div class="t">Remote locations, zero supply</div><div class="d">Construction crews and healthcare workers sent to Prince George, Fort St. John, Terrace — cities with no real housing infrastructure for workers.</div></div></div>
+          <div class="pain-item"><div class="pain-icon">📊</div><div class="pain-text"><div class="t">Fragmented billing chaos</div><div class="d">Multiple invoices, multiple providers, zero visibility. Finance teams spending hours reconciling per diems that should be a single line item.</div></div></div>
+          <div class="pain-item"><div class="pain-icon">💔</div><div class="pain-text"><div class="t">Retention is suffering</div><div class="d">Healthcare workers leave communities because they can't find stable housing. The workplace isn't the problem — the infrastructure around it is.</div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="comparison">
+          <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Cost Comparison · Per Person · Per Night</div>
+          <div class="comp-row">
+            <div class="comp-label">Accommodation</div>
+            <div class="comp-vals">
+              <div class="comp-val bad"><div class="v">$195</div><div class="s">Hotel</div></div>
+              <div class="comp-val good"><div class="v">$105</div><div class="s">ERS</div></div>
+            </div>
+            <div class="comp-badge save">Save 46%</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-label">Monthly · 1 person</div>
+            <div class="comp-vals">
+              <div class="comp-val bad"><div class="v">$5,850</div><div class="s">Hotel</div></div>
+              <div class="comp-val good"><div class="v">$3,150</div><div class="s">ERS</div></div>
+            </div>
+            <div class="comp-badge save">$2,700 saved</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-label">Annual · Team of 10</div>
+            <div class="comp-vals">
+              <div class="comp-val bad"><div class="v">$714k</div><div class="s">Hotel</div></div>
+              <div class="comp-val good"><div class="v">$385k</div><div class="s">ERS</div></div>
+            </div>
+            <div class="comp-badge save">$329k saved</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-label">Invoices per month</div>
+            <div class="comp-vals">
+              <div class="comp-val bad"><div class="v">Many</div><div class="s">Hotel</div></div>
+              <div class="comp-val good"><div class="v">1</div><div class="s">ERS</div></div>
+            </div>
+            <div class="comp-badge save">One invoice</div>
+          </div>
+          <div style="background:rgba(45,90,61,.2);border:1px solid rgba(45,90,61,.4);border-radius:10px;padding:20px 24px;margin-top:8px">
+            <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;font-weight:600">What we provide</div>
+            <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.8;font-weight:400">Fully furnished · All utilities included<br>24/7 support · Professional neighbours<br>Close to work site · Stable long-term</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OUR ANSWER ─── -->
+<section id="answer">
+  <div class="container">
+    <div class="chapter"><span class="chapter-num label">Chapter 02 · Our Answer</span><div class="chapter-line"></div></div>
+    <div class="answer-header">
+      <h2>One company.<br>Every housing need.</h2>
+      <p class="serif" style="margin-top:16px">From the nurse arriving in Prince George to the construction crew building the next hospital — ERS is there.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card s1"><div class="service-icon">🏥</div><div class="service-title">Workforce Housing</div><div class="service-sub">Core Product · Active Now</div><div class="service-desc">Furnished housing for healthcare and construction professionals. $105/night all-in. Single invoice. Long-term leases. We manage everything so organisations can focus on their work.</div></div>
+      <div class="service-card s2"><div class="service-icon">🌿</div><div class="service-title">Healthcare Housing Hubs</div><div class="service-sub">Full-Service Communities · Building</div><div class="service-desc">Purpose-built communities anchored around hospital sites. Practitioner offices, adjacent healthcare services, greenhouses, rooftop gardens, community programming. Housing as infrastructure.</div></div>
+      <div class="service-card s3"><div class="service-icon">🏗️</div><div class="service-title">Infrastructure Development</div><div class="service-sub">Building at Scale</div><div class="service-desc">Multi-health-authority contracts to build healthcare housing across BC and Canada. Developing the physical infrastructure for a permanent solution to the workforce housing crisis.</div></div>
+      <div class="service-card s4"><div class="service-icon">📈</div><div class="service-title">Investment Fund</div><div class="service-sub">Healthcare Housing Capital</div><div class="service-desc">Small multifamily healthcare housing investment fund. Connecting capital with the most mission-aligned real estate opportunity in Canada right now.</div></div>
+      <div class="service-card s5"><div class="service-icon">🎓</div><div class="service-title">Consulting</div><div class="service-sub">Advisory Services</div><div class="service-desc">Full consulting for health authorities and large employers navigating workforce housing challenges. Strategy, implementation, ongoing support.</div></div>
+      <div class="service-card s6"><div class="service-icon">🚐</div><div class="service-title">Additional Services</div><div class="service-sub">Elias Adventures + Transport</div><div class="service-desc">Transportation services, outdoor adventure programming through Elias Adventures, community events. The full experience of living and thriving in a new community.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE PLATFORM ─── -->
+<section id="platform">
+  <div class="container">
+    <div class="chapter"><span class="chapter-num label">Chapter 03 · The Platform</span><div class="chapter-line"></div></div>
+    <div class="platform-header">
+      <h2>What we're building<br>to scale this.</h2>
+      <p class="serif" style="margin-top:16px">Every system we're building creates a compounding advantage. The platform is what turns a housing company into a healthcare infrastructure company.</p>
+    </div>
+    <div class="platform-stack">
+      <div class="platform-row">
+        <div class="platform-label-cell"><span class="platform-label-text label">Digital</span></div>
+        <div class="platform-cards cols-3">
+          <div class="pcard"><div class="pi">🌐</div><div class="pt">eliasrangestays.ca</div><div class="pd">Main website. Quote form integrated. Built on React/Vite, deployed on Vercel.</div><div class="ps live">● Live</div></div>
+          <div class="pcard"><div class="pi">📊</div><div class="pt">ContractFlow</div><div class="pd">End-to-end contract management. Quote → AI Contract → E-Sign → Dashboard. Role-based access.</div><div class="ps live">● Live</div></div>
+          <div class="pcard"><div class="pi">🔍</div><div class="pt">Sourcing Engine</div><div class="pd">URL import, photo-first unit pipeline, 6-stage outreach workflow, learning algorithm.</div><div class="ps live">● Live</div></div>
+        </div>
+      </div>
+      <div class="platform-row">
+        <div class="platform-label-cell"><span class="platform-label-text label">Operations</span></div>
+        <div class="platform-cards cols-4">
+          <div class="pcard"><div class="pi">📋</div><div class="pt">Lease Registry</div><div class="pd">All units, landlords, deposits, terms, alerts.</div><div class="ps live">● Live</div></div>
+          <div class="pcard"><div class="pi">💰</div><div class="pt">AP/AR Dashboard</div><div class="pd">Landlord payments, client invoicing, cash flow.</div><div class="ps live">● Live</div></div>
+          <div class="pcard"><div class="pi">📦</div><div class="pt">Units Registry</div><div class="pd">Every unit with P&L, status, tenant, contract link.</div><div class="ps live">● Live</div></div>
+          <div class="pcard"><div class="pi">📈</div><div class="pt">KPI Intelligence</div><div class="pd">Pipeline revenue, avg rates, margins, health scores.</div><div class="ps building">◐ Building</div></div>
+        </div>
+      </div>
+      <div class="platform-row">
+        <div class="platform-label-cell"><span class="platform-label-text label">AI Team</span></div>
+        <div class="platform-cards cols-4">
+          <div class="pcard"><div class="pi">🎼</div><div class="pt">Maestro</div><div class="pd">Orchestrator. Memory. Decision log. Weekly check-ins.</div><div class="ps live">● Live</div></div>
+          <div class="pcard"><div class="pi">🔧</div><div class="pt">Forge</div><div class="pd">Builds all apps, features, and integrations.</div><div class="ps live">● Live</div></div>
+          <div class="pcard"><div class="pi">🎨</div><div class="pt">Canvas</div><div class="pd">Brand quality control on everything client-facing.</div><div class="ps live">● Live</div></div>
+          <div class="pcard"><div class="pi">🧭</div><div class="pt">Scout</div><div class="pd">Market intelligence, BD pipeline, weekly reports.</div><div class="ps live">● Live</div></div>
+        </div>
+      </div>
+      <div class="platform-row">
+        <div class="platform-label-cell"><span class="platform-label-text label">Media</span></div>
+        <div class="platform-cards cols-3">
+          <div class="pcard"><div class="pi">✍️</div><div class="pt">Blog + Newsletter</div><div class="pd">Community updates for residents. Leadership newsletter for partners + health authority execs.</div><div class="ps building">◐ Building</div></div>
+          <div class="pcard"><div class="pi">🎙️</div><div class="pt">Webinar Series</div><div class="pd">Thought leadership. Industry experts. Healthcare housing conversations. Market positioning.</div><div class="ps next">○ Next</div></div>
+          <div class="pcard"><div class="pi">📱</div><div class="pt">Social Channels</div><div class="pd">LinkedIn, Facebook, TikTok. Brand building across healthcare, construction, and innovation audiences.</div><div class="ps building">◐ Building</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE PIPELINE ─── -->
+<section id="pipeline">
+  <div class="container">
+    <div class="chapter"><span class="chapter-num label">Chapter 04 · The Pipeline</span><div class="chapter-line"></div></div>
+    <div class="pipeline-header">
+      <span class="big-number">$10B+</span>
+      <span class="big-label">In active BC healthcare construction · right now</span>
+      <p class="serif" style="margin-top:24px;font-size:18px;color:rgba(168,209,231,.7);max-width:600px;line-height:1.6">BC is replacing its aging hospital infrastructure. Every project needs workforce housing. Most cities have none. That's our market.</p>
+    </div>
+    <div class="pipeline-two-col">
+      <div>
+        <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(168,209,231,.5);font-weight:600;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)">Active · In Development · In Procurement</div>
+        <div class="pipeline-projects">
+          <div class="project-row active"><div class="proj-city">Prince George</div><div><div class="proj-name">UHNBC Acute Care Tower</div><div class="proj-detail">Northern Health · EllisDon · 211 beds · 2026-2031</div></div><div class="proj-value">$1.58B</div><div class="proj-status st-active">Active</div></div>
+          <div class="project-row pri-1"><div class="proj-city">Squamish</div><div><div class="proj-name">Hilltop House LTC Replacement</div><div class="proj-detail">Vancouver Coastal Health · GC selection underway</div></div><div class="proj-value">$150M+</div><div class="proj-status st-proc">Procurement</div></div>
+          <div class="project-row pri-1"><div class="proj-city">Kamloops</div><div><div class="proj-name">Cancer Centre at Royal Inland</div><div class="proj-detail">Interior Health · Under construction NOW</div></div><div class="proj-value">$359M</div><div class="proj-status st-active">Active</div></div>
+          <div class="project-row pri-2"><div class="proj-city">Burnaby</div><div><div class="proj-name">Burnaby Hospital Ph2 + BC Cancer</div><div class="proj-detail">Fraser Health · PCL · 2027-2030</div></div><div class="proj-value">$1.7B</div><div class="proj-status st-dev">Dev</div></div>
+          <div class="project-row pri-2"><div class="proj-city">Richmond</div><div><div class="proj-name">Richmond Hospital Ph2 & 3</div><div class="proj-detail">Vancouver Coastal Health · Graham · 2026-2029</div></div><div class="proj-value">$1.95B</div><div class="proj-status st-dev">Dev</div></div>
+          <div class="project-row pri-2"><div class="proj-city">Fort St. John</div><div><div class="proj-name">Long-Term Care Facility</div><div class="proj-detail">Northern Health · Procurement active</div></div><div class="proj-value">TBD</div><div class="proj-status st-proc">Procurement</div></div>
+          <div class="project-row pri-2"><div class="proj-city">Cranbrook</div><div><div class="proj-name">EKRH Oncology + Renal + FW Green LTC</div><div class="proj-detail">Interior Health · 2 overlapping projects</div></div><div class="proj-value">$300M+</div><div class="proj-status st-proc">Procurement</div></div>
+          <div class="project-row pri-3"><div class="proj-city">Campbell River</div><div><div class="proj-name">Long-Term Care Facility</div><div class="proj-detail">Island Health · 2026-2028</div></div><div class="proj-value">$150M+</div><div class="proj-status st-proc">Procurement</div></div>
+          <div class="project-row pri-3"><div class="proj-city">Nanaimo</div><div><div class="proj-name">Long-Term Care Facility</div><div class="proj-detail">Island Health · 2026-2028</div></div><div class="proj-value">$150M+</div><div class="proj-status st-proc">Procurement</div></div>
+        </div>
+        <div style="margin-top:16px;font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.3);font-weight:600;text-transform:uppercase">+ 8 additional projects in planning · Source: Infrastructure BC Fall 2025</div>
+      </div>
+      <div class="wave-visual">
+        <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(168,209,231,.5);font-weight:600;margin-bottom:4px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)">The ERS Opportunity Wave</div>
+        <div class="wave-block now">
+          <div class="label" style="color:#6DC88A">Now · 2026</div>
+          <h3>Workforce Housing</h3>
+          <p>Construction crews and healthcare staff need housing today. ERS is the provider of choice in markets where hotels and rentals can't deliver.</p>
+          <div class="wv">$105/night · 34+ units · 6 hospitals</div>
+        </div>
+        <div class="wave-block soon">
+          <div class="label" style="color:var(--ice)">2027-2029</div>
+          <h3>Platform + Scale</h3>
+          <p>ContractFlow, sourcing engine, and bot team at full capacity. Multiple GC relationships across BC's $10B healthcare build-out. Regional expansion.</p>
+          <div class="wv">10+ markets · 200+ units · Multi-HA contracts</div>
+        </div>
+        <div class="wave-block future">
+          <div class="label" style="color:var(--gold)">2030+</div>
+          <h3>Healthcare Housing Infrastructure</h3>
+          <p>Permanent Healthcare Housing Hubs in key BC cities. Investment fund deployed. Canada-wide presence. The definitive name in healthcare workforce housing.</p>
+          <div class="wv">National · Permanent infrastructure · 1,000+ units</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PARTNERSHIPS ─── -->
+<section id="partners">
+  <div class="container">
+    <div class="chapter"><span class="chapter-num label">Chapter 05 · Partners & Ecosystem</span><div class="chapter-line"></div></div>
+    <div class="partners-header">
+      <h2>Who we're building with.</h2>
+      <p class="serif" style="margin-top:12px">Every relationship is a long-term partnership. We're not a vendor — we're infrastructure.</p>
+    </div>
+    <div class="partner-tiers">
+      <div>
+        <div class="partner-tier-label">Health Authorities — Our Clients & Partners</div>
+        <div class="partner-logos">
+          <div class="partner-badge pb-health"><div class="pb-dot"></div>Northern Health</div>
+          <div class="partner-badge pb-health"><div class="pb-dot"></div>Fraser Health</div>
+          <div class="partner-badge pb-health"><div class="pb-dot"></div>Island Health</div>
+          <div class="partner-badge pb-health"><div class="pb-dot"></div>Interior Health</div>
+          <div class="partner-badge pb-health"><div class="pb-dot"></div>Vancouver Coastal Health</div>
+          <div class="partner-badge pb-health"><div class="pb-dot"></div>Providence Health Care</div>
+          <div class="partner-badge pb-health"><div class="pb-dot"></div>PHSA</div>
+        </div>
+      </div>
+      <div>
+        <div class="partner-tier-label">Construction — GC Partners Building BC's Hospitals</div>
+        <div class="partner-logos">
+          <div class="partner-badge pb-gc"><div class="pb-dot"></div>EllisDon Corporation</div>
+          <div class="partner-badge pb-gc"><div class="pb-dot"></div>PCL Construction</div>
+          <div class="partner-badge pb-gc"><div class="pb-dot"></div>Graham Construction</div>
+          <div class="partner-badge pb-gc"><div class="pb-dot"></div>Ledcor Group</div>
+          <div class="partner-badge pb-gc"><div class="pb-dot"></div>Bird Construction</div>
+          <div class="partner-badge pb-gc"><div class="pb-dot"></div>Maple Reinders</div>
+        </div>
+      </div>
+      <div>
+        <div class="partner-tier-label">Community & Green Infrastructure</div>
+        <div class="partner-logos">
+          <div class="partner-badge pb-green"><div class="pb-dot"></div>YMCA</div>
+          <div class="partner-badge pb-green"><div class="pb-dot"></div>Local First Nations Communities</div>
+          <div class="partner-badge pb-green"><div class="pb-dot"></div>BC Parks & Recreation Partnerships</div>
+          <div class="partner-badge pb-green"><div class="pb-dot"></div>Urban Agriculture Networks</div>
+        </div>
+      </div>
+      <div>
+        <div class="partner-tier-label">Infrastructure & Capital</div>
+        <div class="partner-logos">
+          <div class="partner-badge pb-infra"><div class="pb-dot"></div>Infrastructure BC</div>
+          <div class="partner-badge pb-infra"><div class="pb-dot"></div>Healthcare Investment Partners</div>
+          <div class="partner-badge pb-infra"><div class="pb-dot"></div>BC Economic Development</div>
+        </div>
+      </div>
+      <div>
+        <div class="partner-tier-label">Future — Innovation, Technology & Capital</div>
+        <div class="partner-logos">
+          <div class="partner-badge pb-future"><div class="pb-dot"></div>Healthcare Technology Innovators</div>
+          <div class="partner-badge pb-future"><div class="pb-dot"></div>Green Building Partners</div>
+          <div class="partner-badge pb-future"><div class="pb-dot"></div>Venture Capital — Healthcare Sector</div>
+          <div class="partner-badge pb-future"><div class="pb-dot"></div>Impact Investors</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE HUBS ─── -->
+<section id="hubs">
+  <div class="container">
+    <div class="chapter"><span class="chapter-num label">Chapter 06 · Healthcare Housing Hubs</span><div class="chapter-line"></div></div>
+    <div style="margin-bottom:64px">
+      <h2 style="color:var(--white);margin-bottom:16px">More than housing.<br><span style="color:#6DC88A">Living infrastructure.</span></h2>
+      <p class="serif" style="font-size:18px;color:rgba(255,255,255,.55);max-width:600px;line-height:1.7">A Healthcare Housing Hub isn't a building — it's a community. Designed from the ground up to support the health, performance, and wellbeing of the people who keep BC's healthcare system running.</p>
+    </div>
+    <div class="hubs-grid">
+      <div class="hub-feature dark">
+        <div class="hub-icon">🌱</div>
+        <div class="hub-title">Greenhouses</div>
+        <div class="hub-desc">On-site food production integrated into every hub. Fresh produce, wellness garden, connection to the natural world. Health starts with what you eat.</div>
+      </div>
+      <div class="hub-feature med">
+        <div class="hub-icon">🌿</div>
+        <div class="hub-title">Green Rooftop Patios</div>
+        <div class="hub-desc">Fully wrapped green rooftops. Community gathering space, outdoor wellness areas, gardens. The natural environment isn't background — it's built into the structure.</div>
+      </div>
+      <div class="hub-feature light">
+        <div class="hub-icon">🏥</div>
+        <div class="hub-title">Practitioner Spaces</div>
+        <div class="hub-desc">Office leases for adjacent healthcare services within the hub — physiotherapy, mental health, primary care. The community we're building supports the work they're doing.</div>
+      </div>
+      <div class="hub-feature acc">
+        <div class="hub-icon">🎉</div>
+        <div class="hub-title">Community Programming</div>
+        <div class="hub-desc">Events, fitness, outdoor adventures through Elias Adventures, cultural programming. When the people living here feel connected, they stay — and that's better for the communities they serve.</div>
+      </div>
+      <div class="hub-feature full">
+        <div>
+          <h3 style="color:#6DC88A;margin-bottom:16px">What a Hub delivers</h3>
+          <p class="serif" style="font-size:16px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px">When a new hospital opens, ERS is already there. The construction crew lived in our housing while they built it. Now the permanent staff move in. The hub grows with the community.</p>
+          <p class="serif" style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7">This is why we're not just a housing company. We're building the infrastructure that makes healthcare communities sustainable — for the people who work in them, and the communities they serve.</p>
+        </div>
+        <div class="hub-full-visual">
+          <div class="hub-layer top"><div class="hub-layer-icon">🌿</div><div><div class="hub-layer-text">Green Infrastructure Layer</div><div class="hub-layer-sub">Rooftop gardens · Greenhouses · Outdoor spaces</div></div></div>
+          <div class="hub-layer mid"><div class="hub-layer-icon">🏠</div><div><div class="hub-layer-text">Residential Layer</div><div class="hub-layer-sub">Furnished units · Long-term leases · Community design</div></div></div>
+          <div class="hub-layer mid"><div class="hub-layer-icon">🏥</div><div><div class="hub-layer-text">Healthcare Service Layer</div><div class="hub-layer-sub">Practitioner offices · Adjacent health services</div></div></div>
+          <div class="hub-layer bot"><div class="hub-layer-icon">🤝</div><div><div class="hub-layer-text">Community Layer</div><div class="hub-layer-sub">Programming · Events · Connection · Mastermind network</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE VISION ─── -->
+<section id="vision">
+  <div class="vision-bg"></div>
+  <div class="container">
+    <div class="chapter" style="justify-content:center"><span class="chapter-num label">Chapter 07 · Where We're Going</span><div class="chapter-line" style="max-width:200px"></div></div>
+    <div class="vision-content">
+      <h1 class="vision-title">The future we're building<br>is <span>already in motion.</span></h1>
+      <p class="vision-sub serif">This isn't a startup story. It's the beginning of a national infrastructure company. Here's the road.</p>
+
+      <div class="timeline">
+        <div class="tl-node now">
+          <div class="tl-dot now">🏠</div>
+          <div class="tl-body">
+            <div class="tl-year">Today · 2026</div>
+            <div class="tl-heading">The Foundation</div>
+            <div class="tl-items">
+              <div class="tl-item">34+ units · 6 hospitals</div>
+              <div class="tl-item">ContractFlow live</div>
+              <div class="tl-item">Website + Quote form</div>
+              <div class="tl-item">AI Bot team active</div>
+              <div class="tl-item">$105/night · Single invoice</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-node y1">
+          <div class="tl-dot y1">📈</div>
+          <div class="tl-body">
+            <div class="tl-year">2027</div>
+            <div class="tl-heading">Scale & Contracts</div>
+            <div class="tl-items">
+              <div class="tl-item">EllisDon partnership formal</div>
+              <div class="tl-item">Northern Health contract</div>
+              <div class="tl-item">100+ units managed</div>
+              <div class="tl-item">5+ markets in BC</div>
+              <div class="tl-item">Full ops team in place</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-node y3">
+          <div class="tl-dot y3">🌿</div>
+          <div class="tl-body">
+            <div class="tl-year">2028-2029</div>
+            <div class="tl-heading">First Hubs</div>
+            <div class="tl-items">
+              <div class="tl-item">Hub #1 — Prince George</div>
+              <div class="tl-item">Hub #2 — Squamish</div>
+              <div class="tl-item">500+ units under management</div>
+              <div class="tl-item">Investment fund active</div>
+              <div class="tl-item">Green infrastructure built</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-node y5">
+          <div class="tl-dot y5">🏛️</div>
+          <div class="tl-body">
+            <div class="tl-year">2030</div>
+            <div class="tl-heading">National Platform</div>
+            <div class="tl-items">
+              <div class="tl-item">10+ Healthcare Housing Hubs</div>
+              <div class="tl-item">All 5 BC health authorities</div>
+              <div class="tl-item">Expansion to Alberta + Ontario</div>
+              <div class="tl-item">1,000+ units</div>
+              <div class="tl-item">Recognisable national brand</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-node y10">
+          <div class="tl-dot y10">🌍</div>
+          <div class="tl-body">
+            <div class="tl-year">The Vision</div>
+            <div class="tl-heading">The Standard</div>
+            <div class="tl-items">
+              <div class="tl-item">Canada's definitive healthcare</div>
+              <div class="tl-item">housing infrastructure company</div>
+              <div class="tl-item">Green communities</div>
+              <div class="tl-item">National investment portfolio</div>
+              <div class="tl-item">Lasting community impact</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-statement">
+        <blockquote>"We're not solving a housing problem. We're building the infrastructure that allows Canada's healthcare system to function where it's needed most — in the communities far from the cities, the projects at the edge of the map, the places where the work is hardest and the support is thinnest. That's where ERS belongs."</blockquote>
+        <cite>Austin Neill · Founder, Elias Range Stays · 2026</cite>
+      </div>
+
+      <div style="margin-top:80px;padding:48px;background:linear-gradient(135deg,rgba(27,67,83,.3),rgba(45,90,61,.2));border:1px solid rgba(168,209,231,.2);border-radius:16px">
+        <div class="label" style="color:var(--ice);margin-bottom:24px">Healthy Living, Stronger Communities</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:left">
+          <div><div style="font-size:36px;margin-bottom:8px">🏔️</div><div style="font-size:15px;font-weight:800;color:var(--white);margin-bottom:6px">Innovative</div><div style="font-family:'Source Serif 4',serif;font-size:13px;color:rgba(255,255,255,.5);line-height:1.6">Building things with lasting quality and environmental purpose. Like Arthur Erickson — infrastructure that's still standing and still meaningful in 50 years.</div></div>
+          <div><div style="font-size:36px;margin-bottom:8px">🌿</div><div style="font-size:15px;font-weight:800;color:var(--white);margin-bottom:6px">Experience</div><div style="font-family:'Source Serif 4',serif;font-size:13px;color:rgba(255,255,255,.5);line-height:1.6">Not just a bed. A complete experience — the way Club Med built community and quality into every touchpoint. Housing as hospitality.</div></div>
+          <div><div style="font-size:36px;margin-bottom:8px">🤝</div><div style="font-size:15px;font-weight:800;color:var(--white);margin-bottom:6px">Trusted</div><div style="font-family:'Source Serif 4',serif;font-size:13px;color:rgba(255,255,255,.5);line-height:1.6">RBC trust. Healthcare-grade reliability. When a hospital CFO puts our name in a contract, they know we'll deliver. That trust is our most valuable asset.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:#030810;padding:40px 40px;text-align:center;border-top:1px solid rgba(27,67,83,.4)">
+  <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(168,209,231,.3);font-weight:600">Elias Range Stays · Registered in British Columbia, Canada · eliasrangestays.ca</div>
+</div>
+
+<script>
+// Smooth scroll active nav highlight
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+  links.forEach(a => { a.style.color = a.getAttribute('href') === '#'+current ? 'var(--ice)' : ''; });
+});
+</script>
+</body>
+</html>
