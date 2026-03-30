@@ -5,6 +5,9 @@
   "framework": null,
   "rewrites": [
     { "source": "/hub", "destination": "/hub.html" },
+    { "source": "/brand-assets-doc", "destination": "/brand-assets-doc.html" },
+    { "source": "/directors", "destination": "/directors.html" },
+    { "source": "/investment-thesis", "destination": "/investment-thesis.html" },
     { "source": "/8020", "destination": "/8020.html" },
     { "source": "/austin", "destination": "/austin.html" },
     { "source": "/deep-research", "destination": "/deep-research.html" },
