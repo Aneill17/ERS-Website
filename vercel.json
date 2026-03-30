@@ -4,6 +4,17 @@
   "installCommand": "npx pnpm install",
   "framework": null,
   "rewrites": [
-    { "source": "/hub", "destination": "/hub.html" }
+    { "source": "/hub", "destination": "/hub.html" },
+    { "source": "/8020", "destination": "/8020.html" },
+    { "source": "/austin", "destination": "/austin.html" },
+    { "source": "/deep-research", "destination": "/deep-research.html" },
+    { "source": "/ers-ecosystem-map", "destination": "/ers-ecosystem-map.html" },
+    { "source": "/health-authority-intel", "destination": "/health-authority-intel.html" },
+    { "source": "/market-report", "destination": "/market-report.html" },
+    { "source": "/our-story", "destination": "/our-story.html" },
+    { "source": "/problem-stack", "destination": "/problem-stack.html" },
+    { "source": "/retention", "destination": "/retention.html" },
+    { "source": "/triangle", "destination": "/triangle.html" },
+    { "source": "/vision", "destination": "/vision.html" }
   ]
 }
