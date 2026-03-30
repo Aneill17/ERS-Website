@@ -2,5 +2,8 @@
   "buildCommand": "npx pnpm install && npx pnpm vite build",
   "outputDirectory": "dist/public",
   "installCommand": "npx pnpm install",
-  "framework": null
+  "framework": null,
+  "rewrites": [
+    { "source": "/hub", "destination": "/hub.html" }
+  ]
 }
