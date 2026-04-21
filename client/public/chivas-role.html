@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Role Package — Siavash Tahan | Elias Range Stays</title>
+  <style>
+    :root {
+      --navy: #0B2540;
+      --teal: #00BFA6;
+      --light-teal: #e6f9f6;
+      --slate: #2C3E50;
+      --mid: #4A6274;
+      --light: #f4f7f9;
+      --border: #d0dde6;
+      --text: #1a2a38;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f0f4f7;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: var(--navy);
+      color: white;
+      padding: 56px 48px 48px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .brand {
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      font-size: 32px;
+      font-weight: normal;
+      line-height: 1.3;
+      max-width: 560px;
+    }
+    .header h1 em {
+      color: var(--teal);
+      font-style: normal;
+    }
+    .header-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 2;
+      text-align: right;
+    }
+    .header-meta strong {
+      color: rgba(255,255,255,0.9);
+    }
+    .header-tagline {
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Section dividers ── */
+    .section-banner {
+      background: var(--navy);
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      margin: 56px -24px 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .section-banner .num {
+      background: var(--teal);
+      color: var(--navy);
+      font-weight: bold;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 36px 40px;
+      margin-top: 28px;
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: normal;
+      color: var(--navy);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--teal);
+    }
+    h3 {
+      font-size: 16px;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      color: var(--navy);
+      margin: 28px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    h3:first-child { margin-top: 0; }
+
+    p { margin-bottom: 14px; color: #2d3f50; }
+    p:last-child { margin-bottom: 0; }
+
+    strong { color: var(--navy); }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+    ul li {
+      margin-bottom: 6px;
+      color: #2d3f50;
+    }
+    ul li:last-child { margin-bottom: 0; }
+
+    /* ── Mandate callout ── */
+    .mandate-box {
+      background: var(--light-teal);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 20px 24px;
+      margin: 16px 0 24px;
+    }
+    .mandate-box p { color: var(--slate); margin-bottom: 0; }
+
+    /* ── Destination columns ── */
+    .dest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 620px) { .dest-grid { grid-template-columns: 1fr; } }
+    .dest-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+    .dest-card h4 {
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .dest-card ul { margin: 0; }
+
+    /* ── Stakeholder sectors ── */
+    .sector {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-top: 16px;
+      overflow: hidden;
+    }
+    .sector-header {
+      background: var(--navy);
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sector-header .icon {
+      font-size: 16px;
+    }
+    .sector-body {
+      padding: 16px 20px;
+      background: white;
+    }
+    .sector-body ul { margin: 0; }
+
+    /* ── Campaigns ── */
+    .campaign-list {
+      counter-reset: camp;
+      list-style: none;
+      padding: 0;
+    }
+    .campaign-list li {
+      counter-increment: camp;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .campaign-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .campaign-list li::before {
+      content: counter(camp);
+      background: var(--teal);
+      color: var(--navy);
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      font-size: 13px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── Media columns ── */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    @media (max-width: 620px) { .media-grid { grid-template-columns: 1fr; } }
+    .media-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px;
+    }
+    .media-card h4 {
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--navy);
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--teal);
+    }
+    .media-card ul { margin: 0; font-size: 14px; }
+
+    /* ── Finance items ── */
+    .finance-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .finance-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .finance-item h4 {
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    /* ── Table ── */
+    .files-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      margin-top: 16px;
+    }
+    .files-table th {
+      background: var(--navy);
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .files-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .files-table tr:last-child td { border-bottom: none; }
+    .files-table tr:nth-child(even) td { background: var(--light); }
+    .badge {
+      display: inline-block;
+      background: var(--light-teal);
+      color: #007a6a;
+      border: 1px solid #b2e8e0;
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    /* ── Summary table ── */
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      margin-top: 16px;
+    }
+    .summary-table th {
+      background: var(--slate);
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    .summary-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .summary-table tr:last-child td { border-bottom: none; }
+    .summary-table tr:nth-child(even) td { background: var(--light); }
+    .summary-table td:first-child { font-weight: bold; color: var(--navy); white-space: nowrap; }
+
+    /* ── Why Now ── */
+    .why-now {
+      background: var(--navy);
+      color: white;
+      border-radius: 8px;
+      padding: 36px 40px;
+      margin-top: 28px;
+    }
+    .why-now h2 {
+      color: var(--teal);
+      border-bottom-color: rgba(0, 191, 166, 0.3);
+    }
+    .why-now ul li { color: rgba(255,255,255,0.85); }
+    .why-now p { color: rgba(255,255,255,0.85); }
+    .why-now .closer {
+      font-size: 17px;
+      color: white;
+      font-style: italic;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      padding: 24px;
+      margin-top: 56px;
+      letter-spacing: 0.5px;
+    }
+    .footer strong { color: rgba(255,255,255,0.85); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="brand">Elias Range Stays — Role Package</div>
+      <h1>Director of <em>Public Relations</em> &amp; <em>Finance</em></h1>
+    </div>
+    <div class="header-meta">
+      <div><strong>Prepared for:</strong> Siavash Tahan</div>
+      <div><strong>Prepared by:</strong> Austin Neill, Founder &amp; CEO</div>
+      <div><strong>Date:</strong> April 9, 2026</div>
+    </div>
+  </div>
+  <div class="header-tagline">Healthy Living, Stronger Communities &nbsp;·&nbsp; eliasrangestays.ca</div>
+</div>
+
+<div class="container">
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <div class="section-banner">
+    <div class="num">1</div>
+    Overview — The Position &amp; Where It's Going
+  </div>
+
+  <!-- What This Position Is -->
+  <div class="card">
+    <h2>What This Position Is</h2>
+    <p>The Director of Public Relations &amp; Finance is an executive-level, dual-mandate role at Elias Range Stays. It exists at the intersection of two things: <strong>how we show up</strong> in the world, and <strong>how we fund</strong> what we're building.</p>
+    <p>This is not a communications coordinator or a bookkeeper. This is the person who opens doors at the institutional level, synchronizes ERS's voice across every channel and stakeholder relationship, and builds the financial architecture that turns projects into reality.</p>
+    <p>ERS is operating and growing in one of the most complex multi-stakeholder environments in Canada — healthcare, construction, government, First Nations, real estate, and capital markets all converge in this company. <strong>This role sits at the center of all of them.</strong></p>
+  </div>
+
+  <!-- Strategic Mandate -->
+  <div class="card">
+    <h2>The Strategic Mandate</h2>
+
+    <h3>Public Relations &amp; Engagement</h3>
+    <p>ERS has relationships with health authorities, construction companies, unions, Indigenous communities, municipalities, and government bodies — but they are not yet synchronized. Each of those relationships is being developed independently, approached differently, and communicated to in isolation.</p>
+    <div class="mandate-box">
+      <p>This role changes that. The mandate is to <strong>build a unified, coordinated engagement strategy</strong> that brings every stakeholder category into a single, aligned campaign under the ERS brand — so that health authorities, construction unions, First Nations, government bodies, and associations are all hearing the same story, seeing the same positioning, and being guided toward the same outcome: ERS as the preferred workforce housing partner in BC and across Canada.</p>
+    </div>
+    <ul>
+      <li>Running synchronized engagement campaigns across all sectors simultaneously</li>
+      <li>Managing all media — digital, print, and television — as one integrated program</li>
+      <li>Representing ERS at events, in boardrooms, on panels, and in the press</li>
+      <li>Building the reputation that precedes every deal</li>
+    </ul>
+
+    <h3>Finance</h3>
+    <p>ERS is scaling from an operating company into a development company. That means capital: construction mortgages, investor equity, grants, government funds, development financing, and structured partnership deals. Right now those pieces are moving independently.</p>
+    <div class="mandate-box">
+      <p>This role brings it all under one roof. The mandate is to <strong>build and manage the full financial stack</strong> — from the investor pitch to the construction loan to the grant submission — so that every project ERS pursues is properly capitalized and every financial opportunity is captured.</p>
+    </div>
+  </div>
+
+  <!-- Where It's Going -->
+  <div class="card">
+    <h2>Where This Role Is Taking ERS</h2>
+    <div class="dest-grid">
+
+      <div class="dest-card">
+        <h4>🏗 Workforce Housing — Construction</h4>
+        <ul>
+          <li>ERS becomes the go-to housing operator for major BC infrastructure projects</li>
+          <li>Consolidated housing contracts built into project labour agreements</li>
+          <li>Key targets: UHNBC Prince George, Dawson Creek Hub, Northern BC corridor</li>
+        </ul>
+      </div>
+
+      <div class="dest-card">
+        <h4>🏥 Workforce Housing — Healthcare</h4>
+        <ul>
+          <li>Master lease agreements with health authorities across BC</li>
+          <li>Healthcare unions drive demand; health authorities drive supply</li>
+          <li>Healthcare professionals become the most supported workforce in rural BC</li>
+        </ul>
+      </div>
+
+      <div class="dest-card">
+        <h4>🏛 Institutional &amp; Government Partnerships</h4>
+        <ul>
+          <li>Recognized partner of Infrastructure BC, BC Housing, and provincial ministries</li>
+          <li>First Nations equity development partnerships</li>
+          <li>Municipal relationships accelerate permitting and community investment</li>
+        </ul>
+      </div>
+
+      <div class="dest-card">
+        <h4>💰 Capital &amp; Development</h4>
+        <ul>
+          <li>Fully built investor offering with active pipeline of mission-aligned capital</li>
+          <li>Every development project financed with a clean, professional package</li>
+          <li>Grants and government funds captured systematically — nothing missed</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <div class="section-banner">
+    <div class="num">2</div>
+    The Role — Responsibilities &amp; Scope
+  </div>
+
+  <!-- PART A -->
+  <div class="card">
+    <h2>Part A: Public Relations &amp; Strategic Engagement</h2>
+
+    <h3>Stakeholder Sectors</h3>
+
+    <div class="sector">
+      <div class="sector-header"><span class="icon">🏗</span> Construction Unions &amp; Labour Organizations</div>
+      <div class="sector-body">
+        <ul>
+          <li>BC Building Trades, local union halls, project labour agreement stakeholders</li>
+          <li>Build and maintain relationships with union leadership across BC</li>
+          <li>Position ERS as the preferred housing partner for union-represented workers on major infrastructure projects</li>
+          <li>Work toward ERS housing becoming a negotiated benefit in project labour agreements</li>
+          <li>Support union members with stable, high-quality accommodations that improve retention and morale on long-duration projects</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sector">
+      <div class="sector-header"><span class="icon">🩺</span> Healthcare Unions</div>
+      <div class="sector-body">
+        <ul>
+          <li>Nurses unions, healthcare workers unions, CUPE health divisions</li>
+          <li>Engage on the housing-as-retention argument: ERS housing directly reduces burnout, isolation, and turnover for travelling and rotating healthcare workers</li>
+          <li>Build ERS's profile as a champion of frontline healthcare worker wellbeing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sector">
+      <div class="sector-header"><span class="icon">🏥</span> Healthcare Professional Associations</div>
+      <div class="sector-body">
+        <ul>
+          <li><strong>Doctors of BC</strong></li>
+          <li><strong>Canadian Medical Association (CMA)</strong></li>
+          <li><strong>BC College of Registered Nurses (BCCNR)</strong></li>
+          <li>Other provincial and national healthcare professional bodies</li>
+          <li>These associations have direct reach into the healthcare workforce — building relationships here creates referral pipelines, partnership opportunities, and credibility that opens doors at the health authority level</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sector">
+      <div class="sector-header"><span class="icon">🏛</span> Government &amp; Infrastructure Bodies</div>
+      <div class="sector-body">
+        <ul>
+          <li><strong>Infrastructure BC</strong> — active engagement on UHNBC Prince George and future provincially funded projects</li>
+          <li>BC Housing and relevant provincial ministries</li>
+          <li>Federal government bodies (CMHC, NRCAN, health-related federal programs)</li>
+          <li>Goal: preferred partner designation on major publicly funded projects</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sector">
+      <div class="sector-header"><span class="icon">🔨</span> Industry Associations — Construction &amp; Real Estate</div>
+      <div class="sector-body">
+        <ul>
+          <li><strong>Vancouver Regional Construction Association (VRCA)</strong></li>
+          <li><strong>BC Construction Association (BCCA)</strong></li>
+          <li><strong>BC Road Builders &amp; Heavy Construction Association (BCCR)</strong></li>
+          <li>Urban Land Institute and real estate development associations</li>
+          <li>These relationships build ERS's credibility with general contractors and project owners who need housing solutions for their crews</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sector">
+      <div class="sector-header"><span class="icon">🌿</span> First Nations &amp; Indigenous Communities</div>
+      <div class="sector-body">
+        <ul>
+          <li>Treaty Nations and Band Councils adjacent to ERS project areas</li>
+          <li>Economic development arms of First Nations governments</li>
+          <li>Equity development partnerships — land, capital, and joint operations</li>
+          <li>Reconciliation-aligned housing programs that serve Indigenous healthcare and construction workers</li>
+          <li>Goal: 2–3 active First Nations equity development partnerships in Northern BC</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sector">
+      <div class="sector-header"><span class="icon">🏥</span> Health Authorities</div>
+      <div class="sector-body">
+        <ul>
+          <li>Northern Health, Interior Health, Vancouver Coastal Health, Fraser Health, Island Health</li>
+          <li>Primary goal: master lease agreements that give ERS institutional standing across a health region</li>
+          <li>Secondary goal: preferred vendor status for traveller, locum, and agency staff housing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sector">
+      <div class="sector-header"><span class="icon">🏙</span> Municipalities</div>
+      <div class="sector-body">
+        <ul>
+          <li>Prince George, Dawson Creek, Terrace, Prince Rupert, Squamish, and others where ERS is active or expanding</li>
+          <li>Build relationships with mayors, economic development offices, and planning departments</li>
+          <li>Municipal support accelerates development permits and positions ERS as a community asset</li>
+          <li>Make the case: ERS housing reduces strain on local rental markets and supports hospital and contractor workforce stability</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Media &amp; Communications Management</h3>
+    <p>This role owns all of ERS's external communications — unified across every channel.</p>
+
+    <div class="media-grid">
+      <div class="media-card">
+        <h4>📱 Digital Media</h4>
+        <ul>
+          <li>LinkedIn, Facebook, all ERS social platforms</li>
+          <li>Content calendar &amp; campaign execution</li>
+          <li>Targeted stakeholder outreach</li>
+          <li>Analytics &amp; reporting</li>
+        </ul>
+      </div>
+      <div class="media-card">
+        <h4>📰 Print Media</h4>
+        <ul>
+          <li>Trade publication placements</li>
+          <li>Press releases — contract wins, milestones</li>
+          <li>White papers &amp; thought leadership for institutional audiences</li>
+        </ul>
+      </div>
+      <div class="media-card">
+        <h4>📺 Television &amp; Broadcast</h4>
+        <ul>
+          <li>Earned media: news features, business profiles</li>
+          <li>Coordinate Austin's media appearances</li>
+          <li>Build ERS into the public healthcare housing conversation</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Engagement Campaigns</h3>
+    <p>Five synchronized campaigns running at all times — Siavash builds, manages, and evolves each one under the unified ERS brand narrative.</p>
+    <ol class="campaign-list">
+      <li><div><strong>Healthcare Worker Housing Campaign</strong> — targeting health authorities and healthcare unions simultaneously; positions ERS as the solution to recruitment and retention</div></li>
+      <li><div><strong>Construction Workforce Campaign</strong> — timed to major project starts; targets union leadership and general contractors</div></li>
+      <li><div><strong>First Nations Development Campaign</strong> — community-first framing; equity, partnership, and shared outcomes</div></li>
+      <li><div><strong>Investor &amp; Partner Awareness Campaign</strong> — building ERS credibility with private equity, mission-aligned capital, and strategic partners</div></li>
+      <li><div><strong>Municipal &amp; Government Campaign</strong> — making the case to city councils, economic development offices, and provincial stakeholders</div></li>
+    </ol>
+
+    <h3>Events &amp; Industry Presence</h3>
+    <ul>
+      <li>Identify and secure ERS presence at 6–10 key industry events per year across healthcare, construction, real estate, and government sectors</li>
+      <li>Build a speaking circuit for Austin — panels, keynotes, roundtables</li>
+      <li>Host ERS-branded roundtables and information sessions with targeted stakeholder groups</li>
+      <li>Represent ERS at events where Austin cannot be present</li>
+    </ul>
+  </div>
+
+
+  <!-- PART B -->
+  <div class="card">
+    <h2>Part B: Finance</h2>
+
+    <div class="finance-item">
+      <h4>Investor Relations &amp; Capital Raising</h4>
+      <ul>
+        <li>Build and maintain all investor-facing materials: pitch decks, one-pagers, financial summaries, impact reports</li>
+        <li>Manage the full investor pipeline — from first conversation to term sheet to close</li>
+        <li>Structure ERS's investment offering: equity, preferred returns, debt instruments, hybrid structures — matched to investor type and project needs</li>
+        <li>Develop the investor community: physicians, private equity, real estate investors, family offices, mission-aligned capital</li>
+        <li><strong>Ontario opportunity:</strong> Active partner in place, new hospital project opening — requires structured outreach, deal framing, and investment proposal</li>
+      </ul>
+    </div>
+
+    <div class="finance-item">
+      <h4>Development Finance</h4>
+      <ul>
+        <li>Lead financial modeling for all development projects:
+          <ul>
+            <li><strong>Dawson Creek Hub</strong> — development permit stage, construction financing required</li>
+            <li><strong>UHNBC Prince George</strong> — housing supply model, development costs, operating revenue, revenue sharing</li>
+            <li><strong>Ontario project</strong> — investment structure, partner terms, returns model</li>
+          </ul>
+        </li>
+        <li>Build project-level pro formas: land, construction, operating revenue, debt service, investor returns</li>
+        <li>Prepare complete financing packages for lenders</li>
+      </ul>
+    </div>
+
+    <div class="finance-item">
+      <h4>Lender Relationships</h4>
+      <ul>
+        <li><strong>Lakeview Credit Union</strong> — active mortgage relationship; advance to construction mortgage stage</li>
+        <li>Identify and engage additional lenders (credit unions, alternative lenders, CMHC programs) as the project pipeline grows</li>
+        <li>Maintain clean, current financial packages for all active projects so lenders can move quickly</li>
+      </ul>
+    </div>
+
+    <div class="finance-item">
+      <h4>Grants &amp; Government Funds</h4>
+      <ul>
+        <li>Research, write, and submit all grant and funding applications</li>
+        <li><strong>Active files:</strong>
+          <ul>
+            <li><strong>Peace Community Trust</strong> — in progress; manage and advance</li>
+            <li><strong>Offset Construction Challenge</strong> — applied; track and respond</li>
+          </ul>
+        </li>
+        <li>Build a grants calendar — track every applicable funding program, cycle, and deadline across BC Housing, CMHC, NRCAN, First Nations funds, federal infrastructure programs, and others</li>
+        <li>Manage awarded funds: reporting requirements, milestone disbursements, compliance documentation</li>
+      </ul>
+    </div>
+
+    <div class="finance-item">
+      <h4>Budgeting &amp; Financial Models</h4>
+      <ul>
+        <li>Build and maintain ERS's operating budget</li>
+        <li>Create financial models for each development project, each engagement campaign, and each client contract</li>
+        <li><strong>Campaign budgeting as a deal line item:</strong> PR and engagement costs must be built into each project proposal — not treated as overhead. Every deal structure includes a media and stakeholder engagement budget.</li>
+      </ul>
+    </div>
+
+    <div class="finance-item">
+      <h4>Partnership Finance</h4>
+      <ul>
+        <li>Build financial proposals and deal structures for strategic partnerships: equity developers (JV), master lease partners, government co-investment</li>
+        <li>Draft term sheet frameworks and partnership agreements in coordination with legal</li>
+      </ul>
+    </div>
+
+    <h3>Active Finance Files to Inherit</h3>
+    <table class="files-table">
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Status</th>
+          <th>Next Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lakeview Credit Union mortgage</td>
+          <td><span class="badge">In Progress</span></td>
+          <td>Advance to construction mortgage</td>
+        </tr>
+        <tr>
+          <td>Peace Community Trust grant</td>
+          <td><span class="badge">In Progress</span></td>
+          <td>Monitor, respond, advance</td>
+        </tr>
+        <tr>
+          <td>Offset Construction Challenge</td>
+          <td><span class="badge">Applied</span></td>
+          <td>Track status, respond if needed</td>
+        </tr>
+        <tr>
+          <td>UHNBC Prince George</td>
+          <td><span class="badge">Active</span></td>
+          <td>Build housing financial model</td>
+        </tr>
+        <tr>
+          <td>Dawson Creek Hub</td>
+          <td><span class="badge">Active</span></td>
+          <td>Construction financing package</td>
+        </tr>
+        <tr>
+          <td>Ontario hospital project</td>
+          <td><span class="badge">Active</span></td>
+          <td>Structure investment offering &amp; proposal</td>
+        </tr>
+        <tr>
+          <td>ERS investor pitch deck</td>
+          <td><span class="badge">Not Yet Built</span></td>
+          <td>Draft Q2 2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Role at a Glance -->
+  <div class="card">
+    <h2>Role at a Glance</h2>
+    <table class="summary-table">
+      <thead>
+        <tr><th>Domain</th><th>What It Covers</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Construction Unions</td><td>Labour relationships, project labour agreements, workforce housing contracts</td></tr>
+        <tr><td>Healthcare Unions</td><td>Worker wellbeing advocacy, housing-as-retention partnerships</td></tr>
+        <tr><td>Healthcare Associations</td><td>Doctors of BC, CMA, BCCNR — professional body relationships</td></tr>
+        <tr><td>Government &amp; Infrastructure BC</td><td>UHNBC, BC Housing, preferred partner positioning</td></tr>
+        <tr><td>Industry Associations</td><td>VRCA, BCCA, BCCR — construction and real estate bodies</td></tr>
+        <tr><td>First Nations</td><td>Equity partnerships, community housing programs</td></tr>
+        <tr><td>Health Authorities</td><td>Master lease agreements, preferred vendor status</td></tr>
+        <tr><td>Municipalities</td><td>Permitting relationships, community investment</td></tr>
+        <tr><td>Media</td><td>Digital, print, broadcast — all unified under ERS brand</td></tr>
+        <tr><td>Engagement Campaigns</td><td>5 concurrent campaigns, all coordinated</td></tr>
+        <tr><td>Events</td><td>6–10 events/year, speaking circuit for Austin</td></tr>
+        <tr><td>Investor Relations</td><td>Pitch materials, pipeline, deal structuring</td></tr>
+        <tr><td>Development Finance</td><td>Pro formas, construction mortgages, lender packages</td></tr>
+        <tr><td>Grants</td><td>Research, write, submit, manage</td></tr>
+        <tr><td>Budgeting</td><td>Operating budget, project models, campaign line items</td></tr>
+        <tr><td>Partnership Finance</td><td>JV structures, equity deals, term sheet frameworks</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Compensation & Equity -->
+  <div class="section" id="compensation" style="margin-bottom:2rem;">
+    <h2 style="font-size:1.6rem;color:var(--navy);margin-bottom:0.5rem;">Compensation &amp; Equity Structure</h2>
+    <p style="color:var(--mid);margin-bottom:1.5rem;">Confirmed April 20, 2026. Full terms in Independent Contractor Agreement dated April 20, 2026.</p>
+
+    <!-- Stats row -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:1.8rem;">
+      <div style="background:var(--navy);border-radius:10px;padding:16px 12px;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">$40/hr</div>
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:5px;">Phase 1 Rate</div>
+      </div>
+      <div style="background:var(--navy);border-radius:10px;padding:16px 12px;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">$60/hr</div>
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:5px;">Phase 2 Rate</div>
+      </div>
+      <div style="background:var(--navy);border-radius:10px;padding:16px 12px;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">3→4%</div>
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:5px;">Equity</div>
+      </div>
+      <div style="background:var(--navy);border-radius:10px;padding:16px 12px;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">$75K</div>
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:5px;">Buy-In Value</div>
+      </div>
+      <div style="background:var(--navy);border-radius:10px;padding:16px 12px;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">$25K</div>
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:5px;">Min. Cash In</div>
+      </div>
+    </div>
+
+    <!-- Phase table -->
+    <h3 style="font-size:1rem;color:var(--navy);margin-bottom:.75rem;">Phase Structure</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-bottom:1.5rem;">
+      <thead><tr style="background:var(--navy);color:#fff;"><th style="padding:9px 12px;text-align:left;">Phase</th><th style="padding:9px 12px;text-align:left;">Period</th><th style="padding:9px 12px;text-align:left;">Status</th><th style="padding:9px 12px;text-align:left;">Rate</th></tr></thead>
+      <tbody>
+        <tr style="background:var(--light);"><td style="padding:9px 12px;font-weight:700;">Phase 1</td><td style="padding:9px 12px;">April 23, 2026 – April 22, 2027</td><td style="padding:9px 12px;">Contractor → Payroll (Month 3)</td><td style="padding:9px 12px;font-weight:700;">$40/hr</td></tr>
+        <tr><td style="padding:9px 12px;font-weight:700;">Phase 2</td><td style="padding:9px 12px;">April 23, 2027 onward</td><td style="padding:9px 12px;">Employee (Payroll)</td><td style="padding:9px 12px;font-weight:700;">$60/hr*</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.8rem;color:var(--mid);margin-bottom:1.5rem;">*Phase 2 rate conditional on milestone achievement, business affordability, and 12-month performance review.</p>
+
+    <!-- Equity buy-in -->
+    <h3 style="font-size:1rem;color:var(--navy);margin-bottom:.75rem;">Equity Buy-In — 3% at $2.5M Valuation = $75,000</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:1.5rem;">
+      <div style="background:#EEF7F7;border:1.5px solid #3EA8A820;border-radius:9px;padding:14px 15px;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Component A — Sweat Equity</div>
+        <div style="font-size:1.4rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:4px;">~$15,600</div>
+        <div style="font-size:0.8rem;color:var(--mid);">$20/hr discount on base hours over 12 months (780 hrs × $20)</div>
+      </div>
+      <div style="background:#FFF8E8;border:1.5px solid #E8A02030;border-radius:9px;padding:14px 15px;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Component B — Cash Investment</div>
+        <div style="font-size:1.4rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:4px;">$25,000</div>
+        <div style="font-size:0.8rem;color:var(--mid);">Minimum cash paid into the Company. Paid in installments by April 23, 2028.</div>
+      </div>
+      <div style="background:#EEF3FA;border:1.5px solid #0B254020;border-radius:9px;padding:14px 15px;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Component C — Milestone Credit</div>
+        <div style="font-size:1.4rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:4px;">$34,400</div>
+        <div style="font-size:0.8rem;color:var(--mid);">Waived upon achieving a qualifying milestone. Elevates equity to 4% cap.</div>
+      </div>
+    </div>
+
+    <!-- Extra hours -->
+    <div style="background:var(--navy);border-radius:10px;padding:16px 20px;margin-bottom:1.5rem;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00BFA6;margin-bottom:6px;">Extra Hours Mechanic</div>
+      <p style="color:rgba(255,255,255,.8);font-size:0.88rem;margin:0;">For any hours worked <strong style="color:#fff;">above 15 per week</strong>, ERS does not pay cash. The full <strong style="color:#fff;">$60/hr value</strong> is credited directly toward the equity buy-in — reducing the cash requirement or accelerating progress toward milestone credit.</p>
+    </div>
+
+    <!-- Qualifying milestones -->
+    <h3 style="font-size:1rem;color:var(--navy);margin-bottom:.75rem;">Qualifying Milestones (any one → 4% equity, Component C waived)</h3>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;">
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--light);border:1px solid var(--border);border-radius:9px;">
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--navy);color:#00BFA6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">1</div>
+        <div><div style="font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:2px;">Northern Health Board &amp; CEO Meeting</div><div style="font-size:0.8rem;color:var(--mid);">Secures and facilitates an in-person meeting between ERS and the Board of Directors and CEO of Northern Health Authority.</div></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--light);border:1px solid var(--border);border-radius:9px;">
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--navy);color:#00BFA6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">2</div>
+        <div><div style="font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:2px;">Northern Health Large Client Signed</div><div style="font-size:0.8rem;color:var(--mid);">A master lease agreement or large-scale housing contract with Northern Health executed as a direct result of the Contractor's engagement efforts.</div></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--light);border:1px solid var(--border);border-radius:9px;">
+        <div style="width:26px;height:26px;border-radius:50%;background:var(--navy);color:#00BFA6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">3</div>
+        <div><div style="font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:2px;">Two Large Clients Signed via Campaigns</div><div style="font-size:0.8rem;color:var(--mid);">Two significant institutional clients (health authorities, construction companies, or equivalent) signed as a direct result of engagement campaigns.</div></div>
+      </div>
+    </div>
+
+    <!-- Vesting -->
+    <h3 style="font-size:1rem;color:var(--navy);margin-bottom:.75rem;">Vesting Schedule</h3>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:0.5rem;">
+      <div style="background:var(--light);border:1.5px solid var(--border);border-radius:9px;padding:12px;text-align:center;"><div style="font-size:1.6rem;font-weight:900;color:var(--navy);line-height:1;">25%</div><div style="font-size:0.68rem;font-weight:700;color:#00BFA6;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 2px;">12 Months</div><div style="font-size:0.78rem;color:var(--mid);">Apr 23, 2027</div></div>
+      <div style="background:var(--light);border:1.5px solid var(--border);border-radius:9px;padding:12px;text-align:center;"><div style="font-size:1.6rem;font-weight:900;color:var(--navy);line-height:1;">50%</div><div style="font-size:0.68rem;font-weight:700;color:#00BFA6;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 2px;">18 Months</div><div style="font-size:0.78rem;color:var(--mid);">Oct 23, 2027</div></div>
+      <div style="background:var(--light);border:1.5px solid var(--border);border-radius:9px;padding:12px;text-align:center;"><div style="font-size:1.6rem;font-weight:900;color:var(--navy);line-height:1;">75%</div><div style="font-size:0.68rem;font-weight:700;color:#00BFA6;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 2px;">24 Months</div><div style="font-size:0.78rem;color:var(--mid);">Apr 23, 2028</div></div>
+      <div style="background:var(--light);border:1.5px solid var(--border);border-radius:9px;padding:12px;text-align:center;"><div style="font-size:1.6rem;font-weight:900;color:var(--navy);line-height:1;">100%</div><div style="font-size:0.68rem;font-weight:700;color:#00BFA6;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 2px;">36 Months</div><div style="font-size:0.78rem;color:var(--mid);">Apr 23, 2029</div></div>
+    </div>
+  </div>
+
+  <!-- Why Now -->
+  <div class="why-now">
+    <h2>Why Now</h2>
+    <p>ERS is at an inflection point:</p>
+    <ul>
+      <li><strong>Infrastructure BC just called</strong> — UHNBC Prince George is on the table as a development and operations opportunity</li>
+      <li>Multiple grant applications are live and need active stewardship</li>
+      <li>Dawson Creek Hub needs construction financing</li>
+      <li>An Ontario opportunity is opening with a partner in place</li>
+      <li>The investor pitch hasn't been built yet</li>
+      <li>Every stakeholder relationship — unions, health authorities, First Nations, municipalities — needs a dedicated person driving it forward in a coordinated way</li>
+    </ul>
+    <p class="closer">This role is how ERS goes from doing great work to being <strong>the company everyone in the sector knows, trusts, and calls first.</strong></p>
+  </div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <strong>Elias Range Stays</strong> &nbsp;·&nbsp; Healthy Living, Stronger Communities &nbsp;·&nbsp; eliasrangestays.ca &nbsp;·&nbsp; austin@eliasrangestays.ca &nbsp;·&nbsp; (250) 719-8085
+</div>
+
+</body>
+</html>

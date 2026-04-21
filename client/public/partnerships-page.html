@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Authority Partnerships — Elias Range Stays</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#00304A;--ocean:#0078AE;--teal:#009793;--teal-faint:rgba(0,151,147,0.08);--off-white:#F5F8FA;--gray-light:#E2EAF0;--gray-mid:#8AAAB8;--gray-dark:#475569;--text:#334155;--white:#fff;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Nunito Sans",sans-serif;color:var(--text);background:var(--off-white);line-height:1.7;}
+h1,h2,h3,h4{font-family:"Syne",sans-serif;font-weight:800;}
+
+/* HEADER */
+.site-header{background:var(--navy);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
+.logo-box{background:#fff;border-radius:10px;padding:8px 14px;display:inline-flex;align-items:center;}
+.logo-box img{height:48px;width:auto;display:block;}
+.header-right{text-align:right;}
+.header-tagline{font-weight:600;font-size:0.88rem;color:var(--teal);letter-spacing:0.03em;}
+.header-nav{margin-top:4px;}
+.header-nav a{color:rgba(255,255,255,0.5);font-size:0.78rem;text-decoration:none;margin-left:16px;transition:color 0.2s;}
+.header-nav a:hover{color:#fff;}
+
+/* HERO */
+.hero{background:linear-gradient(140deg,#001e31 0%,var(--navy) 50%,#004a68 100%);padding:88px 40px 80px;text-align:center;color:#fff;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(0,151,147,0.12) 0%,transparent 70%);}
+.hero-eyebrow{display:inline-block;background:rgba(0,151,147,0.2);border:1px solid rgba(0,151,147,0.5);color:#a5f3f0;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:5px 18px;border-radius:999px;margin-bottom:24px;position:relative;}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);color:#fff;line-height:1.1;max-width:800px;margin:0 auto 20px;position:relative;}
+.hero h1 span{color:#5eead4;}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.65);max-width:660px;margin:0 auto 40px;line-height:1.7;position:relative;}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-primary{background:var(--teal);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:0.95rem;text-decoration:none;letter-spacing:0.02em;transition:background 0.2s,transform 0.15s;border:none;cursor:pointer;display:inline-block;}
+.btn-primary:hover{background:#007d7a;transform:translateY(-1px);}
+.btn-secondary{background:transparent;color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:0.95rem;text-decoration:none;letter-spacing:0.02em;border:1px solid rgba(255,255,255,0.3);transition:border-color 0.2s,background 0.2s;display:inline-block;}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.05);}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-light);}
+.stat-cell{background:var(--navy);padding:28px 32px;text-align:center;}
+.stat-num{font-family:"Syne",sans-serif;font-weight:800;font-size:2.2rem;color:#5eead4;line-height:1;margin-bottom:6px;}
+.stat-lbl{font-size:0.8rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;}
+
+/* MISSION BAND */
+.mission-band{background:var(--teal);padding:28px 40px;text-align:center;}
+.mission-band p{font-family:"Syne",sans-serif;font-weight:700;font-size:1.15rem;color:#fff;letter-spacing:0.03em;font-style:italic;}
+.mission-band span{opacity:0.7;font-size:0.8rem;display:block;margin-top:4px;font-family:"Nunito Sans",sans-serif;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;}
+
+/* CONTENT */
+.section{padding:80px 40px;}
+.section-inner{max-width:980px;margin:0 auto;}
+.section-alt{background:#fff;}
+.section-label{display:inline-block;background:var(--teal-faint);border:1px solid rgba(0,151,147,0.3);color:var(--teal);font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:4px 14px;border-radius:999px;margin-bottom:14px;}
+.section h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--navy);margin-bottom:16px;line-height:1.2;}
+.section-intro{font-size:1.05rem;color:var(--gray-dark);margin-bottom:40px;max-width:720px;line-height:1.8;}
+
+/* SERVICE PILLARS */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.pillar{background:var(--off-white);border-radius:12px;padding:26px 22px;border-top:3px solid var(--teal);}
+.pillar-icon{width:42px;height:42px;background:var(--teal-faint);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;}
+.pillar h3{font-size:0.97rem;color:var(--navy);margin-bottom:8px;}
+.pillar p{font-size:0.86rem;color:var(--gray-dark);line-height:1.7;}
+
+/* PARTNERSHIP TIERS */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px;}
+.tier-card{border-radius:14px;padding:36px 28px;border:1px solid var(--gray-light);background:#fff;position:relative;transition:box-shadow 0.2s;}
+.tier-card:hover{box-shadow:0 6px 28px rgba(0,48,74,0.1);}
+.tier-card.featured{border-color:var(--teal);background:linear-gradient(160deg,#f0fdfc 0%,#fff 60%);}
+.tier-card.top{border-color:var(--navy);background:linear-gradient(160deg,#eef4f8 0%,#fff 60%);}
+.tier-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 16px;border-radius:999px;white-space:nowrap;color:#fff;}
+.tier-badge.teal{background:var(--teal);}
+.tier-badge.navy{background:var(--navy);}
+.tier-icon{font-size:2rem;margin-bottom:14px;margin-top:8px;}
+.tier-name{font-family:"Syne",sans-serif;font-weight:800;font-size:1.25rem;color:var(--navy);margin-bottom:8px;}
+.tier-tagline{font-size:0.85rem;color:var(--teal);font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.06em;}
+.tier-desc{font-size:0.88rem;color:var(--gray-dark);line-height:1.7;margin-bottom:20px;}
+.tier-features{list-style:none;}
+.tier-features li{font-size:0.84rem;color:var(--text);padding:6px 0;border-bottom:1px solid var(--gray-light);display:flex;align-items:flex-start;gap:8px;}
+.tier-features li:last-child{border-bottom:none;}
+.tier-features li::before{content:"✓";color:var(--teal);font-weight:700;flex-shrink:0;margin-top:1px;}
+.tier-features li.highlight::before{content:"★";color:var(--navy);}
+
+/* INFRASTRUCTURE SCALE TABLE */
+.infra-scale{margin-top:32px;border-radius:14px;overflow:hidden;border:1px solid var(--gray-light);}
+.infra-scale table{width:100%;border-collapse:collapse;background:#fff;}
+.infra-scale th{background:var(--navy);color:#fff;padding:14px 18px;font-family:"Syne",sans-serif;font-size:0.82rem;font-weight:700;text-align:left;letter-spacing:0.04em;}
+.infra-scale td{padding:13px 18px;font-size:0.85rem;border-bottom:1px solid var(--gray-light);vertical-align:top;color:var(--text);}
+.infra-scale tr:last-child td{border-bottom:none;}
+.infra-scale tr:nth-child(even) td{background:var(--off-white);}
+.infra-scale td:first-child{font-weight:700;color:var(--navy);}
+.check{color:var(--teal);font-weight:700;}
+.check-star{color:var(--navy);font-weight:700;}
+.dash{color:var(--gray-mid);}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--gray-light);border-radius:12px;overflow:hidden;}
+.step{background:#fff;padding:30px 26px;}
+.step-num{font-family:"Syne",sans-serif;font-weight:800;font-size:2.2rem;color:var(--gray-light);line-height:1;margin-bottom:10px;}
+.step h3{font-size:1rem;color:var(--navy);margin-bottom:8px;}
+.step p{font-size:0.86rem;color:var(--gray-dark);line-height:1.7;}
+
+/* PULL QUOTE */
+.pull-quote{background:var(--navy);border-radius:16px;padding:48px 52px;margin:56px 0 0;position:relative;overflow:hidden;}
+.pull-quote::before{content:"\201C";position:absolute;top:-16px;left:32px;font-size:120px;color:var(--teal);opacity:0.15;font-family:Georgia,serif;line-height:1;}
+.pull-quote p{font-size:1.1rem;color:#fff;font-style:italic;line-height:1.8;position:relative;margin-bottom:14px;}
+.pull-quote cite{font-size:0.78rem;color:var(--teal);font-style:normal;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;position:relative;}
+
+/* RFI FORM */
+.rfi-section{background:var(--navy);padding:80px 40px;}
+.rfi-inner{max-width:760px;margin:0 auto;}
+.rfi-section .section-label{background:rgba(0,151,147,0.15);border-color:rgba(0,151,147,0.4);color:#5eead4;}
+.rfi-section h2{color:#fff;margin-bottom:12px;}
+.rfi-section .section-intro{color:rgba(255,255,255,0.6);margin-bottom:40px;}
+.rfi-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:40px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+.form-group{display:flex;flex-direction:column;gap:8px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:0.08em;text-transform:uppercase;}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:13px 16px;color:#fff;font-family:"Nunito Sans",sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s,background 0.2s;width:100%;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.3);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--teal);background:rgba(0,151,147,0.08);}
+.form-group select option{background:#00304A;color:#fff;}
+.form-group textarea{resize:vertical;min-height:100px;}
+.form-consent{display:flex;align-items:flex-start;gap:12px;margin:24px 0 28px;font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.6;}
+.form-consent input[type="checkbox"]{width:16px;height:16px;flex-shrink:0;margin-top:3px;accent-color:var(--teal);cursor:pointer;}
+.form-submit{width:100%;background:var(--teal);color:#fff;border:none;border-radius:8px;padding:16px 24px;font-family:"Syne",sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.04em;cursor:pointer;transition:background 0.2s,transform 0.15s;}
+.form-submit:hover{background:#007d7a;transform:translateY(-1px);}
+.form-note{text-align:center;margin-top:16px;font-size:0.78rem;color:rgba(255,255,255,0.3);}
+.form-confirm{display:none;text-align:center;padding:48px 32px;}
+.confirm-icon{width:64px;height:64px;background:rgba(0,151,147,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 20px;}
+
+/* BOOK A CALL */
+.call-section{padding:80px 40px;background:#fff;}
+.call-inner{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.call-content h2{font-size:clamp(1.5rem,2.5vw,2rem);color:var(--navy);margin-bottom:14px;}
+.call-content p{color:var(--gray-dark);line-height:1.8;margin-bottom:20px;}
+.call-features{list-style:none;margin-bottom:32px;}
+.call-features li{display:flex;align-items:center;gap:10px;font-size:0.92rem;color:var(--text);padding:6px 0;}
+.call-features li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}
+.calendly-embed{background:var(--off-white);border:1px solid var(--gray-light);border-radius:16px;padding:40px 36px;text-align:center;}
+.cal-slots{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 24px;}
+.cal-slot{background:#fff;border:1px solid var(--gray-light);border-radius:8px;padding:10px 14px;font-size:0.82rem;color:var(--navy);font-weight:600;}
+.btn-book{display:block;width:100%;background:var(--navy);color:#fff;border:none;border-radius:8px;padding:14px 24px;font-family:"Syne",sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;text-decoration:none;transition:background 0.2s;text-align:center;}
+.btn-book:hover{background:#004a68;}
+
+/* FOOTER */
+footer{background:var(--navy);padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;border-top:1px solid rgba(255,255,255,0.07);}
+footer .logo-box img{height:44px;}
+.footer-right{text-align:right;}
+.footer-tagline{font-size:0.82rem;color:var(--teal);font-weight:600;}
+.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:4px;}
+.footer-copy a{color:rgba(0,151,147,0.6);text-decoration:none;}
+
+@media(max-width:768px){
+  .site-header{padding:14px 20px;}
+  .hero{padding:60px 24px 56px;}
+  .stats-bar{grid-template-columns:1fr 1fr;}
+  .section{padding:56px 24px;}
+  .pillars,.steps,.tiers{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .rfi-section{padding:56px 24px;}
+  .rfi-form{padding:28px 20px;}
+  .call-section{padding:56px 24px;}
+  .call-inner{grid-template-columns:1fr;gap:40px;}
+  .cal-slots{grid-template-columns:1fr;}
+  footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+  .footer-right{text-align:left;}
+  .infra-scale{overflow-x:auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo-box"><img src="data:image/png;base64,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" alt="Elias Range Stays"></div>
+  <div class="header-right">
+    <div class="header-tagline">Healthy Living &middot; Stronger Communities</div>
+    <nav class="header-nav">
+      <a href="https://eliasrangestays.ca">Home</a>
+      <a href="#services">Services</a>
+      <a href="#tiers">Partnership Tiers</a>
+      <a href="#rfi">Request Info</a>
+      <a href="#book">Book a Call</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Health Authority Partnerships</div>
+  <h1>One Partner.<br><span>Everything Your Staff Needs to Thrive.</span></h1>
+  <p class="hero-sub">
+    Elias Range Stays delivers complete workforce housing infrastructure for health authorities across BC &mdash;
+    purpose-built communities where your nurses, doctors, locums, and allied professionals can live, connect, and stay.
+  </p>
+  <div class="hero-ctas">
+    <a href="#rfi" class="btn-primary">Request Information Package</a>
+    <a href="#book" class="btn-secondary">Book a Discovery Call</a>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-cell"><div class="stat-num">5</div><div class="stat-lbl">Years Supporting Hospitals</div></div>
+  <div class="stat-cell"><div class="stat-num">6</div><div class="stat-lbl">Hospitals Served</div></div>
+  <div class="stat-cell"><div class="stat-num">3</div><div class="stat-lbl">Health Authorities Served</div></div>
+  <div class="stat-cell"><div class="stat-num">125+</div><div class="stat-lbl">Healthcare Professionals Supported</div></div>
+</div>
+
+<!-- HOSPITALS PANEL -->
+<div style="background:var(--navy);padding:40px;">
+  <div style="max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,179,0,0.25);border-radius:12px;padding:32px 28px;display:flex;align-items:center;gap:16px;">
+      <div style="width:12px;height:12px;border-radius:50%;background:#f59e0b;box-shadow:0 0 10px #f59e0b;flex-shrink:0;"></div>
+      <div>
+        <div style="font-family:Syne,sans-serif;font-weight:800;font-size:1rem;color:#fff;margin-bottom:4px;">Hospitals in Construction</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.55;">ERS is positioned to provide workforce housing infrastructure for construction crews and incoming clinical staff at active hospital builds across BC.</div>
+      </div>
+    </div>
+
+    <div style="background:rgba(0,151,147,0.08);border:1px solid rgba(0,151,147,0.3);border-radius:12px;padding:32px 28px;display:flex;align-items:center;gap:16px;">
+      <div style="width:12px;height:12px;border-radius:50%;background:#5eead4;box-shadow:0 0 10px rgba(94,234,212,0.7);flex-shrink:0;"></div>
+      <div>
+        <div style="font-family:Syne,sans-serif;font-weight:800;font-size:1rem;color:#fff;margin-bottom:4px;">Hospitals in Operation</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.55;">Active hospital communities where ERS is already operating or positioned for immediate housing partnerships with permanent and travel staff.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MISSION BAND -->
+<div class="mission-band">
+  <p>&ldquo;To serve those who provide health to others.&rdquo;</p>
+  <span>Our Mission &mdash; Elias Range Stays</span>
+</div>
+
+<!-- WHAT WE SOLVE -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-label">What We Solve</div>
+    <h2>One building. Every need covered.<br>Zero burden on your team.</h2>
+    <p class="section-intro">
+      Health authorities across BC are losing staff to the housing crisis. Rural and remote communities face chronic
+      service disruptions because healthcare workers have nowhere safe, affordable, and community-connected to live.
+      ERS builds purpose-designed facilities that house, support, and retain your entire workforce &mdash; under one roof,
+      managed by one partner, on one invoice.
+    </p>
+    <div class="pillars" id="service-pillars">
+
+      <div class="pillar">
+        <div class="pillar-icon">🏠</div>
+        <h3>Sourcing &amp; Ownership</h3>
+        <p>We source, lease, or develop housing near your facilities. We carry the infrastructure risk so your organization doesn&rsquo;t have to.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🛋️</div>
+        <h3>Turnkey Furnishing</h3>
+        <p>Every unit fully furnished and move-in ready &mdash; beds, linens, kitchen, Wi-Fi. Your staff arrive to a home, not an empty room.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🧹</div>
+        <h3>Cleaning &amp; Maintenance</h3>
+        <p>Professional cleaning on every turnover. Maintenance resolved within 24 hours. Hotel-level standards, every time.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">❤️</div>
+        <h3>Attraction &amp; Retention</h3>
+        <p>Purpose-built communities that give healthcare workers a reason to stay. Measurable improvement in retention and wellness outcomes.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">📋</div>
+        <h3>Bookings &amp; Scheduling</h3>
+        <p>ERS handles all unit assignments, move-ins, and scheduling. One request from your HR team &mdash; we do the rest.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🏥</div>
+        <h3>Accommodation Types Supported</h3>
+        <p>Short-term staff, long-term staff, locums, travelling specialists, nurses, doctors, allied health professionals &mdash; all accommodated in purpose-fitted room configurations designed for each resident profile.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🩺</div>
+        <h3>Clinical &amp; Practitioner Spaces</h3>
+        <p>Leasable clinic and practitioner spaces within the building for health clinics, allied healthcare professionals, and community health services.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🌿</div>
+        <h3>Community &amp; Wellness Programming</h3>
+        <p>Events coordination, recreational spaces, fresh food programs, greenhouse &amp; garden services, and on-site amenities that build community and reduce isolation.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🔧</div>
+        <h3>Renovations &amp; Property Management</h3>
+        <p>Full-service property management including renovations, unit upgrades, and lifecycle maintenance &mdash; you never touch a wrench.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🔗</div>
+        <h3>Direct Coordination with Your Team</h3>
+        <p>ERS operates across three layers of your organization: <strong>Admin &amp; Booking Coordinators</strong> for day-to-day unit requests and scheduling; <strong>Management &amp; HR</strong> for staffing outcomes, reporting, and feedback loops; and <strong>Executive Leadership</strong> for strategic alignment, partnership reviews, and system-level improvement. One partner, connected at every level.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🚌</div>
+        <h3>Transportation Services</h3>
+        <p>Coordination of transit and transportation for staff between housing and hospital facilities, available at higher commitment tiers.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">👶</div>
+        <h3>Daycare &amp; Family Spaces</h3>
+        <p>Family-friendly infrastructure including daycare access and shared family amenity spaces, designed to support the whole person, not just the employee.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🧾</div>
+        <h3>Existing Unit Takeover</h3>
+        <p>Already managing units? ERS can take over the property management, operations, lease administration, and corporate administration of your existing housing portfolio — immediately. If your authority owns units, we can acquire that ownership outright, hold the assets on our books, and run everything under one ERS-managed structure. You hand us the keys and the contracts. We handle the rest.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🗺️</div>
+        <h3>Regional Planning &amp; Co-Design</h3>
+        <p>ERS works directly with your authority to map regional need — number of beds, staff profiles, community locations, and program scope. We determine where housing infrastructure is needed, how many units, and what configuration. Your data drives the plan.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🏗️</div>
+        <h3>Development &amp; Investment</h3>
+        <p>ERS acquires land, secures permits, and builds purpose-designed healthcare housing hub facilities. We carry the development risk and deploy capital so your authority doesn&rsquo;t have to. From raw land to fully operational facility — we own and execute the full build.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🏛️</div>
+        <h3>Operations of New Facilities</h3>
+        <p>Once built, ERS operates the facility end-to-end — staffing, maintenance, community programming, clinical spaces, bookings, and reporting. The health authority gets a purpose-built asset operating at full capacity from day one.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🧾</div>
+        <h3>Community Platform &amp; Partner Convening</h3>
+        <p>ERS doesn&rsquo;t just build housing &mdash; we build the ecosystem around it. We bring together municipalities, local business partners, national organizations (such as the YMCA for childcare and recreation), adjacent healthcare professionals, and community services to activate the full platform. The result is a living community infrastructure, not just a building.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🤝</div>
+        <h3>Strategic Consulting &amp; Transition Support</h3>
+        <p>ERS provides consulting services to health authorities navigating the transition to purpose-built housing infrastructure &mdash; before, during, and after deployment. We work with your leadership team to assess current state, model the optimal solution, coordinate partners, and support implementation at every level: admin, management, and executive.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">📈</div>
+        <h3>Expanded Market Impact</h3>
+        <p>A fully activated ERS platform serves a far larger population than initially anticipated &mdash; permanent staff, locums, construction crews, allied professionals, clinical partners, and community members all benefit from the infrastructure. The knock-on effect on local retention, recruitment, and community health outcomes compounds over time.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">🧾</div>
+        <h3>Single Invoice Model</h3>
+        <p>One contract. One partner. One invoice. No juggling landlords, vendors, or service providers. Complete spend transparency every month.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2>From first conversation to fully operational &mdash; we handle everything.</h2>
+    <p class="section-intro">Partnership with ERS is designed to be effortless for your team. You define the need; we deliver the infrastructure.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><h3>Discovery &amp; Needs Assessment</h3><p>We learn your communities, staff profile, resident types, volume, and budget. You describe the problem &mdash; we map the solution.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>Partnership Agreement</h3><p>We structure a master lease or investment agreement matched to your procurement process. One contract, clear terms, no surprises.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Facility Design &amp; Deployment</h3><p>ERS sources or develops the facility. Room types, clinical spaces, amenities, and community programming are tailored to your exact staff mix.</p></div>
+      <div class="step"><div class="step-num">04</div><h3>Ongoing Operations</h3><p>We manage everything &mdash; bookings, cleaning, maintenance, community events, guest services, and 24/7 staff support. One invoice, monthly.</p></div>
+      <div class="step"><div class="step-num">05</div><h3>Scale With You</h3><p>New hospitals, new communities, new programs &mdash; ERS scales with your authority. One partner across your entire footprint.</p></div>
+      <div class="step"><div class="step-num">06</div><h3>Results &amp; Reporting</h3><p>Occupancy, cost savings vs. hotels, staff satisfaction, and retention data. We give you the numbers to prove the partnership internally.</p></div>
+    </div>
+    <div class="pull-quote">
+      <p>We started with two units in Terrace in 2022. Today we support health authorities, construction crews, and government clients across BC. Every community we enter, we build to stay &mdash; because our model is built for permanence, not transactions.</p>
+      <cite>Austin James Neill &mdash; Founder, Elias Range Stays</cite>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIP TIERS -->
+<section class="section" id="tiers">
+  <div class="section-inner">
+    <div class="section-label">Stages of Commitment</div>
+    <h2>Start where you are. Grow as you go.</h2>
+    <p class="section-intro">
+      ERS meets your health authority at whatever stage of readiness you&rsquo;re at. Begin with a pilot to validate the model,
+      expand to a regional partnership as confidence builds, then move into a full infrastructure investment &mdash; where deeper
+      commitment unlocks deeper value, lower cost, and higher quality across the board.
+    </p>
+
+    <!-- COMMITMENT STORY -->
+    <div style="margin-bottom:48px;">
+
+
+
+
+      <!-- ESCALATION VISUAL -->
+      <style>
+        .esc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+        .esc-card{border-radius:16px;padding:32px 26px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:20px;}
+        .esc-stage{font-family:Syne,sans-serif;font-weight:800;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;}
+        .esc-title{font-family:Syne,sans-serif;font-weight:800;font-size:1.6rem;line-height:1;}
+        .esc-tagline{font-size:0.88rem;line-height:1.65;}
+        .esc-metrics{display:flex;flex-direction:column;gap:12px;}
+        .esc-metric{}
+        .esc-metric-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+        .esc-track{height:10px;border-radius:5px;overflow:hidden;}
+        .esc-fill{height:100%;border-radius:5px;}
+        .esc-note{font-size:0.72rem;margin-top:3px;}
+        .esc-icons{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+        .esc-icon-pill{font-size:0.72rem;padding:3px 10px;border-radius:999px;font-weight:600;}
+        .esc-orb{position:absolute;border-radius:50%;pointer-events:none;}
+        @media(max-width:700px){.esc-grid{grid-template-columns:1fr;}}
+      </style>
+
+      <div class="esc-grid">
+
+        <!-- STAGE 1: PILOT -->
+        <div class="esc-card" style="background:#F0F4F8;border:1px solid #D6E0EA;">
+          <div>
+            <div class="esc-stage" style="color:var(--gray-mid);">Stage 01</div>
+            <div class="esc-title" style="color:var(--navy);margin-top:6px;">Pilot</div>
+            <div class="esc-tagline" style="color:var(--gray-dark);margin-top:10px;">You test the model. Your staff get housed. You start to see what&rsquo;s possible.</div>
+          </div>
+          <div class="esc-icons">
+            <span class="esc-icon-pill" style="background:#E2EAF0;color:var(--navy);">🏠 Furnished units</span>
+            <span class="esc-icon-pill" style="background:#E2EAF0;color:var(--navy);">🧹 Cleaning</span>
+            <span class="esc-icon-pill" style="background:#E2EAF0;color:var(--navy);">📋 Bookings</span>
+            <span class="esc-icon-pill" style="background:#E2EAF0;color:var(--navy);">🧾 1 Invoice</span>
+          </div>
+          <div class="esc-metrics">
+            <div class="esc-metric">
+              <div class="esc-metric-label" style="color:var(--gray-mid);"><span>💰</span> Cost Per Unit</div>
+              <div class="esc-track" style="background:#D6E0EA;"><div class="esc-fill" style="width:78%;background:#8AAAB8;"></div></div>
+              <div class="esc-note" style="color:var(--gray-mid);">Standard rate</div>
+            </div>
+            <div class="esc-metric">
+              <div class="esc-metric-label" style="color:var(--gray-mid);"><span>⚙️</span> Admin Burden</div>
+              <div class="esc-track" style="background:#D6E0EA;"><div class="esc-fill" style="width:62%;background:#8AAAB8;"></div></div>
+              <div class="esc-note" style="color:var(--gray-mid);">Simplified vs. today</div>
+            </div>
+            <div class="esc-metric">
+              <div class="esc-metric-label" style="color:var(--gray-mid);"><span>❤️</span> Retention Impact</div>
+              <div class="esc-track" style="background:#D6E0EA;"><div class="esc-fill" style="width:30%;background:#8AAAB8;"></div></div>
+              <div class="esc-note" style="color:var(--gray-mid);">Early gains</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 2: REGIONAL -->
+        <div class="esc-card" style="background:var(--teal);">
+          <div class="esc-orb" style="width:180px;height:180px;top:-60px;right:-60px;background:rgba(255,255,255,0.07);"></div>
+          <div style="position:relative;">
+            <div class="esc-stage" style="color:rgba(255,255,255,0.55);">Stage 02</div>
+            <div class="esc-title" style="color:#fff;margin-top:6px;">Regional</div>
+            <div class="esc-tagline" style="color:rgba(255,255,255,0.85);margin-top:10px;">You expand. Staff have community. The data confirms everything you felt in the Pilot.</div>
+          </div>
+          <div class="esc-icons" style="position:relative;">
+            <span class="esc-icon-pill" style="background:rgba(255,255,255,0.18);color:#fff;">🏠 Furnished units</span>
+            <span class="esc-icon-pill" style="background:rgba(255,255,255,0.18);color:#fff;">🧹 Cleaning</span>
+            <span class="esc-icon-pill" style="background:rgba(255,255,255,0.18);color:#fff;">📋 Bookings</span>
+            <span class="esc-icon-pill" style="background:rgba(255,255,255,0.18);color:#fff;">🧾 1 Invoice</span>
+            <span class="esc-icon-pill" style="background:rgba(255,255,255,0.28);color:#fff;font-weight:700;">🤝 Community</span>
+            <span class="esc-icon-pill" style="background:rgba(255,255,255,0.28);color:#fff;font-weight:700;">📊 HR Reporting</span>
+            <span class="esc-icon-pill" style="background:rgba(255,255,255,0.28);color:#fff;font-weight:700;">🗺️ Multi-community</span>
+          </div>
+          <div class="esc-metrics" style="position:relative;">
+            <div class="esc-metric">
+              <div class="esc-metric-label" style="color:rgba(255,255,255,0.7);"><span>💰</span> Cost Per Unit</div>
+              <div class="esc-track" style="background:rgba(255,255,255,0.2);"><div class="esc-fill" style="width:48%;background:#fff;"></div></div>
+              <div class="esc-note" style="color:rgba(255,255,255,0.65);">Reduced — volume aligned</div>
+            </div>
+            <div class="esc-metric">
+              <div class="esc-metric-label" style="color:rgba(255,255,255,0.7);"><span>⚙️</span> Admin Burden</div>
+              <div class="esc-track" style="background:rgba(255,255,255,0.2);"><div class="esc-fill" style="width:30%;background:#fff;"></div></div>
+              <div class="esc-note" style="color:rgba(255,255,255,0.65);">One partner, fully managed</div>
+            </div>
+            <div class="esc-metric">
+              <div class="esc-metric-label" style="color:rgba(255,255,255,0.7);"><span>❤️</span> Retention Impact</div>
+              <div class="esc-track" style="background:rgba(255,255,255,0.2);"><div class="esc-fill" style="width:66%;background:#fff;"></div></div>
+              <div class="esc-note" style="color:rgba(255,255,255,0.65);">Strong regional outcomes</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 3: INFRASTRUCTURE -->
+        <div class="esc-card" style="background:var(--navy);">
+          <div class="esc-orb" style="width:220px;height:220px;top:-80px;right:-80px;background:rgba(0,151,147,0.15);"></div>
+          <div class="esc-orb" style="width:120px;height:120px;bottom:-40px;left:-30px;background:rgba(0,151,147,0.08);"></div>
+          <div style="position:relative;">
+            <div class="esc-stage" style="color:#5eead4;opacity:0.7;">Stage 03 — Everything</div>
+            <div class="esc-title" style="color:#5eead4;margin-top:6px;">Infrastructure</div>
+            <div class="esc-tagline" style="color:rgba(255,255,255,0.7);margin-top:10px;">You invest. Your staff never leave. Recruitment runs itself. The building becomes your greatest retention tool.</div>
+          </div>
+          <div class="esc-icons" style="position:relative;">
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.12);color:#5eead4;">🏠 Furnished</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.12);color:#5eead4;">🧹 Cleaning</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.12);color:#5eead4;">📋 Bookings</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.12);color:#5eead4;">🧾 1 Invoice</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.2);color:#5eead4;font-weight:700;">🤝 Community</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.2);color:#5eead4;font-weight:700;">🩺 Clinic Space</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.2);color:#5eead4;font-weight:700;">👶 Daycare</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.28);color:#fff;font-weight:700;">🌿 Fresh Food</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.28);color:#fff;font-weight:700;">🚌 Transport</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.28);color:#fff;font-weight:700;">🎉 Events</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.28);color:#fff;font-weight:700;">🛎️ Concierge</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.28);color:#fff;font-weight:700;">🔑 Unit Takeover</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.28);color:#fff;font-weight:700;">📂 Asset Acquisition</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.35);color:#fff;font-weight:800;">🗺️ Regional Planning</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.35);color:#fff;font-weight:800;">🏗️ Hub Development</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.35);color:#fff;font-weight:800;">🏛️ Facility Operations</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.35);color:#fff;font-weight:800;">🌐 Community Platform</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.35);color:#fff;font-weight:800;">🏢 Municipal Partners</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.35);color:#fff;font-weight:800;">💼 Consulting</span>
+            <span class="esc-icon-pill" style="background:rgba(94,234,212,0.35);color:#fff;font-weight:800;">📈 Exec Reviews</span>
+          </div>
+          <div class="esc-metrics" style="position:relative;">
+            <div class="esc-metric">
+              <div class="esc-metric-label" style="color:rgba(94,234,212,0.8);"><span>💰</span> Cost Per Unit</div>
+              <div class="esc-track" style="background:rgba(255,255,255,0.08);"><div class="esc-fill" style="width:12%;background:#5eead4;"></div></div>
+              <div class="esc-note" style="color:rgba(255,255,255,0.4);">Lowest — investment-aligned</div>
+            </div>
+            <div class="esc-metric">
+              <div class="esc-metric-label" style="color:rgba(94,234,212,0.8);"><span>⚙️</span> Admin Burden</div>
+              <div class="esc-track" style="background:rgba(255,255,255,0.08);"><div class="esc-fill" style="width:5%;background:#5eead4;"></div></div>
+              <div class="esc-note" style="color:rgba(255,255,255,0.4);">Near-zero — fully managed</div>
+            </div>
+            <div class="esc-metric">
+              <div class="esc-metric-label" style="color:rgba(94,234,212,0.8);"><span>❤️</span> Retention Impact</div>
+              <div class="esc-track" style="background:rgba(255,255,255,0.08);"><div class="esc-fill" style="width:100%;background:#5eead4;"></div></div>
+              <div class="esc-note" style="color:rgba(255,255,255,0.4);">Maximum — housing is recruitment</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;margin-top:18px;font-size:0.85rem;color:var(--gray-mid);">The deeper the commitment &rarr; the more value flows back to your authority, your staff, and your community.</div>
+
+    </div><!-- end commitment story -->
+
+    <div class="tiers">
+
+      <!-- TIER 1: PILOT -->
+      <div class="tier-card">
+        <div class="tier-icon">🌱</div>
+        <div class="tier-name">Pilot Partnership</div>
+        <div class="tier-tagline">Prove the model first</div>
+        <p class="tier-desc">A low-commitment entry point to validate ERS in one community. See the cost savings, staff satisfaction, and operational simplicity before scaling.</p>
+        <ul class="tier-features">
+          <li>2&ndash;10 units in a single community</li>
+          <li>Fully furnished &amp; managed</li>
+          <li>Short-term &amp; long-term staff support</li>
+          <li>Single invoice billing</li>
+          <li>3&ndash;6 month initial term</li>
+          <li>Dedicated ERS contact</li>
+          <li>Performance &amp; savings reporting</li>
+        </ul>
+      </div>
+
+      <!-- TIER 2: REGIONAL -->
+      <div class="tier-card featured">
+        <div class="tier-badge teal">Most Popular</div>
+        <div class="tier-icon">🤝</div>
+        <div class="tier-name">Regional Partnership</div>
+        <div class="tier-tagline">Multi-community, unified strategy</div>
+        <p class="tier-desc">Expand across multiple communities under a master lease agreement. ERS becomes your regional housing partner with a coordinated strategy across your authority.</p>
+        <ul class="tier-features">
+          <li>10&ndash;50 units, 2&ndash;5 communities</li>
+          <li>Master lease agreement</li>
+          <li>Room types for all staff profiles</li>
+          <li>Locums, nurses, allied professionals</li>
+          <li>Community programming included</li>
+          <li>Priority unit availability</li>
+          <li>Monthly executive reporting</li>
+          <li>Retention &amp; attraction strategy</li>
+        </ul>
+      </div>
+
+      <!-- TIER 3: INFRASTRUCTURE -->
+      <div class="tier-card top">
+        <div class="tier-badge navy">Highest Value</div>
+        <div class="tier-icon">🏛️</div>
+        <div class="tier-name">Infrastructure Partnership</div>
+        <div class="tier-tagline">Investment today. Total infrastructure.</div>
+        <p class="tier-desc">A strategic investment by the health authority into a purpose-built ERS facility. Deeper commitment unlocks the full suite of services, lowest cost per unit, and the highest quality environment.</p>
+        <ul class="tier-features">
+          <li>50+ units, purpose-built facility</li>
+          <li class="highlight">Existing unit takeover &amp; asset acquisition</li>
+          <li class="highlight">Lease &amp; contract administration</li>
+          <li class="highlight">Regional planning &amp; needs co-design</li>
+          <li class="highlight">Land acquisition &amp; hub development</li>
+          <li class="highlight">Health authority investment structure</li>
+          <li class="highlight">Lowest master lease rates / cost per unit</li>
+          <li>Co-designed room mix (all staff types)</li>
+          <li>Clinical &amp; practitioner lease spaces</li>
+          <li>Daycare &amp; family amenity spaces</li>
+          <li>Recreational &amp; community spaces</li>
+          <li class="highlight">Concierge &amp; front desk service</li>
+          <li class="highlight">Fresh food &amp; greenhouse program</li>
+          <li class="highlight">Transportation coordination</li>
+          <li class="highlight">Events &amp; healthcare professional programming</li>
+          <li class="highlight">Community platform &amp; partner convening</li>
+          <li class="highlight">Municipal, YMCA &amp; business partnerships</li>
+          <li class="highlight">Strategic consulting &amp; transition support</li>
+          <li>Annual strategic planning sessions</li>
+          <li>Dedicated operations team</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div class="infra-scale" style="margin-top:48px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Service / Feature</th>
+            <th>Pilot</th>
+            <th>Regional</th>
+            <th>Infrastructure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Furnished units</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Cleaning &amp; maintenance</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Bookings &amp; scheduling</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Single invoice</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Short-term staff rooms</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Long-term staff rooms</td><td class="dash">&mdash;</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Locum &amp; specialist accommodation</td><td class="dash">&mdash;</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Community programming</td><td class="dash">&mdash;</td><td class="check">✓</td><td class="check-star">★</td></tr>
+          <tr><td>Clinical / practitioner lease spaces</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Daycare &amp; family spaces</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Recreational spaces</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Concierge &amp; front desk</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Fresh food / greenhouse program</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Transportation coordination</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Events &amp; professional programming</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Existing unit takeover &amp; asset acquisition</td><td class="dash">&mdash;</td><td class="check">✓</td><td class="check-star">★</td></tr>
+          <tr><td>Lease &amp; contract administration</td><td class="dash">&mdash;</td><td class="check">✓</td><td class="check-star">★</td></tr>
+          <tr><td>Regional planning &amp; needs co-design</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Land acquisition &amp; hub development</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>New facility operations</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Health authority investment structure</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Community platform &amp; partner convening</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-star">★</td></tr>
+          <tr><td>Strategic consulting &amp; transition support</td><td class="dash">&mdash;</td><td class="check">✓</td><td class="check-star">★</td></tr>
+          <tr><td>Expanded market impact reporting</td><td class="dash">&mdash;</td><td class="check">✓</td><td class="check-star">★</td></tr>
+          <tr><td>Cost per unit</td><td>Standard</td><td>Reduced</td><td style="color:var(--teal);font-weight:700;">Lowest</td></tr>
+        </tbody>
+      </table>
+      <div style="padding:14px 18px;background:#fff;font-size:0.78rem;color:var(--gray-mid);">✓ Included &nbsp;&nbsp; ★ Premium / co-designed &nbsp;&nbsp; &mdash; Not included at this tier</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RFI FORM -->
+<section class="rfi-section" id="rfi">
+  <div class="rfi-inner">
+    <div class="section-label">Request for Information</div>
+    <h2>Tell us about your housing needs.</h2>
+    <p class="section-intro">Complete this form and we&rsquo;ll send you a tailored information package &mdash; partnership models, pricing structure, case studies, and next steps &mdash; within one business day.</p>
+    <div class="rfi-form" id="rfiFormWrap">
+      <form id="rfiForm" onsubmit="handleRFI(event)">
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" name="firstName" placeholder="Jane" required></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" name="lastName" placeholder="Smith" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Organization / Health Authority *</label><input type="text" name="org" placeholder="Northern Health" required></div>
+          <div class="form-group"><label>Position / Title *</label><input type="text" name="position" placeholder="VP Human Resources" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Work Email *</label><input type="email" name="email" placeholder="jane.smith@northernhealth.ca" required></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="(250) 555-0100"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Communities / Locations of Interest</label><input type="text" name="communities" placeholder="e.g. Dawson Creek, Fort St. John, Prince George"></div>
+          <div class="form-group"><label>Estimated Housing Volume</label>
+            <select name="volume">
+              <option value="" disabled selected>Select a range</option>
+              <option>2&ndash;10 units (Pilot)</option>
+              <option>10&ndash;50 units (Regional)</option>
+              <option>50+ units (Infrastructure)</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Stage of Interest</label>
+            <select name="stage">
+              <option value="" disabled selected>Where are you in the process?</option>
+              <option>Exploring options</option>
+              <option>Actively looking for a housing partner</option>
+              <option>Have a specific project in mind</option>
+              <option>Ready to move forward quickly</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Staff Types to Be Housed</label><input type="text" name="staffTypes" placeholder="e.g. nurses, locums, allied health"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full"><label>Additional Context</label>
+            <textarea name="message" placeholder="Tell us about your current housing challenges, timeline, specific communities, or anything else that would help us tailor the information package for you..."></textarea>
+          </div>
+        </div>
+        <div class="form-consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">I consent to Elias Range Stays contacting me with information about their services. Your details will not be shared with third parties. <a href="https://eliasrangestays.ca/privacy" style="color:rgba(0,151,147,0.7);">Privacy policy</a>.</label>
+        </div>
+        <button type="submit" class="form-submit">Send My Information Request &rarr;</button>
+        <p class="form-note">Confirmation sent immediately. Our team responds within 1 business day.</p>
+      </form>
+      <div class="form-confirm" id="rfiConfirm">
+        <div class="confirm-icon">&#10003;</div>
+        <h3 style="font-family:Syne,sans-serif;color:#fff;">Request Received</h3>
+        <p style="color:rgba(255,255,255,0.5);margin-top:12px;">Your information request has been sent to the ERS partnership team. Check your inbox for a confirmation. We&rsquo;ll follow up within one business day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK A CALL -->
+<section class="call-section" id="book">
+  <div class="call-inner">
+    <div class="call-content">
+      <div class="section-label">Schedule a Discovery Call</div>
+      <h2>Talk directly with the ERS executive team.</h2>
+      <p>Book a 30-minute discovery call with Austin and the ERS leadership team &mdash; no obligation, no hard pitch. Just a direct conversation about your housing challenge and whether ERS is the right fit.</p>
+      <ul class="call-features">
+        <li>30-minute video or phone call</li>
+        <li>No obligation, no sales pressure</li>
+        <li>Tailored to your community and staff profile</li>
+        <li>Partnership structure walkthrough</li>
+        <li>Q&amp;A with ERS leadership</li>
+      </ul>
+      <a href="https://calendly.com/eliasrangestays/partnership" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none;">Book a Call with ERS &rarr;</a>
+      <p style="margin-top:16px;font-size:0.82rem;color:var(--gray-mid);">Prefer email? <a href="mailto:austin@eliasrangestays.ca" style="color:var(--teal);">austin@eliasrangestays.ca</a></p>
+    </div>
+    <div class="calendly-embed">
+      <div style="font-size:2rem;margin-bottom:14px;">&#128197;</div>
+      <h3 style="font-size:1.1rem;color:var(--navy);margin-bottom:8px;">Partnership Discovery Call</h3>
+      <p style="font-size:0.88rem;color:var(--gray-dark);margin-bottom:0;line-height:1.6;">30 minutes &middot; Video or phone<br>With ERS Executive Leadership</p>
+      <div class="cal-slots">
+        <div class="cal-slot">Mon&ndash;Fri</div><div class="cal-slot">9 AM &ndash; 4 PM PT</div>
+        <div class="cal-slot">Video Call</div><div class="cal-slot">Phone Available</div>
+      </div>
+      <a href="https://calendly.com/eliasrangestays/partnership" target="_blank" class="btn-book">See Available Times &rarr;</a>
+      <p style="margin-top:12px;font-size:0.75rem;color:var(--gray-mid);">&#9888; Replace Calendly URL with your real booking link.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo-box"><img src="data:image/png;base64,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" alt="Elias Range Stays"></div>
+  <div class="footer-right">
+    <div class="footer-tagline">Healthy Living &middot; Stronger Communities</div>
+    <div class="footer-copy">&copy; 2026 Elias Range Stays &nbsp;&middot;&nbsp; <a href="https://eliasrangestays.ca">eliasrangestays.ca</a> &nbsp;&middot;&nbsp; <a href="mailto:austin@eliasrangestays.ca">austin@eliasrangestays.ca</a></div>
+  </div>
+</footer>
+
+<script>
+function handleRFI(e) {
+  e.preventDefault();
+  document.getElementById("rfiForm").style.display = "none";
+  var c = document.getElementById("rfiConfirm");
+  c.style.display = "block";
+  c.scrollIntoView({behavior:"smooth",block:"center"});
+}
+</script>
+</body>
+</html>
