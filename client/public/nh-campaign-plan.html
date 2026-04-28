@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northern Health Campaign Plan — Elias Range Stays</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;900&display=swap');
+
+    :root {
+      --navy: #0B2540;
+      --teal: #00BFA6;
+      --light-teal: #e6f9f6;
+      --light: #f4f7f9;
+      --border: #d0dde6;
+      --text: #1a2a38;
+      --mid: #4A6274;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, serif;
+      background: #f0f4f7;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    /* HEADER */
+    .doc-header {
+      background: var(--navy);
+      color: #fff;
+      padding: 56px 48px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .doc-header::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(0,191,166,0.12);
+    }
+    .doc-header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 30%;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(0,191,166,0.07);
+    }
+    .header-badge {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--navy);
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .doc-header h1 {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .doc-header .subtitle {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--teal);
+      margin-bottom: 28px;
+    }
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      font-family: Arial, sans-serif;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 20px;
+    }
+    .header-meta span strong {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    /* SECTION */
+    .section {
+      margin-bottom: 48px;
+    }
+    .section-label {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* OPPORTUNITY SECTION */
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .opp-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      padding: 20px 22px;
+    }
+    .opp-card .opp-label {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 6px;
+    }
+    .opp-card .opp-value {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .opp-card .opp-sub {
+      font-size: 0.82rem;
+      color: var(--mid);
+      margin-top: 4px;
+    }
+    .proof-bar {
+      background: var(--light-teal);
+      border: 1px solid #b2ede5;
+      border-radius: 8px;
+      padding: 18px 24px;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .proof-bar .proof-icon {
+      font-size: 1.6rem;
+    }
+    .proof-bar p {
+      font-size: 0.92rem;
+      color: var(--navy);
+      font-family: Arial, sans-serif;
+    }
+    .proof-bar strong {
+      color: var(--teal);
+    }
+
+    /* CONTACT CARDS */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .contact-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      position: relative;
+    }
+    .contact-card.priority {
+      border-top: 3px solid #e8a020;
+    }
+    .contact-card.warm {
+      border-top: 3px solid var(--teal);
+    }
+    .contact-card.target {
+      border-top: 3px solid var(--mid);
+    }
+    .contact-name {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+    .contact-title {
+      font-size: 0.82rem;
+      color: var(--mid);
+      font-family: Arial, sans-serif;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .contact-status {
+      display: inline-block;
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .status-priority { background: #fef3e2; color: #c07010; }
+    .status-warm { background: var(--light-teal); color: #007a6a; }
+    .status-ally { background: #eef3ff; color: #3a5bc7; }
+    .status-target { background: #f0f0f5; color: var(--mid); }
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--mid);
+      font-family: Arial, sans-serif;
+      margin-top: 10px;
+      line-height: 1.45;
+    }
+
+    /* TRACK CARDS */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 680px) {
+      .tracks-grid { grid-template-columns: 1fr; }
+    }
+    .track-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .track-header {
+      background: var(--navy);
+      color: #fff;
+      padding: 16px 20px;
+    }
+    .track-number {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .track-name {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .track-body {
+      padding: 18px 20px;
+    }
+    .track-row {
+      margin-bottom: 12px;
+    }
+    .track-row-label {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 3px;
+    }
+    .track-row-value {
+      font-size: 0.83rem;
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+    .track-next {
+      background: var(--light-teal);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 0.83rem;
+      font-family: Arial, sans-serif;
+      color: var(--navy);
+      margin-top: 12px;
+    }
+    .track-owner {
+      margin-top: 12px;
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .owner-pill {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 9px;
+      margin-left: 4px;
+    }
+
+    /* EMAIL CADENCE TABLE */
+    .cadence-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .cadence-table thead {
+      background: var(--navy);
+      color: #fff;
+    }
+    .cadence-table thead th {
+      padding: 12px 16px;
+      text-align: left;
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .cadence-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .cadence-table tbody tr:last-child {
+      border-bottom: none;
+    }
+    .cadence-table tbody tr:nth-child(even) {
+      background: var(--light);
+    }
+    .cadence-table td {
+      padding: 12px 16px;
+      vertical-align: top;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .cadence-table td:first-child {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .cadence-rules {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--navy);
+      border-radius: 8px;
+      padding: 18px 24px;
+      margin-top: 16px;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+    }
+    .cadence-rules h4 {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .cadence-rules ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cadence-rules ul li {
+      padding: 4px 0;
+      color: var(--mid);
+    }
+    .cadence-rules ul li::before {
+      content: '→ ';
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    /* BOARD TARGETS */
+    .board-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .board-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .board-priority-badge {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .badge-high { background: #fef3e2; color: #c07010; }
+    .badge-key { background: var(--light-teal); color: #007a6a; }
+    .badge-med { background: #f0f0f5; color: var(--mid); }
+    .badge-ult { background: var(--navy); color: #fff; }
+    .board-info .board-name {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+    .board-info .board-role {
+      font-size: 0.82rem;
+      color: var(--mid);
+      font-family: Arial, sans-serif;
+      margin-bottom: 4px;
+    }
+    .board-info .board-why {
+      font-size: 0.82rem;
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    /* ACTION ITEMS */
+    .action-list {
+      counter-reset: action;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .action-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px 16px 64px;
+      position: relative;
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .action-item::before {
+      counter-increment: action;
+      content: counter(action);
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+    .action-item strong {
+      display: block;
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    /* FOOTER */
+    .doc-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+    }
+    .doc-footer strong {
+      color: var(--teal);
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <div class="header-badge">Confidential — Internal Working Document</div>
+  <h1>Northern Health<br>Campaign Plan</h1>
+  <div class="subtitle">Structured Engagement Strategy — April 2026 Onward</div>
+  <div class="header-meta">
+    <span><strong>Prepared by:</strong> Austin Neill, Founder & CEO — Elias Range Stays</span>
+    <span><strong>For:</strong> Siavash Tahan</span>
+    <span><strong>Meeting:</strong> May 7, 2026</span>
+    <span><strong>Status:</strong> Active Campaign</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1: THE OPPORTUNITY -->
+  <div class="section">
+    <div class="section-label">Section 1</div>
+    <div class="section-title">The Opportunity</div>
+
+    <div class="opportunity-grid">
+      <div class="opp-card">
+        <div class="opp-label">NH Board Mandate — 2023</div>
+        <div class="opp-value">Full-Service Provider Request — Still Unfilled</div>
+        <div class="opp-sub">NH publicly asked their board to "explore full-service providers to operate housing units on their behalf." April 2023. No operator has stepped up. ERS is the answer.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-label">Capital Program</div>
+        <div class="opp-value">$411.4M Active Capital Program</div>
+        <div class="opp-sub">CEO signing authority up to $2.05M — a master lease may fall within it. No board vote required at that threshold.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-label">GoHealth Program</div>
+        <div class="opp-value">Program Exists. No Operator.</div>
+        <div class="opp-sub">NH's GoHealth program is built. The infrastructure is there. What's missing is the operator. ERS is the operator.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-label">UHNBC Prince George</div>
+        <div class="opp-value">$1.58B Acute Care Tower — Window Open NOW</div>
+        <div class="opp-sub">Alliance team locked Dec 2025 (EllisDon + DIALOG + PML + Houle). 211 beds, 12 OR suites. Construction workforce needs housing. Pre-construction window is open.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-label">Fort St. John</div>
+        <div class="opp-value">LTC Facility — Active Procurement</div>
+        <div class="opp-sub">Long-term care facility in active procurement. Construction workforce housing need incoming.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-label">Dawson Creek Hub</div>
+        <div class="opp-value">ERS Development Permit Stage</div>
+        <div class="opp-sub">ERS has the site. DCDH $377.86M capital confirmed. Construction financing needed. NH as anchor tenant / master lease partner is the logical move.</div>
+      </div>
+    </div>
+
+    <div class="proof-bar">
+      <div class="proof-icon">✅</div>
+      <p><strong>Proof of concept exists:</strong> 34+ units managed across 6 hospitals. ERS has been operating in the NH region since 2022 (Terrace contract). We're not pitching a concept — we're pitching scale.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CONTACTS -->
+  <div class="section">
+    <div class="section-label">Section 2</div>
+    <div class="section-title">Contacts & Relationship Map</div>
+
+    <div class="contact-grid">
+      <div class="contact-card warm">
+        <div class="contact-name">Steve Raper</div>
+        <div class="contact-title">VP, Communications & Public Affairs<br>GoHealth oversight</div>
+        <span class="contact-status status-warm">Active / Warm</span>
+        <div class="contact-note">Had video call April 2026. Primary NH relationship. GoHealth oversight makes him the right door for the full-service operator conversation.</div>
+      </div>
+
+      <div class="contact-card warm">
+        <div class="contact-name">Björn Petersson</div>
+        <div class="contact-title">External Connector</div>
+        <span class="contact-status status-ally">Ally</span>
+        <div class="contact-note">Facilitated the Austin / Steve Raper introduction. Was present on the April 2026 video call. Keep warm — he's a key bridge.</div>
+      </div>
+
+      <div class="contact-card priority">
+        <div class="contact-name">Kendra Kiss</div>
+        <div class="contact-title">Senior Operating Officer, Northeast (Dawson Creek)<br>Former Director of Patient Care, DCGH — 23 years in Dawson Creek</div>
+        <span class="contact-status status-priority">KEY — Not Yet Engaged</span>
+        <div class="contact-note">This is the single most important contact for the Dawson Creek Hub project. Deep roots in the community and the health system. Getting an intro here is a top priority.</div>
+      </div>
+
+      <div class="contact-card target">
+        <div class="contact-name">Ciro Panessa</div>
+        <div class="contact-title">President & CEO, Northern Health</div>
+        <span class="contact-status status-target">Target — Post Board Milestone</span>
+        <div class="contact-note">Born Prince Rupert. Started as a nurse. Deep rural health equity values — this is aligned with ERS's mission. Approach after a board-level milestone is achieved.</div>
+      </div>
+
+      <div class="contact-card warm">
+        <div class="contact-name">David Williams</div>
+        <div class="contact-title">VP Human Resources</div>
+        <span class="contact-status status-warm">Warm</span>
+        <div class="contact-note">ERS supporter. Understands the healthcare worker housing challenge from the HR perspective. Good secondary relationship to maintain.</div>
+      </div>
+
+      <div class="contact-card target">
+        <div class="contact-name">Mark De Croos</div>
+        <div class="contact-title">VP Financial & Corporate Services / CFO</div>
+        <span class="contact-status status-target">Financial Partner</span>
+        <div class="contact-note">The right contact for any deal structure conversation. Engage once we have a concrete proposal on the table.</div>
+      </div>
+
+      <div class="contact-card priority">
+        <div class="contact-name">Shannon Anderson</div>
+        <div class="contact-title">Board Member — Dawson Creek<br>23 years City of Dawson Creek (infrastructure/engineering)</div>
+        <span class="contact-status status-priority">HIGH PRIORITY — Board Target</span>
+        <div class="contact-note">Infrastructure and engineering background. Lives in our primary market. A board-level ally in Dawson Creek is critical for the Hub project. Research connection points now.</div>
+      </div>
+
+      <div class="contact-card warm">
+        <div class="contact-name">Russ Beerling</div>
+        <div class="contact-title">Board Member — Fort St. John<br>Term expires December 2026</div>
+        <span class="contact-status status-warm">Active ERS Advocate</span>
+        <div class="contact-note">Already an advocate. Fort St. John is an active ERS market. Keep the relationship active before his term ends December 2026.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: FOUR TRACKS -->
+  <div class="section">
+    <div class="section-label">Section 3</div>
+    <div class="section-title">Four Conversation Tracks</div>
+
+    <div class="tracks-grid">
+
+      <div class="track-card">
+        <div class="track-header">
+          <div class="track-number">Track 1</div>
+          <div class="track-name">Regional Housing Issues</div>
+        </div>
+        <div class="track-body">
+          <div class="track-row">
+            <div class="track-row-label">Objective</div>
+            <div class="track-row-value">Establish ERS as NH's expert on regional healthcare worker housing across all 5 zones.</div>
+          </div>
+          <div class="track-row">
+            <div class="track-row-label">Frame</div>
+            <div class="track-row-value">NH nurses, locums, and physicians are leaving rural postings due to housing failure. ERS solves it region by region.</div>
+          </div>
+          <div class="track-row">
+            <div class="track-row-label">Current Status</div>
+            <div class="track-row-value">Relationship established (Terrace contract 2022). Steve Raper video call complete. GoHealth awareness in place.</div>
+          </div>
+          <div class="track-next">
+            <strong>Next Action:</strong> Send Steve Raper a region-by-region housing brief. Ask what their current data shows. Open the door to a joint problem definition.
+          </div>
+          <div class="track-owner">Owner:
+            <span class="owner-pill">Austin — Relationship</span>
+            <span class="owner-pill">Siavash — Brief + Cadence</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-card">
+        <div class="track-header">
+          <div class="track-number">Track 2</div>
+          <div class="track-name">Dawson Creek Project</div>
+        </div>
+        <div class="track-body">
+          <div class="track-row">
+            <div class="track-row-label">Objective</div>
+            <div class="track-row-value">Get NH involvement (anchor tenant / master lease) for the ERS Dawson Creek Hub.</div>
+          </div>
+          <div class="track-row">
+            <div class="track-row-label">Frame</div>
+            <div class="track-row-value">108 prototype beds already in Northeast. DCDH $377.86M capital confirmed. ERS has the site, the model, the operator experience. NH needs a partner who builds and runs it.</div>
+          </div>
+          <div class="track-row">
+            <div class="track-row-label">Current Status</div>
+            <div class="track-row-value">Development permit stage. Construction financing needed. Kendra Kiss not yet engaged.</div>
+          </div>
+          <div class="track-next">
+            <strong>Next Action:</strong> Get intro to Kendra Kiss via Steve or Björn. Present Dawson Creek site as a joint-solution conversation.
+          </div>
+          <div class="track-owner">Owner:
+            <span class="owner-pill">Austin — Intro</span>
+            <span class="owner-pill">Siavash — Package + Follow-Through</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-card">
+        <div class="track-header">
+          <div class="track-number">Track 3</div>
+          <div class="track-name">Full Service Package</div>
+        </div>
+        <div class="track-body">
+          <div class="track-row">
+            <div class="track-row-label">Objective</div>
+            <div class="track-row-value">Position ERS as the full-service housing operator NH explicitly asked their board for.</div>
+          </div>
+          <div class="track-row">
+            <div class="track-row-label">Frame</div>
+            <div class="track-row-value">NH said "explore full-service providers to operate housing units on NH's behalf" — April 2023. Still open. Still unfilled. ERS is the answer. We saw your board ask for this. Here's what we've built.</div>
+          </div>
+          <div class="track-row">
+            <div class="track-row-label">Current Status</div>
+            <div class="track-row-value">NH confirmed ZERO admin burden requirement (no hotels, no renos, no unit management — they want someone to take the whole thing).</div>
+          </div>
+          <div class="track-next">
+            <strong>Next Action:</strong> Build the Full Service Package presentation — what ERS does, how it works, what NH commits to, what they get. This becomes the master pitch document.
+          </div>
+          <div class="track-owner">Owner:
+            <span class="owner-pill">Siavash — Build the Package</span>
+            <span class="owner-pill">Austin — Present It</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-card">
+        <div class="track-header">
+          <div class="track-number">Track 4</div>
+          <div class="track-name">Infrastructure BC / UHNBC</div>
+        </div>
+        <div class="track-body">
+          <div class="track-row">
+            <div class="track-row-label">Objective</div>
+            <div class="track-row-value">Position ERS as the housing operator for the $1.58B UHNBC Acute Care Tower construction workforce.</div>
+          </div>
+          <div class="track-row">
+            <div class="track-row-label">Frame</div>
+            <div class="track-row-value">Alliance team locked Dec 2025 (EllisDon + DIALOG + PML + Houle). 211 beds, 12 OR suites. Construction starts soon. Workers need housing NOW. NH is the client.</div>
+          </div>
+          <div class="track-row">
+            <div class="track-row-label">Current Status</div>
+            <div class="track-row-value">Alliance team locked. Pre-construction window open. ERS not yet positioned with either NH or Infrastructure BC on this file.</div>
+          </div>
+          <div class="track-next">
+            <strong>Next Action:</strong> Reach Steve Raper about UHNBC — ERS wants to be the housing operator for the construction workforce. Separately approach Infrastructure BC.
+          </div>
+          <div class="track-owner">Owner:
+            <span class="owner-pill">Austin — NH Conversation</span>
+            <span class="owner-pill">Siavash — Infrastructure BC</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: EMAIL CADENCE -->
+  <div class="section">
+    <div class="section-label">Section 4</div>
+    <div class="section-title">Email Cadence — Weekly Rhythm</div>
+
+    <table class="cadence-table">
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>Action</th>
+          <th>Recipient(s)</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Week 1</td>
+          <td>Re-engagement email — where are we, what do you need, what are we working on. Warm opener, no pressure.</td>
+          <td>Steve Raper + Björn Petersson</td>
+          <td>Austin sends</td>
+        </tr>
+        <tr>
+          <td>Week 2</td>
+          <td>Region-by-region housing brief. Ask what their current data shows. Open joint problem definition door.</td>
+          <td>Steve Raper</td>
+          <td>Siavash builds, Austin sends</td>
+        </tr>
+        <tr>
+          <td>Week 3</td>
+          <td>Dawson Creek project overview + request for intro to Kendra Kiss.</td>
+          <td>Steve Raper (intro request)</td>
+          <td>Austin sends</td>
+        </tr>
+        <tr>
+          <td>Week 4</td>
+          <td>Full Service Package preview + request for a next call. "We saw your 2023 board ask. Here's what we've built."</td>
+          <td>Steve Raper</td>
+          <td>Austin sends</td>
+        </tr>
+        <tr>
+          <td>Week 5+</td>
+          <td>Rotate through tracks — one meaningful touchpoint per week, per track. Always include something of value.</td>
+          <td>Varies by track</td>
+          <td>Siavash manages cadence</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cadence-rules">
+      <h4>Campaign Email Rules</h4>
+      <ul>
+        <li>Every email moves toward a specific result — a meeting, a document review, an intro, a decision</li>
+        <li>No check-ins for the sake of check-ins</li>
+        <li>Always include something of value — data, a brief, a document, a finding</li>
+        <li>Track open/responses — if no reply in 7 days, follow up once</li>
+        <li>Never send the same email twice — each touchpoint advances the conversation</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 5: BOARD TARGETS -->
+  <div class="section">
+    <div class="section-label">Section 5</div>
+    <div class="section-title">Board Expansion Targets</div>
+
+    <div class="board-list">
+      <div class="board-item">
+        <span class="board-priority-badge badge-high">HIGH PRIORITY</span>
+        <div class="board-info">
+          <div class="board-name">Shannon Anderson</div>
+          <div class="board-role">Board Member — Dawson Creek | 23 years City of Dawson Creek (infrastructure/engineering)</div>
+          <div class="board-why">Lives in our primary market. Infrastructure and engineering background maps directly to the Dawson Creek Hub project. A board ally here is critical. Research connection points now.</div>
+        </div>
+      </div>
+
+      <div class="board-item">
+        <span class="board-priority-badge badge-key">KEY CONTACT</span>
+        <div class="board-info">
+          <div class="board-name">Kendra Kiss</div>
+          <div class="board-role">Senior Operating Officer, Northeast — 23 years in Dawson Creek | Former Director of Patient Care, DCGH</div>
+          <div class="board-why">The operational decision-maker for the Dawson Creek region. Essential for the Hub project. Not yet engaged — this is the most urgent gap in our contact map.</div>
+        </div>
+      </div>
+
+      <div class="board-item">
+        <span class="board-priority-badge badge-med">ENGAGE</span>
+        <div class="board-info">
+          <div class="board-name">Angela De Smit</div>
+          <div class="board-role">VP Professional Practice / Chief Nursing Officer</div>
+          <div class="board-why">Knows housing challenges firsthand — nursing staff retention is directly impacted by housing availability in rural postings. Natural ally for the ERS value proposition.</div>
+        </div>
+      </div>
+
+      <div class="board-item">
+        <span class="board-priority-badge badge-med">ENGAGE</span>
+        <div class="board-info">
+          <div class="board-name">Kelly Gunn</div>
+          <div class="board-role">VP Primary & Community Care</div>
+          <div class="board-why">Healthcare retention angle. Primary and community care providers are most impacted by housing instability in remote postings. Good relationship to build in parallel.</div>
+        </div>
+      </div>
+
+      <div class="board-item">
+        <span class="board-priority-badge badge-ult">ULTIMATE TARGET</span>
+        <div class="board-info">
+          <div class="board-name">Ciro Panessa</div>
+          <div class="board-role">President & CEO, Northern Health | Born Prince Rupert | Began as a nurse</div>
+          <div class="board-why">Deep rural health equity values — directly aligned with ERS's mission. Approach after a board-level milestone is achieved. This is the relationship that unlocks the full partnership.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: ACTION ITEMS -->
+  <div class="section">
+    <div class="section-label">Section 6</div>
+    <div class="section-title">Siavash Action Items — May 7 Kickoff</div>
+
+    <div class="action-list">
+      <div class="action-item">
+        <strong>Review This Campaign Plan</strong>
+        Add context from Austin's past conversations. Flag anything that's outdated or needs clarification before the email cadence starts.
+      </div>
+      <div class="action-item">
+        <strong>Build the Full Service Package Document (Track 3)</strong>
+        What ERS does. How it works. What NH commits to. What they get. This becomes the master pitch document for the partnership conversation.
+      </div>
+      <div class="action-item">
+        <strong>Build the Region-by-Region Housing Brief (Track 1)</strong>
+        A data-backed brief on healthcare worker housing challenges across NH's 5 zones. Include what ERS has already solved and where the gaps remain.
+      </div>
+      <div class="action-item">
+        <strong>Research Kendra Kiss</strong>
+        Background, contact info, best intro path (via Steve Raper or Björn Petersson). She's the key to the Dawson Creek file.
+      </div>
+      <div class="action-item">
+        <strong>Research Shannon Anderson</strong>
+        Board member, Dawson Creek. Find connection points — community involvement, professional network, shared contacts, anything that creates a natural intro.
+      </div>
+      <div class="action-item">
+        <strong>Set Up Campaign Tracking</strong>
+        Simple spreadsheet: Contact | Last Touchpoint | Next Action | Track. Keep it live and updated weekly.
+      </div>
+      <div class="action-item">
+        <strong>Draft Week 1 Email for Austin's Review</strong>
+        Re-engagement to Steve Raper + Björn Petersson. Warm, direct, no pressure. Austin will review and send. Draft due before May 7 if possible.
+      </div>
+      <div class="action-item">
+        <strong>Calendar Weekly Review Cadence With Austin</strong>
+        30 minutes every Monday. Campaign status, email review, next actions. Lock it in.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <strong>Elias Range Stays</strong> — Confidential Internal Document | Northern Health Campaign | Prepared April 2026 | austin@eliasrangestays.ca
+</div>
+
+</body>
+</html>

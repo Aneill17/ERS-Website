@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Draft — Steve Raper + Björn Petersson | Elias Range Stays</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;900&display=swap');
+
+    :root {
+      --navy: #0B2540;
+      --teal: #00BFA6;
+      --light-teal: #e6f9f6;
+      --light: #f4f7f9;
+      --border: #d0dde6;
+      --text: #1a2a38;
+      --mid: #4A6274;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, serif;
+      background: #f0f4f7;
+      color: var(--text);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .doc-header {
+      background: var(--navy);
+      color: #fff;
+      padding: 40px 48px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .doc-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(0,191,166,0.1);
+    }
+    .header-badge {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--navy);
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .doc-header h1 {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .doc-header .subtitle {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 0.95rem;
+      color: var(--teal);
+      font-weight: 400;
+    }
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      font-family: Arial, sans-serif;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+    .header-meta span strong {
+      color: rgba(255,255,255,0.88);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* CONTEXT BOX */
+    .context-box {
+      background: var(--light-teal);
+      border: 1px solid #b2ede5;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      color: var(--navy);
+      line-height: 1.55;
+    }
+    .context-box .context-label {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+
+    /* EMAIL CARD */
+    .email-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(11,37,64,0.08);
+    }
+
+    /* EMAIL META HEADER */
+    .email-meta {
+      background: var(--light);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 28px;
+    }
+    .subject-line {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .subject-label {
+      font-size: 10px;
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 4px;
+    }
+    .meta-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .meta-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 0.83rem;
+    }
+    .meta-row .meta-key {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--mid);
+      min-width: 40px;
+      padding-top: 2px;
+    }
+    .meta-row .meta-val {
+      color: var(--text);
+    }
+
+    /* EMAIL BODY */
+    .email-body {
+      padding: 32px 36px;
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.85;
+    }
+    .email-body p {
+      margin-bottom: 1.25em;
+    }
+    .email-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* NUMBERED LIST IN EMAIL */
+    .email-questions {
+      background: var(--light);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin: 18px 0;
+    }
+    .email-questions ol {
+      padding-left: 20px;
+    }
+    .email-questions ol li {
+      margin-bottom: 10px;
+      color: var(--text);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+    .email-questions ol li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* SIGNATURE */
+    .email-signature {
+      border-top: 1px solid var(--border);
+      padding: 22px 36px;
+      background: var(--light);
+    }
+    .sig-name {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .sig-title {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .sig-details {
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .sig-details a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    /* COPY BUTTON */
+    .copy-section {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 22px;
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover {
+      background: #0d2e4e;
+    }
+    .copy-btn.copied {
+      background: var(--teal);
+      color: var(--navy);
+    }
+    .copy-note {
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+
+    /* USAGE NOTES */
+    .usage-notes {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 24px;
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+    }
+    .usage-notes h3 {
+      font-family: 'League Spartan', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .usage-notes ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .usage-notes ul li {
+      color: var(--mid);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .usage-notes ul li::before {
+      content: '→';
+      color: var(--teal);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+    }
+
+    /* FOOTER */
+    .doc-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+    }
+    .doc-footer strong {
+      color: var(--teal);
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <div class="header-badge">Email Draft — Ready for Review</div>
+  <h1>Re-Engagement Email<br>Steve Raper + Björn Petersson</h1>
+  <div class="subtitle">Northern Health Campaign — Week 1 Touchpoint</div>
+  <div class="header-meta">
+    <span><strong>From:</strong> Austin Neill, Elias Range Stays</span>
+    <span><strong>To:</strong> Steve Raper + Björn Petersson</span>
+    <span><strong>Prepared:</strong> April 2026</span>
+    <span><strong>Status:</strong> Draft — Awaiting Austin Review</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="context-box">
+    <div class="context-label">Sending Context</div>
+    This is the Week 1 re-engagement email from the Northern Health campaign cadence. Austin sends this personally following the April 2026 video call with Steve Raper and Björn Petersson. Tone: direct, warm, grounded. Not corporate. Shows we've been doing work. Shows urgency without pressure. Opens the door to the next conversation.
+  </div>
+
+  <!-- EMAIL CARD -->
+  <div class="email-card" id="email-content">
+    <div class="email-meta">
+      <div class="subject-label">Subject Line</div>
+      <div class="subject-line">Quick check-in — ERS + Northern Health | Next steps</div>
+      <div class="meta-rows">
+        <div class="meta-row">
+          <span class="meta-key">To</span>
+          <span class="meta-val">Steve Raper (VP Communications & Public Affairs, Northern Health) + Björn Petersson</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">From</span>
+          <span class="meta-val">Austin Neill &lt;austin@eliasrangestays.ca&gt;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="email-body" id="email-body-text">
+      <p>Hi Steve and Björn,</p>
+
+      <p>Wanted to follow up from our call and keep the momentum going. It was a good conversation — I've been thinking about it since.</p>
+
+      <p>On our end, things have continued to move. We're now at 34+ units managed across 6 hospitals, and we've been deliberately building toward exactly what Northern Health identified in 2023 — a full-service provider who can operate housing on NH's behalf, with zero admin burden on your team. We've been quietly building that model, and I think we're closer than it might look from the outside.</p>
+
+      <p>I wanted to check in on a few things from your side:</p>
+
+      <div class="email-questions">
+        <ol>
+          <li>What does NH need to see from us in the next 90 days to move toward a formal partnership conversation?</li>
+          <li>Are there specific housing files — Dawson Creek, UHNBC Prince George, GoHealth beds — where a conversation now would be timely?</li>
+          <li>Who else on the NH team should we be building a relationship with?</li>
+        </ol>
+      </div>
+
+      <p>On the UHNBC Acute Care Tower — we've been watching that project closely. The alliance team is locked, pre-construction is moving, and there's going to be a real workforce housing need as that project ramps up. I'd like ERS to be positioned as the housing solution for the construction workforce. Worth a conversation if you have any visibility into how that's being handled.</p>
+
+      <p>Would you have 30 minutes in the next two weeks? I'm open most of the week of May 12th or May 19th — happy to work around your schedule. Even a quick call would be useful to make sure we're pointed in the right direction.</p>
+
+      <p>Thanks again for making time earlier this month. Looking forward to continuing the conversation.</p>
+    </div>
+
+    <div class="email-signature">
+      <div class="sig-name">Austin Neill</div>
+      <div class="sig-title">Founder & CEO — Elias Range Stays</div>
+      <div class="sig-details">
+        <a href="mailto:austin@eliasrangestays.ca">austin@eliasrangestays.ca</a><br>
+        (250) 719-8085<br>
+        <a href="https://eliasrangestays.ca">eliasrangestays.ca</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COPY BUTTON -->
+  <div class="copy-section">
+    <button class="copy-btn" id="copy-btn" onclick="copyEmail()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy Email Text
+    </button>
+    <span class="copy-note" id="copy-note">Copies the email body text to your clipboard for pasting into Gmail or Outlook.</span>
+  </div>
+
+  <!-- USAGE NOTES -->
+  <div class="usage-notes">
+    <h3>Sending Notes</h3>
+    <ul>
+      <li>Send from austin@eliasrangestays.ca — keep it personal, not a marketing blast</li>
+      <li>BCC Siavash so he has the thread from day one</li>
+      <li>If no reply in 7 days, follow up once — brief, no pressure</li>
+      <li>After sending, log the date in the campaign tracker under Track 1 (Regional Housing) and Track 4 (UHNBC)</li>
+      <li>Week 2 email (region-by-region housing brief) should go out 5–7 days after this one</li>
+      <li>If Steve replies with specific file interest (Dawson Creek, UHNBC, GoHealth), escalate that track immediately — don't wait for Week 3</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <strong>Elias Range Stays</strong> — Northern Health Campaign | Draft Email — Week 1 | April 2026
+</div>
+
+<script>
+  function copyEmail() {
+    const body = document.getElementById('email-body-text');
+    const sig = document.querySelector('.email-signature');
+    const subject = document.querySelector('.subject-line').textContent.trim();
+
+    const bodyText = body.innerText || body.textContent;
+    const sigText = sig.innerText || sig.textContent;
+
+    const fullText = `Subject: ${subject}\n\n${bodyText.trim()}\n\n${sigText.trim()}`;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(fullText).then(() => {
+        showCopied();
+      }).catch(() => {
+        fallbackCopy(fullText);
+      });
+    } else {
+      fallbackCopy(fullText);
+    }
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand('copy');
+      showCopied();
+    } catch(e) {
+      document.getElementById('copy-note').textContent = 'Copy failed — please select and copy the text manually.';
+    }
+    document.body.removeChild(ta);
+  }
+
+  function showCopied() {
+    const btn = document.getElementById('copy-btn');
+    const note = document.getElementById('copy-note');
+    btn.classList.add('copied');
+    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!`;
+    note.textContent = 'Email text copied to clipboard — paste into Gmail or Outlook.';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy Email Text`;
+      note.textContent = 'Copies the email body text to your clipboard for pasting into Gmail or Outlook.';
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
