@@ -802,7 +802,7 @@
     <!-- Stats row -->
     <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:1.8rem;">
       <div style="background:var(--navy);border-radius:10px;padding:16px 12px;text-align:center;">
-        <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">$40/hr</div>
+        <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">$30/hr</div>
         <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:5px;">Phase 1 Rate</div>
       </div>
       <div style="background:var(--navy);border-radius:10px;padding:16px 12px;text-align:center;">
@@ -814,8 +814,8 @@
         <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:5px;">Equity</div>
       </div>
       <div style="background:var(--navy);border-radius:10px;padding:16px 12px;text-align:center;">
-        <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">$75K</div>
-        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:5px;">Buy-In Value</div>
+        <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">$100K</div>
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:5px;">Total Buy-In</div>
       </div>
       <div style="background:var(--navy);border-radius:10px;padding:16px 12px;text-align:center;">
         <div style="font-size:1.5rem;font-weight:900;color:#00BFA6;line-height:1;">$25K</div>
@@ -828,36 +828,44 @@
     <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-bottom:1.5rem;">
       <thead><tr style="background:var(--navy);color:#fff;"><th style="padding:9px 12px;text-align:left;">Phase</th><th style="padding:9px 12px;text-align:left;">Period</th><th style="padding:9px 12px;text-align:left;">Status</th><th style="padding:9px 12px;text-align:left;">Rate</th></tr></thead>
       <tbody>
-        <tr style="background:var(--light);"><td style="padding:9px 12px;font-weight:700;">Phase 1</td><td style="padding:9px 12px;">April 23, 2026 – April 22, 2027</td><td style="padding:9px 12px;">Contractor → Payroll (Month 3)</td><td style="padding:9px 12px;font-weight:700;">$40/hr</td></tr>
+        <tr style="background:var(--light);"><td style="padding:9px 12px;font-weight:700;">Phase 1</td><td style="padding:9px 12px;">April 23, 2026 – April 22, 2027</td><td style="padding:9px 12px;">Contractor → Payroll (Month 3)</td><td style="padding:9px 12px;font-weight:700;">$30/hr</td></tr>
         <tr><td style="padding:9px 12px;font-weight:700;">Phase 2</td><td style="padding:9px 12px;">April 23, 2027 onward</td><td style="padding:9px 12px;">Employee (Payroll)</td><td style="padding:9px 12px;font-weight:700;">$60/hr*</td></tr>
       </tbody>
     </table>
     <p style="font-size:0.8rem;color:var(--mid);margin-bottom:1.5rem;">*Phase 2 rate conditional on milestone achievement, business affordability, and 12-month performance review.</p>
 
     <!-- Equity buy-in -->
-    <h3 style="font-size:1rem;color:var(--navy);margin-bottom:.75rem;">Equity Buy-In — 3% at $2.5M Valuation = $75,000</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:1.5rem;">
-      <div style="background:#EEF7F7;border:1.5px solid #3EA8A820;border-radius:9px;padding:14px 15px;">
-        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Component A — Sweat Equity</div>
-        <div style="font-size:1.4rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:4px;">~$15,600</div>
-        <div style="font-size:0.8rem;color:var(--mid);">$20/hr discount on base hours over 12 months (780 hrs × $20)</div>
+    <h3 style="font-size:1rem;color:var(--navy);margin-bottom:.75rem;">Equity Buy-In — 4% of ERS at $2.5M Valuation = $100,000</h3>
+    <p style="font-size:0.82rem;color:var(--mid);margin-bottom:1rem;">Valuation fixed at April 2026. Buy-in values locked regardless of future company growth.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem;">
+      <div style="background:#EEF7F7;border:1.5px solid #3EA8A840;border-radius:9px;padding:16px 15px;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Component B — 3% Equity ($75,000)</div>
+        <div style="font-size:1.4rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:8px;">Sweat + Cash</div>
+        <ul style="font-size:0.82rem;color:var(--mid);padding-left:1.1rem;line-height:1.7;margin:0;">
+          <li><strong>Sweat equity:</strong> $30/hr discount (market $60 − paid $30) banked on all base hours, <strong>capped at $50,000</strong></li>
+          <li><strong>Cash investment:</strong> Min. $25,000 into ERS by April 23, 2028 (scales up if sweat cap not reached)</li>
+          <li>Formula: Cash = $75K − Sweat Banked (min $25K)</li>
+        </ul>
       </div>
-      <div style="background:#FFF8E8;border:1.5px solid #E8A02030;border-radius:9px;padding:14px 15px;">
-        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Component B — Cash Investment</div>
-        <div style="font-size:1.4rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:4px;">$25,000</div>
-        <div style="font-size:0.8rem;color:var(--mid);">Minimum cash paid into the Company. Paid in installments by April 23, 2028.</div>
+      <div style="background:#EEF3FA;border:1.5px solid #0B254030;border-radius:9px;padding:16px 15px;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Component C — 1% Equity ($25,000)</div>
+        <div style="font-size:1.4rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:8px;">Milestone Credit</div>
+        <ul style="font-size:0.82rem;color:var(--mid);padding-left:1.1rem;line-height:1.7;margin:0;">
+          <li>$25,000 credited (not cash) upon achieving any one qualifying milestone</li>
+          <li>Elevates total equity from 3% to the full <strong>4% cap</strong></li>
+          <li>Capped at $25,000 — separate from and in addition to Component B</li>
+        </ul>
       </div>
-      <div style="background:#EEF3FA;border:1.5px solid #0B254020;border-radius:9px;padding:14px 15px;">
-        <div style="font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:5px;">Component C — Milestone Credit</div>
-        <div style="font-size:1.4rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:4px;">$34,400</div>
-        <div style="font-size:0.8rem;color:var(--mid);">Waived upon achieving a qualifying milestone. Elevates equity to 4% cap.</div>
-      </div>
+    </div>
+    <!-- Sweat equity accrual detail -->
+    <div style="background:#f8fafc;border:1px solid var(--border);border-radius:9px;padding:14px 16px;margin-bottom:1.5rem;font-size:0.82rem;color:var(--mid);">
+      <strong style="color:var(--navy);">Sweat Equity Accrual Rate:</strong> $30/hr × 15 hrs/wk = <strong>$450/week</strong> banked toward Component B. When the $50,000 cap is reached, the Board may elect to pay full $60/hr cash, and the minimum $25,000 cash investment becomes due.
     </div>
 
     <!-- Extra hours -->
     <div style="background:var(--navy);border-radius:10px;padding:16px 20px;margin-bottom:1.5rem;">
       <div style="font-size:0.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00BFA6;margin-bottom:6px;">Extra Hours Mechanic</div>
-      <p style="color:rgba(255,255,255,.8);font-size:0.88rem;margin:0;">For any hours worked <strong style="color:#fff;">above 15 per week</strong>, ERS does not pay cash. The full <strong style="color:#fff;">$60/hr value</strong> is credited directly toward the equity buy-in — reducing the cash requirement or accelerating progress toward milestone credit.</p>
+      <p style="color:rgba(255,255,255,.8);font-size:0.88rem;margin:0;">For any hours worked <strong style="color:#fff;">above 15 per week</strong>, ERS does not pay cash. The full <strong style="color:#fff;">$60/hr value</strong> is credited toward the equity buy-in — accelerating progress to the $50K sweat cap, reducing cash required, or building toward Component C. Base rate for all standard hours is <strong style="color:#fff;">$30/hr cash</strong>.</p>
     </div>
 
     <!-- Qualifying milestones -->
