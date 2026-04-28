@@ -27,6 +27,8 @@
     { "source": "/team-roster", "destination": "/team-roster.html" },
     { "source": "/siavash-contract", "destination": "/siavash-contract.html" },
     { "source": "/chivas-role", "destination": "/chivas-role.html" },
+    { "source": "/totalworkforcehousing", "destination": "/total-workforce-housing.html" },
+    { "source": "/total-workforce-housing", "destination": "/total-workforce-housing.html" },
     { "source": "/bot-team-mindmap", "destination": "/bot-team-mindmap.html" },
     { "source": "/megan-role", "destination": "/megan-role.html" },
     { "source": "/angela-role", "destination": "/angela-role.html" },
