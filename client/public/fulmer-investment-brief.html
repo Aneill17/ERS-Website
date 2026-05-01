@@ -6,62 +6,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   @page { size:letter portrait; margin:0; }
-
   :root { --navy:#00304A; --teal:#009793; --bg:#F5F8FA; --text:#334155; --gray:#475569; }
-
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:100%; height:100%; overflow:hidden; font-family:'Nunito Sans',sans-serif; color:var(--text); background:var(--bg); }
+  .page { width:100%; height:100%; display:flex; flex-direction:column; overflow:hidden; }
 
-  html, body {
-    width:100%; height:100%;
-    overflow:hidden;
-    font-family:'Nunito Sans',sans-serif;
-    color:var(--text);
-    background:var(--bg);
-  }
-
-  /* The whole page = 100% of the viewport, never scrolls */
-  .page {
-    width:100%; height:100%;
-    display:flex; flex-direction:column;
-    overflow:hidden;
-  }
-
-  header {
-    background:var(--navy);
-    padding:9px 28px;
-    display:flex; align-items:center; justify-content:space-between;
-    flex-shrink:0;
-  }
+  header { background:var(--navy); padding:9px 28px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
   .logo-box { background:#fff; border-radius:6px; padding:5px 10px; display:inline-flex; align-items:center; }
   .logo-box img { height:30px; }
   .tagline { color:var(--teal); font-size:10.5px; font-weight:600; text-align:right; }
   .tagline small { display:block; color:rgba(255,255,255,.45); font-size:9px; margin-top:1px; }
 
-  footer {
-    background:var(--navy);
-    padding:7px 28px;
-    display:flex; align-items:center; justify-content:space-between;
-    flex-shrink:0;
-  }
+  footer { background:var(--navy); padding:7px 28px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
   .foot-copy { color:rgba(255,255,255,.4); font-size:8.5px; }
   .foot-right { color:var(--teal); font-size:9px; font-weight:700; }
 
-  /* body fills remaining space, uses flex to distribute */
-  .body {
-    flex:1;
-    min-height:0;
-    padding:12px 28px;
-    display:flex; flex-direction:column; gap:9px;
-    overflow:hidden;
-  }
+  .body { flex:1; min-height:0; padding:12px 28px; display:flex; flex-direction:column; gap:9px; overflow:hidden; }
 
-  /* ask strip */
-  .ask {
-    background:var(--navy); border-radius:7px;
-    display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr;
-    align-items:center; padding:11px 18px;
-    flex-shrink:0;
-  }
+  .ask { background:var(--navy); border-radius:7px; display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr; align-items:center; padding:11px 18px; flex-shrink:0; }
   .ask-div { background:rgba(255,255,255,.15); height:28px; }
   .ai { text-align:center; }
   .ai .v { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:var(--teal); line-height:1; }
@@ -81,10 +43,10 @@
 
   .proceeds { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; flex-shrink:0; }
   .pc { background:#fff; border-radius:6px; padding:9px 11px; border-top:2px solid var(--teal); }
-  .pc.cash { border-top-color:var(--navy); }
+  .pc.boost { border-top-color:var(--navy); }
   .pc .amt { font-family:'Syne',sans-serif; font-size:15px; font-weight:800; color:var(--navy); line-height:1; margin-bottom:2px; }
   .pc .pt { font-size:8.5px; font-weight:700; color:var(--teal); text-transform:uppercase; letter-spacing:.4px; margin-bottom:2px; }
-  .pc.cash .pt { color:var(--navy); }
+  .pc.boost .pt { color:var(--navy); }
   .pc .pd { font-size:9px; color:var(--gray); line-height:1.4; }
 
   .quote { background:var(--navy); border-radius:6px; padding:9px 16px; display:flex; align-items:center; gap:12px; flex-shrink:0; }
@@ -140,7 +102,7 @@
     </div>
 
     <div>
-      <div class="slbl">Use of Proceeds — Infrastructure to Hit 5× Growth</div>
+      <div class="slbl">Use of Proceeds — Acceleration Capital</div>
       <div class="proceeds">
         <div class="pc">
           <div class="pt">Fractional CFO</div><div class="amt">~$80K</div>
@@ -151,12 +113,12 @@
           <div class="pd">Institutional outreach, health authority relationships, investor comms.</div>
         </div>
         <div class="pc">
-          <div class="pt">CEO Advisory</div><div class="amt">~$50K</div>
+          <div class="pt">CEO Advisory</div><div class="amt">$42K/yr</div>
           <div class="pd">Executive governance &amp; founder-to-CEO transition.</div>
         </div>
-        <div class="pc cash">
-          <div class="pt">Cash Reserve</div><div class="amt">~$100K</div>
-          <div class="pd">Working capital &amp; mobilization. No deal lost for lack of runway.</div>
+        <div class="pc boost">
+          <div class="pt">Growth Boost</div><div class="amt">~$108K</div>
+          <div class="pd">Accelerate deal velocity — faster team builds, faster contract closings.</div>
         </div>
       </div>
     </div>
