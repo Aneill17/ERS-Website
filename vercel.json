@@ -55,6 +55,7 @@
     { "source": "/dc-nh-lease-schedule", "destination": "/dc-nh-lease-schedule.html" },
     { "source": "/lvcu-package", "destination": "/lvcu-package.html" },
     { "source": "/oscc-campaign", "destination": "/oscc-campaign.html" },
-    { "source": "/bob-zimmer-regional-support", "destination": "/bob-zimmer-regional-support.html" }
+    { "source": "/bob-zimmer-regional-support", "destination": "/bob-zimmer-regional-support.html" },
+    { "source": "/fulmer-investment-brief", "destination": "/fulmer-investment-brief.html" }
   ]
 }
