@@ -11,47 +11,58 @@
   html, body { width:100%; height:100%; overflow:hidden; font-family:'Nunito Sans',sans-serif; color:var(--text); background:var(--bg); }
   .page { width:100%; height:100%; display:flex; flex-direction:column; overflow:hidden; }
 
-  header { background:var(--navy); padding:9px 28px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
-  .logo-box { background:#fff; border-radius:6px; padding:5px 10px; display:inline-flex; align-items:center; }
-  .logo-box img { height:30px; }
-  .tagline { color:var(--teal); font-size:10.5px; font-weight:600; text-align:right; }
-  .tagline small { display:block; color:rgba(255,255,255,.45); font-size:9px; margin-top:1px; }
+  header { background:var(--navy); padding:8px 26px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+  .logo-box { background:#fff; border-radius:6px; padding:4px 10px; display:inline-flex; align-items:center; }
+  .logo-box img { height:28px; }
+  .tagline { color:var(--teal); font-size:10px; font-weight:600; text-align:right; }
+  .tagline small { display:block; color:rgba(255,255,255,.45); font-size:8.5px; margin-top:1px; }
 
-  footer { background:var(--navy); padding:7px 28px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
-  .foot-copy { color:rgba(255,255,255,.4); font-size:8.5px; }
-  .foot-right { color:var(--teal); font-size:9px; font-weight:700; }
+  footer { background:var(--navy); padding:6px 26px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+  .foot-copy { color:rgba(255,255,255,.4); font-size:8px; }
+  .foot-right { color:var(--teal); font-size:8.5px; font-weight:700; }
 
-  .body { flex:1; min-height:0; padding:12px 28px; display:flex; flex-direction:column; gap:9px; overflow:hidden; }
+  .body { flex:1; min-height:0; padding:10px 26px; display:flex; flex-direction:column; gap:8px; overflow:hidden; }
 
-  .ask { background:var(--navy); border-radius:7px; display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr; align-items:center; padding:11px 18px; flex-shrink:0; }
-  .ask-div { background:rgba(255,255,255,.15); height:28px; }
+  /* ask */
+  .ask { background:var(--navy); border-radius:6px; display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr; align-items:center; padding:9px 16px; flex-shrink:0; }
+  .ask-div { background:rgba(255,255,255,.15); height:24px; }
   .ai { text-align:center; }
-  .ai .v { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:var(--teal); line-height:1; }
-  .ai .l { font-size:8.5px; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.7px; margin-top:3px; }
+  .ai .v { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; color:var(--teal); line-height:1; }
+  .ai .l { font-size:8px; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.7px; margin-top:3px; }
 
-  .slbl { font-size:8.5px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
+  .slbl { font-size:8px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color:var(--teal); margin-bottom:3px; }
 
-  .two { display:grid; grid-template-columns:1fr 1fr; gap:10px; flex:1; min-height:0; }
-  .two .card { height:100%; }
+  /* two col */
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 
-  .card { background:#fff; border-radius:6px; padding:10px 13px; }
+  .card { background:#fff; border-radius:6px; padding:8px 12px; }
   .card.tl { border-top:2px solid var(--teal); }
   .card.nv { border-top:2px solid var(--navy); }
-  .card h3 { font-family:'Syne',sans-serif; font-size:9.5px; font-weight:800; color:var(--navy); text-transform:uppercase; letter-spacing:.3px; margin-bottom:5px; }
-  .card ul { padding-left:12px; }
-  .card li { font-size:10px; line-height:1.6; color:var(--text); }
+  .card h3 { font-family:'Syne',sans-serif; font-size:9px; font-weight:800; color:var(--navy); text-transform:uppercase; letter-spacing:.3px; margin-bottom:4px; }
+  .card ul { padding-left:11px; }
+  .card li { font-size:9.5px; line-height:1.55; color:var(--text); }
 
-  .proceeds { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; flex-shrink:0; }
-  .pc { background:#fff; border-radius:6px; padding:9px 11px; border-top:2px solid var(--teal); }
+  /* proceeds */
+  .proceeds { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; flex-shrink:0; }
+  .pc { background:#fff; border-radius:6px; padding:8px 10px; border-top:2px solid var(--teal); }
   .pc.boost { border-top-color:var(--navy); }
-  .pc .amt { font-family:'Syne',sans-serif; font-size:15px; font-weight:800; color:var(--navy); line-height:1; margin-bottom:2px; }
-  .pc .pt { font-size:8.5px; font-weight:700; color:var(--teal); text-transform:uppercase; letter-spacing:.4px; margin-bottom:2px; }
+  .pc .amt { font-family:'Syne',sans-serif; font-size:13px; font-weight:800; color:var(--navy); line-height:1; margin-bottom:2px; }
+  .pc .pt { font-size:8px; font-weight:700; color:var(--teal); text-transform:uppercase; letter-spacing:.4px; margin-bottom:2px; }
   .pc.boost .pt { color:var(--navy); }
-  .pc .pd { font-size:9px; color:var(--gray); line-height:1.4; }
+  .pc .pd { font-size:8.5px; color:var(--gray); line-height:1.35; }
 
-  .quote { background:var(--navy); border-radius:6px; padding:9px 16px; display:flex; align-items:center; gap:12px; flex-shrink:0; }
-  .quote p { font-size:10.5px; font-style:italic; color:rgba(255,255,255,.85); line-height:1.45; flex:1; }
-  .quote cite { font-size:9px; color:var(--teal); font-style:normal; font-weight:700; white-space:nowrap; }
+  /* org timeline */
+  .org { display:grid; grid-template-columns:repeat(4,1fr); gap:0; background:var(--navy); border-radius:7px; overflow:hidden; flex-shrink:0; }
+  .oc { padding:10px 11px; border-right:1px solid rgba(255,255,255,.1); }
+  .oc:last-child { border-right:none; }
+  .oc .period { font-family:'Syne',sans-serif; font-size:9px; font-weight:800; color:var(--teal); text-transform:uppercase; letter-spacing:.5px; margin-bottom:6px; padding-bottom:5px; border-bottom:1px solid rgba(255,255,255,.12); }
+  .oc ul { padding-left:11px; }
+  .oc li { font-size:9px; color:rgba(255,255,255,.75); line-height:1.6; }
+
+  /* quote */
+  .quote { background:var(--navy); border-radius:6px; padding:8px 14px; display:flex; align-items:center; gap:10px; flex-shrink:0; }
+  .quote p { font-size:10px; font-style:italic; color:rgba(255,255,255,.85); line-height:1.4; flex:1; }
+  .quote cite { font-size:8.5px; color:var(--teal); font-style:normal; font-weight:700; white-space:nowrap; }
 </style>
 </head>
 <body>
@@ -64,6 +75,7 @@
 
   <div class="body">
 
+    <!-- ASK -->
     <div class="ask">
       <div class="ai"><div class="v">$300K</div><div class="l">Investment Ask</div></div>
       <div class="ask-div"></div>
@@ -72,6 +84,7 @@
       <div class="ai"><div class="v">$3M</div><div class="l">Pre-Money Valuation</div></div>
     </div>
 
+    <!-- BUSINESS + REVENUE -->
     <div class="two">
       <div>
         <div class="slbl">The Business</div>
@@ -79,10 +92,9 @@
           <h3>Elias Range Stays</h3>
           <ul>
             <li>Furnished housing for healthcare workers &amp; construction crews near BC hospitals</li>
-            <li>$105/night — 40% below hotel average</li>
-            <li>Single invoice, zero admin burden for health authority clients</li>
+            <li>$105/night — 40% below hotel average · single invoice · zero admin</li>
             <li>Master lease model — no capital required from clients</li>
-            <li><strong>$1.5M/year revenue per hospital building at scale</strong></li>
+            <li><strong>$1.5M/year per hospital building · $100M/year at full regional scale</strong></li>
           </ul>
         </div>
       </div>
@@ -91,26 +103,26 @@
         <div class="card nv">
           <h3>Growth Trajectory</h3>
           <ul>
-            <li><strong>Today:</strong> ~$750K · 34+ units · 6 hospitals</li>
+            <li><strong>Today:</strong> ~$750K · 34+ units · 6 hospitals · $2.8M quoted pipeline</li>
             <li><strong>This year:</strong> $1M–$2M gross revenue projected</li>
-            <li><strong>Pipeline:</strong> $2.8M quoted (2-year, 1 client)</li>
-            <li><strong>Month 24:</strong> $5M+ gross revenue</li>
-            <li><strong>Target valuation:</strong> $10M+ at 24 months</li>
+            <li><strong>Month 24:</strong> $5M+ gross revenue · $10M+ target valuation</li>
+            <li><strong>Why now:</strong> UHNBC $1.58B build + Northern Health VP dialogue active</li>
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- USE OF PROCEEDS -->
     <div>
       <div class="slbl">Use of Proceeds — Acceleration Capital</div>
       <div class="proceeds">
         <div class="pc">
           <div class="pt">Fractional CFO</div><div class="amt">~$80K</div>
-          <div class="pd">Budget, reporting, investor accountability, capital strategy (~$5K/mo).</div>
+          <div class="pd">Budget, reporting, investor accountability (~$5K/mo).</div>
         </div>
         <div class="pc">
           <div class="pt">PR &amp; Finance</div><div class="amt">~$70K</div>
-          <div class="pd">Investor-facing communications, financial reporting support, and brand amplification.</div>
+          <div class="pd">Investor comms, financial reporting support, brand amplification.</div>
         </div>
         <div class="pc">
           <div class="pt">CEO Advisory</div><div class="amt">$42K/yr</div>
@@ -123,31 +135,52 @@
       </div>
     </div>
 
-    <div class="two">
-      <div>
-        <div class="slbl">Why Now</div>
-        <div class="card tl">
-          <h3>Market Timing</h3>
+    <!-- 24-MONTH ORG BUILD -->
+    <div>
+      <div class="slbl">24-Month Organizational Build</div>
+      <div class="org">
+        <div class="oc">
+          <div class="period">Today</div>
           <ul>
-            <li><strong>UHNBC Prince George</strong> — $1.58B build, EllisDon locked. Worker housing window open now.</li>
-            <li><strong>Northern Health</strong> — VP-level dialogue active. One master lease = $1.5M/yr minimum.</li>
-            <li>No dominant platform has solved healthcare workforce housing in Canada.</li>
+            <li>Austin Neill (CEO)</li>
+            <li>Guest Services &amp; Logistics</li>
+            <li>Social Media</li>
+            <li>Fractional HR</li>
+            <li>AP / AR</li>
+            <li>Bookkeeping Support</li>
           </ul>
         </div>
-      </div>
-      <div>
-        <div class="slbl">What Smart Money Means Here</div>
-        <div class="card nv">
-          <h3>The Right Partner</h3>
+        <div class="oc">
+          <div class="period">VC Buy-In</div>
           <ul>
-            <li>The right connections accelerate the $100M/year vision by years.</li>
-            <li>One intro to the right health authority executive changes the trajectory.</li>
-            <li>ERS is looking for a partner who understands that — not just a cheque.</li>
+            <li>Fractional CFO</li>
+            <li>PR &amp; Finance</li>
+            <li>CEO Advisory / Governance</li>
+            <li>Corporate Negotiations Consultant</li>
+          </ul>
+        </div>
+        <div class="oc">
+          <div class="period">Month 12</div>
+          <ul>
+            <li>Operations Manager</li>
+            <li>Second Ground Team</li>
+            <li>Master Lease Active</li>
+            <li>Financial Systems Mature</li>
+          </ul>
+        </div>
+        <div class="oc">
+          <div class="period">Month 24</div>
+          <ul>
+            <li>Full Executive Team</li>
+            <li>Regional Ops Leads</li>
+            <li>Board-Ready Governance</li>
+            <li>$5M+ Revenue Run Rate</li>
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- QUOTE -->
     <div class="quote">
       <p>"The hotels have tried to work with us. We don't want to work with hotels."</p>
       <cite>— Senior Health Authority Executive, Northern BC</cite>
