@@ -2,546 +2,259 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ERS — Investment Brief · Fulmer & Co</title>
+<title>Elias Range Stays — Investment Overview</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #00304A;
-    --teal: #009793;
-    --off-white: #F5F8FA;
-    --text: #334155;
-    --gray: #475569;
-    --light: #e2e8f0;
-    --gold: #b7791f;
-  }
+  @page { size:letter portrait; margin:0; }
+  :root { --navy:#00304A; --teal:#009793; --bg:#F5F8FA; --text:#334155; --gray:#475569; --gold:#b7791f; }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:100%; height:100%; overflow:hidden; font-family:'Nunito Sans',sans-serif; color:var(--text); background:var(--bg); }
+  .page { width:100%; height:100%; display:flex; flex-direction:column; overflow:hidden; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  @page { size: letter portrait; margin: 0; }
+  header { background:var(--navy); padding:8px 26px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+  .logo-box { background:#fff; border-radius:6px; padding:4px 10px; display:inline-flex; align-items:center; }
+  .logo-box img { height:28px; }
+  .tagline { color:var(--teal); font-size:10px; font-weight:600; text-align:right; }
+  .tagline small { display:block; color:rgba(255,255,255,.45); font-size:8.5px; margin-top:1px; }
 
-  html, body {
-    width: 816px;
-    height: 1056px;
-    overflow: hidden;
-    background: #cbd5e1;
-    font-family: 'Nunito Sans', sans-serif;
-    color: var(--text);
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+  footer { background:var(--navy); padding:6px 26px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+  .foot-copy { color:rgba(255,255,255,.4); font-size:8px; }
+  .foot-right { color:var(--teal); font-size:8.5px; font-weight:700; }
 
-  .page {
-    width: 816px;
-    height: 1056px;
-    background: var(--off-white);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
+  .body { flex:1; min-height:0; padding:9px 26px; display:flex; flex-direction:column; gap:7px; overflow:hidden; }
 
-  /* ── HEADER ── */
-  header {
-    background: var(--navy);
-    padding: 9px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
-  }
-  .logo {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.5px;
-  }
-  .logo span { color: var(--teal); }
-  .header-right .doc-title {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--teal);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: right;
-  }
-  .header-right .doc-sub {
-    font-size: 10px;
-    color: rgba(255,255,255,0.5);
-    margin-top: 1px;
-    text-align: right;
-  }
+  /* ask */
+  .ask { background:var(--navy); border-radius:6px; display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr; align-items:center; padding:9px 16px; flex-shrink:0; }
+  .ask-div { background:rgba(255,255,255,.15); height:24px; }
+  .ai { text-align:center; }
+  .ai .v { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; color:var(--teal); line-height:1; }
+  .ai .l { font-size:8px; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.7px; margin-top:3px; }
 
-  /* ── ASK BAR ── */
-  .ask-bar {
-    background: var(--navy);
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    flex-shrink: 0;
-  }
-  .ask-item {
-    padding: 9px 16px;
-    text-align: center;
-    border-right: 1px solid rgba(255,255,255,0.08);
-  }
-  .ask-item:last-child { border-right: none; }
-  .ask-val {
-    font-family: 'Syne', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--teal);
-    line-height: 1;
-  }
-  .ask-lbl {
-    font-size: 9px;
-    color: rgba(255,255,255,0.55);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-top: 3px;
-  }
+  .slbl { font-size:8px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color:var(--teal); margin-bottom:3px; }
 
-  /* ── BODY ── */
-  .body {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    overflow: hidden;
-  }
-  .col {
-    padding: 13px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border-right: 1px solid var(--light);
-  }
-  .col:last-child { border-right: none; }
+  /* two col */
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 
-  .section-label {
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 4px;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 12.5px;
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
+  .card { background:#fff; border-radius:6px; padding:8px 12px; }
+  .card.tl { border-top:2px solid var(--teal); }
+  .card.nv { border-top:2px solid var(--navy); }
+  .card h3 { font-family:'Syne',sans-serif; font-size:9px; font-weight:800; color:var(--navy); text-transform:uppercase; letter-spacing:.3px; margin-bottom:4px; }
+  .card ul { padding-left:11px; }
+  .card li { font-size:9.5px; line-height:1.55; color:var(--text); }
 
-  .card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 10px 13px;
-    border-top: 3px solid var(--teal);
-  }
-  .card.navy-top { border-top-color: var(--navy); }
+  /* proceeds */
+  .proceeds { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; flex-shrink:0; }
+  .pc { background:#fff; border-radius:6px; padding:8px 10px; border-top:2px solid var(--teal); }
+  .pc.boost { border-top-color:var(--navy); }
+  .pc .amt { font-family:'Syne',sans-serif; font-size:13px; font-weight:800; color:var(--navy); line-height:1; margin-bottom:2px; }
+  .pc .pt { font-size:8px; font-weight:700; color:var(--teal); text-transform:uppercase; letter-spacing:.4px; margin-bottom:2px; }
+  .pc.boost .pt { color:var(--navy); }
+  .pc .pd { font-size:8.5px; color:var(--gray); line-height:1.35; }
 
-  p.body-text {
-    font-size: 11px;
-    line-height: 1.55;
-    color: var(--gray);
-  }
+  /* org timeline */
+  .org { display:grid; grid-template-columns:repeat(4,1fr); gap:0; background:var(--navy); border-radius:7px 7px 0 0; overflow:hidden; flex-shrink:0; }
+  .oc { padding:9px 11px; border-right:1px solid rgba(255,255,255,.1); }
+  .oc:last-child { border-right:none; }
+  .oc .period { font-family:'Syne',sans-serif; font-size:9px; font-weight:800; color:var(--teal); text-transform:uppercase; letter-spacing:.5px; margin-bottom:5px; padding-bottom:4px; border-bottom:1px solid rgba(255,255,255,.12); }
+  .oc ul { padding-left:11px; }
+  .oc li { font-size:9px; color:rgba(255,255,255,.75); line-height:1.6; }
 
-  /* revenue row */
-  .rev-row {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 7px;
-  }
-  .rev-item {
-    background: var(--navy);
-    border-radius: 6px;
-    padding: 8px 6px;
-    text-align: center;
-  }
-  .rev-item .rv { font-family:'Syne',sans-serif; font-size:14px; font-weight:800; color:var(--teal); line-height:1; }
-  .rev-item .rl { font-size:8px; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:.5px; margin-top:2px; }
-
-  /* proceeds table */
-  .proc-table { width:100%; border-collapse:collapse; font-size:10.5px; }
-  .proc-table tr { border-bottom: 1px solid var(--light); }
-  .proc-table tr:last-child { border-bottom:none; }
-  .proc-table td { padding: 5px 4px; color: var(--text); }
-  .proc-table td:first-child { color: var(--gray); font-size:10px; }
-  .proc-table td:last-child { font-weight:700; color: var(--navy); text-align:right; white-space:nowrap; }
-  .proc-table tfoot td { border-top: 2px solid var(--navy); color:var(--navy); font-weight:700; padding-top:6px; }
-  .proc-table tfoot td:last-child { color:var(--teal); }
-
-  /* why now bullets */
-  ul.why {
-    list-style: none;
-    font-size: 10.5px;
-    color: var(--gray);
-  }
-  ul.why li {
-    padding: 4px 0;
-    border-bottom: 1px solid var(--light);
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-    line-height: 1.4;
-  }
-  ul.why li:last-child { border-bottom:none; }
-  ul.why li::before { content:'→'; color:var(--teal); font-weight:700; flex-shrink:0; margin-top:1px; }
-
-  /* quote */
-  .quote-box {
-    background: var(--teal);
-    border-radius: 8px;
-    padding: 9px 13px;
-    font-size: 10px;
-    color: #fff;
-    line-height: 1.5;
-    font-style: italic;
-  }
-  .quote-box cite { display:block; margin-top:4px; font-style:normal; font-weight:700; font-size:9px; opacity:.85; }
-
-  /* ── ORG TIMELINE ── */
-  .org-strip {
-    background: #fff;
-    border-top: 2px solid var(--light);
-    padding: 10px 20px 8px;
-    flex-shrink: 0;
-  }
-  .org-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
-  .org-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 11px;
-    font-weight: 800;
-    color: var(--navy);
-    text-transform: uppercase;
-    letter-spacing: .5px;
-  }
-  .org-sub {
-    font-size: 9px;
-    color: var(--gray);
-  }
-
-  .org-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 6px;
-    margin-bottom: 6px;
-  }
-  .org-col-head {
-    font-family: 'Syne', sans-serif;
-    font-size: 8.5px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .8px;
-    padding: 4px 8px;
-    border-radius: 4px 4px 0 0;
-    text-align: center;
-  }
-  .org-col-head.today   { background: var(--navy); color:#fff; }
-  .org-col-head.vc      { background: var(--teal);  color:#fff; }
-  .org-col-head.mo12    { background: #1a5276;       color:#fff; }
-  .org-col-head.mo24    { background: #145a32;       color:#fff; }
-
-  .org-col-body {
-    background: var(--off-white);
-    border-radius: 0 0 4px 4px;
-    padding: 6px 8px;
-  }
-  .org-role {
-    font-size: 9px;
-    color: var(--text);
-    padding: 2.5px 0;
-    border-bottom: 1px solid var(--light);
-    line-height: 1.3;
-  }
-  .org-role:last-child { border-bottom:none; }
-  .org-role.ceo {
-    font-weight: 800;
-    font-size: 9.5px;
-    color: var(--navy);
-  }
-
-  /* ── RIGHT PARTNER VISION BANNER ── */
-  .vision-banner {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-    border-radius: 6px;
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 2px;
+  /* vision banner */
+  .vision {
+    background:linear-gradient(135deg,#1a1a2e 0%,#16213e 45%,#0f3460 100%);
+    border-radius:0 0 7px 7px;
+    padding:7px 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
   }
   .vision-badge {
-    background: var(--gold);
-    color: #fff;
-    font-family: 'Syne', sans-serif;
-    font-size: 7.5px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .8px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    flex-shrink: 0;
+    background:var(--gold);
+    color:#fff;
+    font-family:'Syne',sans-serif;
+    font-size:7px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+    padding:3px 7px;
+    border-radius:3px;
+    white-space:nowrap;
+    flex-shrink:0;
+    line-height:1.4;
+    text-align:center;
   }
-  .vision-divider {
-    width: 1px;
-    height: 28px;
-    background: rgba(255,255,255,0.15);
-    flex-shrink: 0;
+  .vision-div { width:1px; height:26px; background:rgba(255,255,255,.15); flex-shrink:0; }
+  .vision-head {
+    font-family:'Syne',sans-serif;
+    font-size:9px;
+    font-weight:800;
+    color:#fff;
+    line-height:1.35;
+    flex-shrink:0;
+    max-width:185px;
   }
-  .vision-headline {
-    font-family: 'Syne', sans-serif;
-    font-size: 10px;
-    font-weight: 800;
-    color: #fff;
-    line-height: 1.3;
-    flex-shrink: 0;
-    max-width: 200px;
-  }
-  .vision-headline span { color: #f6ad55; }
-  .vision-dots {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    flex: 1;
-  }
-  .vision-dot {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 20px;
-    padding: 3px 9px;
-    font-size: 8.5px;
-    color: rgba(255,255,255,0.85);
-    white-space: nowrap;
-    font-weight: 600;
+  .vision-head span { color:#f6ad55; }
+  .vision-pills { display:flex; flex-wrap:wrap; gap:4px; flex:1; }
+  .vision-pill {
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:20px;
+    padding:2px 8px;
+    font-size:8px;
+    color:rgba(255,255,255,.82);
+    white-space:nowrap;
+    font-weight:600;
   }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--navy);
-    padding: 7px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
-  }
-  .foot-copy {
-    font-size: 9px;
-    color: rgba(255,255,255,0.45);
-  }
-  .foot-right {
-    font-size: 9px;
-    color: var(--teal);
-    font-weight: 700;
-  }
+  /* quote */
+  .quote { background:var(--navy); border-radius:6px; padding:7px 14px; display:flex; align-items:center; gap:10px; flex-shrink:0; }
+  .quote p { font-size:10px; font-style:italic; color:rgba(255,255,255,.85); line-height:1.4; flex:1; }
+  .quote cite { font-size:8.5px; color:var(--teal); font-style:normal; font-weight:700; white-space:nowrap; }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HEADER -->
   <header>
-    <div class="logo">Elias Range <span>Stays</span></div>
-    <div class="header-right">
-      <div class="doc-title">Investment Brief — Confidential</div>
-      <div class="doc-sub">Prepared for Fulmer &amp; Co · May 2026</div>
-    </div>
+    <div class="logo-box"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARsAAACHCAYAAAAm/v2tAABBeUlEQVR4nO1dB3wUVf7/vTe7m03vgTRCEkCGqiLFAop64ii2UyyneNbDs2H7Y4egd4qch94pWEEp553ACZ7g2BUFEbBRF5HeCSmkZze77/0/v5m3YYm7mw3Z2Sww3w9Dkp2ZN2929/3mV38/IBMmTJgwYcKECRMmTJgwYcKECRMmTJgwYcKECRMmTJgwYcKECRMmTLQG0uoRJkwc46Cy8h4AnOtnl8Ic6vIOmNIJCUtHT8CEiZagstIPAF5uxxBfMIda4vN3LAAk+zlO8nPt2wDgTgDIBoCfAOBJ5lB/aMdcTAiYwsZENCIJAIa24/wdR3MSlZVHAOBZn5cUADiTysow5lBXt2M+JvD97egJmDARDaCykgAAjwUQfP5eN9FGmMLGhAkdRQCQGGBfrwjP5biEKWzaBtOhfvxiDwC4A+zbHeG5HJc4Znw2c+fOJS6XK+Xrr78+9Prrr/OOmMMDz71y6sot+y4lFKyEEwqEEwAOBGgIQohxPBK49g8InuHvdwD9OPzhAw6EZ6SlrF747P3vCqHXIe9BFOA7AGhq5ZgtbR2UOdRyKiuvC+fwEbsAYEpbxzNxDAqbJUuWaD9nz54tL1269Nnu3bvfTwjZzhhjRFulxmLz5s34g3z64/r8v05/b96eg5VdCQGC30DDwbgmiSQgQGxWXnzqEM+j775VXVT960d79uwhJSUlJ6LAuYI51P0GjX0/ALgA4E8AEAcA2wHgYeZQPzXoeicUolrYlJSUwPPPP0+Ki4uTP/roo38UFhaeFRcXd9X1118/efTo0RF5us+cOZPEdZHj3v102QN7D5QXEgIezlGTiYC4EcoNYxTSsnLAmpBKl246+LwrvXDNzl7Je42fwIkF5lBR0NxPZQUdwikAcIA51Ig8V04ERL3PZsCAAfyzzz67fu/evec2NTVZt2/ffm///v27McZgwoQJhl+/d+/e8OWqtQO27y67AqiEugbFDQihAGhKGbBp4wIFSvHzoZI9jqbnFxFioVDd4Om5+WDlTU8NH27hHM04E+EGc6gNzKHuMwXNCSJsOOfwzDPPSN99991JO3fu/BNaTWjOVFZW5syYMWNKXFycbcOGDYZe33bddfSQlGDbUVp2R3VjfT5wN+FoQ4HHe1Q4L3jkT+13vBaFToXFEJOSTiinhIMT9jewPzwzd2UvWjKRnJiWlIljEVFrRqGZdNFFF/F169ZdV19f30Nf/xyFI9u6dauSlpZ25ZNPPvnu3LlzPUb4biZNmgQT+/Vjy37ecOHuA+Uj8eKcoKbBAX3DmlAwwmeEYzbLDwZx6ZmQWtAdJHQgE0LQgHM6XScdqK2/aQKZcP8J7iwOK6isnAYAaX52rWQO9VCQ87oAwGUAMBAAOgkHNpq5SwFgIXOo1VRWMLTe3c/pvzKHujXAuPh9P0dsJwFAqvi8KwBgo3CWf80cah0cA4hKNXzChAlk7dq10Llz518zZs26ora2NqPFXFlWVtY3p5xyyh/Xr1+/e/fu3SzcvqKGhgaS1/+0vEkz1a/27t9fyCUJBQzRhYEQNOEUOL5jMQZAKVgsEuT1GQRJ2V2Bcje+A80Xliy05ozCrAvSti1biWdPnDgRjhdQWTkLAL4JsFsFAGcrQ5T4ZvxSWcFzLvRz3FDmUJf6HPehyBpuibOYQ13mZ57xAPAUANwNALYAczmAX2nQhdgzfvY/xhzqs37GPh8AXkRLHoIDheCzzKFOhihHVGo2uHAuu+yymA8//HBybW1tps8ubTUSQkhVVdXpFRUVl952220oaE6OhtEagLFWxA+BvNf2qGtQXJiUWmDCHQUOL7x3LaBuc3AKQSS1Q1ZqOGijM3kJedO7UKiN4t0sxl0E6gNvUV3pCGpI2yCmakjXNqyXVAAAAAElFTkSuQmCC" alt="ERS"></div>
+    <div class="tagline">Healthy Living · Stronger Communities<small>Investment Overview · Confidential · May 2026</small></div>
   </header>
 
-  <!-- ASK BAR -->
-  <div class="ask-bar">
-    <div class="ask-item">
-      <div class="ask-val">$300K</div>
-      <div class="ask-lbl">Capital Raise</div>
-    </div>
-    <div class="ask-item">
-      <div class="ask-val">10%</div>
-      <div class="ask-lbl">Equity Offered</div>
-    </div>
-    <div class="ask-item">
-      <div class="ask-val">$3M</div>
-      <div class="ask-lbl">Pre-Money Valuation</div>
-    </div>
-    <div class="ask-item">
-      <div class="ask-val">3.3×</div>
-      <div class="ask-lbl">Target Return (24 Mo)</div>
-    </div>
-  </div>
-
-  <!-- BODY -->
   <div class="body">
 
-    <!-- LEFT COL -->
-    <div class="col">
-
-      <div class="card">
-        <div class="section-label">The Business</div>
-        <div class="section-title">Workforce Housing for Healthcare &amp; Construction</div>
-        <p class="body-text">Elias Range Stays places healthcare workers and construction crews in fully furnished, all-inclusive housing at <strong>$105/night</strong> — 40% below hotel. Single invoice. 24/7 support. Zero admin burden for the client.</p>
-        <p class="body-text" style="margin-top:5px;">At scale, one hospital building generates <strong>$1.5M/year</strong> in recurring revenue. Already inside 6 hospitals across BC.</p>
-      </div>
-
-      <div>
-        <div class="section-label" style="margin-bottom:7px;">Revenue Trajectory</div>
-        <div class="rev-row">
-          <div class="rev-item">
-            <div class="rv">$750K</div>
-            <div class="rl">Today</div>
-          </div>
-          <div class="rev-item">
-            <div class="rv">$2.8M</div>
-            <div class="rl">Quoted Pipeline</div>
-          </div>
-          <div class="rev-item">
-            <div class="rv">$5M</div>
-            <div class="rl">Month 24</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card navy-top">
-        <div class="section-label">Market Timing</div>
-        <ul class="why">
-          <li>$1.58B UHNBC acute care tower breaking ground — Prince George, 48-month build, crews need housing now</li>
-          <li>Northern Health exec relationship established — master lease conversation in progress</li>
-          <li>Proven model, real revenue, real contracts — no concept risk</li>
-          <li>This capital accelerates deal velocity, not survival</li>
-        </ul>
-      </div>
-
+    <!-- ASK -->
+    <div class="ask">
+      <div class="ai"><div class="v">$300K</div><div class="l">Investment Ask</div></div>
+      <div class="ask-div"></div>
+      <div class="ai"><div class="v">10%</div><div class="l">Equity · Operating Co.</div></div>
+      <div class="ask-div"></div>
+      <div class="ai"><div class="v">$3M</div><div class="l">Pre-Money Valuation</div></div>
     </div>
 
-    <!-- RIGHT COL -->
-    <div class="col">
-
-      <div class="card">
-        <div class="section-label">Use of Proceeds</div>
-        <table class="proc-table">
-          <tbody>
-            <tr>
-              <td>Fractional CFO</td>
-              <td>Financial infrastructure, investor reporting, systems</td>
-              <td>$80K</td>
-            </tr>
-            <tr>
-              <td>PR &amp; Finance Role</td>
-              <td>Brand visibility, deal support, communications</td>
-              <td>$70K</td>
-            </tr>
-            <tr>
-              <td>CEO Advisory</td>
-              <td>Strategic counsel, governance, network activation</td>
-              <td>$42K/yr</td>
-            </tr>
-            <tr>
-              <td>Growth Boost</td>
-              <td>Accelerate deal velocity — faster closings, faster builds</td>
-              <td>~$108K</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="2"><strong>Total Raise</strong></td>
-              <td>$300K</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-
-      <div class="card navy-top">
-        <div class="section-label">The Right Partner</div>
-        <p class="body-text">This isn't operational capital — ERS is already revenue-generating. This raise is about <strong>who</strong> is in the room. The right investor brings network access, credibility, and deal connections that compress a 3-year growth plan into 18 months.</p>
-        <p class="body-text" style="margin-top:5px;">Valuation is forward-based: $5M gross revenue at month 24 supports a $10M valuation — making today's $3M pre-money entry the most attractive point in the company's trajectory.</p>
-      </div>
-
-      <div class="quote-box">
-        "The housing crisis for healthcare workers is not going away. The health authority that solves it first wins — and ERS is the only operator positioned to deliver at scale."
-        <cite>— Northern Health Executive, April 2026</cite>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ORG TIMELINE -->
-  <div class="org-strip">
-    <div class="org-header">
-      <div class="org-title">24-Month Organizational Build</div>
-      <div class="org-sub">Capital deployment drives team · team drives contracts · contracts drive valuation</div>
-    </div>
-
-    <div class="org-cols">
+    <!-- BUSINESS + MARKET TIMING -->
+    <div class="two">
       <div>
-        <div class="org-col-head today">Today</div>
-        <div class="org-col-body">
-          <div class="org-role ceo">Austin Neill — CEO</div>
-          <div class="org-role">Guest Services / Logistics</div>
-          <div class="org-role">Social Media</div>
-          <div class="org-role">Fractional HR</div>
-          <div class="org-role">AP/AR Bookkeeping Support</div>
+        <div class="slbl">The Business</div>
+        <div class="card tl">
+          <h3>Elias Range Stays</h3>
+          <ul>
+            <li>Furnished housing for healthcare workers &amp; construction crews near BC hospitals</li>
+            <li>$105/night — 40% below hotel average · single invoice · zero admin</li>
+            <li>Master lease model — no capital required from clients</li>
+            <li><strong>$1.5M/year per hospital building · $100M/year at full regional scale</strong></li>
+          </ul>
         </div>
       </div>
-
       <div>
-        <div class="org-col-head vc">Post VC-In</div>
-        <div class="org-col-body">
-          <div class="org-role">Fractional CFO</div>
-          <div class="org-role">PR &amp; Finance Role</div>
-          <div class="org-role">CEO Advisory</div>
-          <div class="org-role">Governance / Corporate Negotiations Consultant</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="org-col-head mo12">Month 12</div>
-        <div class="org-col-body">
-          <div class="org-role">Operations Manager</div>
-          <div class="org-role">Second Ground Team</div>
-          <div class="org-role">Master Leases Active</div>
-          <div class="org-role">Financial Systems Built</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="org-col-head mo24">Month 24</div>
-        <div class="org-col-body">
-          <div class="org-role">$5M Gross Revenue</div>
-          <div class="org-role">$10M Company Valuation</div>
-          <div class="org-role">BC-Wide Regional Scale</div>
-          <div class="org-role">Series A Ready</div>
+        <div class="slbl">Market Timing · Revenue Trajectory</div>
+        <div class="card nv">
+          <h3>Why Now &amp; Where We're Going</h3>
+          <ul>
+            <li><strong>Today:</strong> ~$750K · 34+ units · 6 hospitals · $2.8M quoted pipeline</li>
+            <li><strong>This year:</strong> $1M–$2M gross revenue projected</li>
+            <li><strong>Month 24:</strong> $5M+ gross revenue · $10M+ target valuation</li>
+            <li><strong>Catalyst:</strong> UHNBC $1.58B build + Northern Health VP dialogue active</li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <!-- VISION BANNER -->
-    <div class="vision-banner">
-      <div class="vision-badge">Right Partner<br>Unlocks →</div>
-      <div class="vision-divider"></div>
-      <div class="vision-headline">Full-Service Health Authority<br><span>Housing &amp; Infrastructure Partner</span></div>
-      <div class="vision-divider"></div>
-      <div class="vision-dots">
-        <div class="vision-dot">Sub-Leasing</div>
-        <div class="vision-dot">Acquisitions</div>
-        <div class="vision-dot">Development Arm</div>
-        <div class="vision-dot">Events &amp; Community</div>
-        <div class="vision-dot">Property Management</div>
-        <div class="vision-dot">Hospital Services</div>
-        <div class="vision-dot">Construction Services</div>
-        <div class="vision-dot">Operations Services</div>
+    <!-- THE RIGHT PARTNER — USE OF PROCEEDS -->
+    <div>
+      <div class="slbl">The Right Partner · Use of Proceeds</div>
+      <div class="proceeds">
+        <div class="pc">
+          <div class="pt">Fractional CFO</div><div class="amt">~$80K</div>
+          <div class="pd">Budget, reporting, investor accountability (~$5K/mo).</div>
+        </div>
+        <div class="pc">
+          <div class="pt">PR &amp; Finance</div><div class="amt">~$70K</div>
+          <div class="pd">Investor comms, financial reporting support, brand amplification.</div>
+        </div>
+        <div class="pc">
+          <div class="pt">CEO Advisory</div><div class="amt">$42K/yr</div>
+          <div class="pd">Executive governance &amp; founder-to-CEO transition.</div>
+        </div>
+        <div class="pc boost">
+          <div class="pt">Growth Boost</div><div class="amt">~$108K</div>
+          <div class="pd">Accelerate deal velocity — faster team builds, faster contract closings.</div>
+        </div>
       </div>
+    </div>
+
+    <!-- 24-MONTH ORG BUILD -->
+    <div>
+      <div class="slbl">24-Month Organizational Build</div>
+      <div class="org">
+        <div class="oc">
+          <div class="period">Today</div>
+          <ul>
+            <li>Austin Neill (CEO)</li>
+            <li>Guest Services &amp; Logistics</li>
+            <li>Social Media</li>
+            <li>Fractional HR</li>
+            <li>AP / AR &amp; Bookkeeping</li>
+          </ul>
+        </div>
+        <div class="oc">
+          <div class="period">VC Buy-In</div>
+          <ul>
+            <li>Fractional CFO</li>
+            <li>PR &amp; Finance</li>
+            <li>CEO Advisory</li>
+            <li>Governance / Corp. Negotiations</li>
+          </ul>
+        </div>
+        <div class="oc">
+          <div class="period">Month 12</div>
+          <ul>
+            <li>Operations Manager</li>
+            <li>Second Ground Team</li>
+            <li>Master Leases Active</li>
+            <li>Financial Systems Built</li>
+          </ul>
+        </div>
+        <div class="oc">
+          <div class="period">Month 24</div>
+          <ul>
+            <li>$5M Gross Revenue</li>
+            <li>$10M Company Valuation</li>
+            <li>BC-Wide Regional Scale</li>
+            <li>Series A Ready</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- VISION BANNER -->
+      <div class="vision">
+        <div class="vision-badge">Right Partner<br>Unlocks →</div>
+        <div class="vision-div"></div>
+        <div class="vision-head">Full-Service Health Authority<br><span>Housing &amp; Infrastructure Partner</span></div>
+        <div class="vision-div"></div>
+        <div class="vision-pills">
+          <div class="vision-pill">Sub-Leasing</div>
+          <div class="vision-pill">Acquisitions</div>
+          <div class="vision-pill">Development Arm</div>
+          <div class="vision-pill">Events &amp; Community</div>
+          <div class="vision-pill">Property Management</div>
+          <div class="vision-pill">Hospital Services</div>
+          <div class="vision-pill">Construction Services</div>
+          <div class="vision-pill">Operations Services</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUOTE -->
+    <div class="quote">
+      <p>"The hotels have tried to work with us. We don't want to work with hotels."</p>
+      <cite>— Senior Health Authority Executive, Northern BC</cite>
     </div>
 
   </div>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="foot-copy">Elias Range Stays · austin@eliasrangestays.ca · (250) 719-8085 · eliasrangestays.ca</div>
+    <div class="foot-copy">Elias Range Stays · Healthy Living, Stronger Communities · eliasrangestays.ca · austin@eliasrangestays.ca · (250) 719-8085</div>
     <div class="foot-right">Confidential · May 2026</div>
   </footer>
 
